@@ -1,19 +1,19 @@
 {
-  "version": "1.3.0",
-  "archive": "artifacts/releases/shuori-1.3.0.zip",
-  "archiveSha256": "f4c371757b087718cc25ef529785c38a74af5f5a154d8d59a2b62bde144ab75d",
-  "archiveEntries": 234,
-  "startedAt": "2026-10-08T08:10:57.378Z",
+  "version": "1.3.1",
+  "archive": "artifacts/releases/shuori-1.3.1.zip",
+  "archiveSha256": "329d148d880c5b19c204028078a4289630f34a5a54f16ebbd9878b847bd566e1",
+  "archiveEntries": 237,
+  "startedAt": "2026-10-08T08:36:12.543Z",
   "nodeVersion": "v22.17.0",
   "dependencySource": "Workspace-installed node_modules, resolved through parent directories; no dependency installation performed.",
-  "extractedDirectory": "artifacts/release-check/v13-runtime-6a0804020a/shuori-1.3.0",
+  "extractedDirectory": "artifacts/release-check/v131-runtime-a3b6de1bfa/shuori-1.3.1",
   "isolatedDatabase": true,
   "ephemeralLoopbackPort": true,
   "checks": [
     {
       "name": "Archive manifest hashes",
       "passed": true,
-      "files": 233
+      "files": 236
     },
     {
       "name": "Packaged server health",
@@ -26,7 +26,9 @@
     {
       "name": "Spatial JSON resources",
       "passed": true,
-      "files": 3
+      "files": 3,
+      "genericModelLabels": true,
+      "independentDemoMetadata": true
     },
     {
       "name": "Compiled JavaScript and CSS assets",
@@ -42,7 +44,8 @@
     },
     {
       "name": "Authentication and fresh connected-event seed",
-      "passed": true
+      "passed": true,
+      "genericLibraryLabels": true
     },
     {
       "name": "Event create and versioned update",
@@ -51,7 +54,7 @@
     {
       "name": "Attachment upload and byte-exact protected download",
       "passed": true,
-      "bytes": 60
+      "bytes": 62
     },
     {
       "name": "Anonymous attachment download denied",
@@ -68,5 +71,5 @@
   ],
   "passed": true,
   "serverStopped": true,
-  "finishedAt": "2026-10-08T08:11:00.941Z"
+  "finishedAt": "2026-10-08T08:36:15.392Z"
 }

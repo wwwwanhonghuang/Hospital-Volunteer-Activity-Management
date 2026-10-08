@@ -1,284 +1,284 @@
 
-> shuori-volunteer-operations@1.3.0 test
+> shuori-volunteer-operations@1.3.1 test
 > node --test tests/*.test.mjs
 
 TAP version 13
-# (node:18264) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:26908) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: authentication, CSRF, origin, role checks and safe secret-free backups
 ok 1 - authentication, CSRF, origin, role checks and safe secret-free backups
   ---
-  duration_ms: 879.5462
+  duration_ms: 757.1864
   type: 'test'
   ...
 # Subtest: CRUD validates references, detects cycles and stale writes, preserves audit and escapes CSV formulas
 ok 2 - CRUD validates references, detects cycles and stale writes, preserves audit and escapes CSV formulas
   ---
-  duration_ms: 514.898
+  duration_ms: 448.4007
   type: 'test'
   ...
 # Subtest: readiness changes flag stale assignments without blocking unrelated operations
 ok 3 - readiness changes flag stale assignments without blocking unrelated operations
   ---
-  duration_ms: 386.9033
+  duration_ms: 370.7289
   type: 'test'
   ...
 # Subtest: sign-in rate limiting and malformed request errors reveal no internal details
 ok 4 - sign-in rate limiting and malformed request errors reveal no internal details
   ---
-  duration_ms: 315.4802
+  duration_ms: 326.4524
   type: 'test'
   ...
 # Subtest: schedule apply rejects double bookings and stale proposals atomically
 ok 5 - schedule apply rejects double bookings and stale proposals atomically
   ---
-  duration_ms: 470.5674
+  duration_ms: 405.7353
   type: 'test'
   ...
 # Subtest: SQLite survives a restart, production starts empty and disables demo entry
 ok 6 - SQLite survives a restart, production starts empty and disables demo entry
   ---
-  duration_ms: 657.4234
+  duration_ms: 638.1471
   type: 'test'
   ...
 # Subtest: backup CLI restores validated operational data into an empty production workspace without credentials
 ok 7 - backup CLI restores validated operational data into an empty production workspace without credentials
   ---
-  duration_ms: 3005.3756
+  duration_ms: 2901.4103
   type: 'test'
   ...
 # Subtest: critical path chooses a connected longest branch and gives the shorter branch float
 ok 8 - critical path chooses a connected longest branch and gives the shorter branch float
   ---
-  duration_ms: 3.3726
+  duration_ms: 1.8933
   type: 'test'
   ...
 # Subtest: critical path supports tied branches, disconnected components and an empty project
 ok 9 - critical path supports tied branches, disconnected components and an empty project
   ---
-  duration_ms: 0.643
+  duration_ms: 0.2834
   type: 'test'
   ...
 # Subtest: invalid critical-path graphs fail explicitly
 ok 10 - invalid critical-path graphs fail explicitly
   ---
-  duration_ms: 1.4878
+  duration_ms: 0.618
   type: 'test'
   ...
 # Subtest: eligibility requires all readiness checks and treats clearance due date as inclusive
 ok 11 - eligibility requires all readiness checks and treats clearance due date as inclusive
   ---
-  duration_ms: 2.049
+  duration_ms: 1.7835
   type: 'test'
   ...
 # Subtest: overlap and transfer buffer accept exact boundaries and reject nine-minute transfers
 ok 12 - overlap and transfer buffer accept exact boundaries and reject nine-minute transfers
   ---
-  duration_ms: 0.5628
+  duration_ms: 0.4666
   type: 'test'
   ...
 # Subtest: weekly actual hours replace planned hours and the ISO Monday boundary resets workload
 ok 13 - weekly actual hours replace planned hours and the ISO Monday boundary resets workload
   ---
-  duration_ms: 0.3468
+  duration_ms: 0.4518
   type: 'test'
   ...
 # Subtest: suggestion allocates the less-loaded volunteer, never double books, and reports unmet demand
 ok 14 - suggestion allocates the less-loaded volunteer, never double books, and reports unmet demand
   ---
-  duration_ms: 18.8576
+  duration_ms: 18.5672
   type: 'test'
   ...
 # Subtest: suggestion preserves existing assignments and explains invalid existing readiness
 ok 15 - suggestion preserves existing assignments and explains invalid existing readiness
   ---
-  duration_ms: 0.4885
+  duration_ms: 0.4714
   type: 'test'
   ...
 # Subtest: event calendars preserve multiday JST instants, status, escaping and UTF-8 line limits
 ok 16 - event calendars preserve multiday JST instants, status, escaping and UTF-8 line limits
   ---
-  duration_ms: 4.4174
+  duration_ms: 3.3415
   type: 'test'
   ...
 # Subtest: participant advisories find multiday overlaps while excluding touching times, cancellations and linked work
 ok 17 - participant advisories find multiday overlaps while excluding touching times, cancellations and linked work
   ---
-  duration_ms: 24.9248
+  duration_ms: 20.8889
   type: 'test'
   ...
-# (node:36524) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:29336) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: extensible volunteer fields validate types, required values and safe schema evolution
 ok 18 - extensible volunteer fields validate types, required values and safe schema evolution
   ---
-  duration_ms: 840.0488
+  duration_ms: 699.4407
   type: 'test'
   ...
 # Subtest: events link modules, timelines and operations while protecting references and stale edits
 ok 19 - events link modules, timelines and operations while protecting references and stale edits
   ---
-  duration_ms: 479.3449
+  duration_ms: 420.8027
   type: 'test'
   ...
 # Subtest: protected attachments enforce authorization, file validation, optimistic deletion and parent integrity
 ok 20 - protected attachments enforce authorization, file validation, optimistic deletion and parent integrity
   ---
-  duration_ms: 435.6809
+  duration_ms: 421.3467
   type: 'test'
   ...
 # Subtest: backups preserve file bytes and custom data; corrupted files fail atomically and old backups hydrate defaults
 ok 21 - backups preserve file bytes and custom data; corrupted files fail atomically and old backups hydrate defaults
   ---
-  duration_ms: 1609.0127
+  duration_ms: 1261.2226
   type: 'test'
   ...
 # Subtest: field capacity includes archived definitions and blocks a scope move past the limit
 ok 22 - field capacity includes archived definitions and blocks a scope move past the limit
   ---
-  duration_ms: 602.6002
+  duration_ms: 534.8374
   type: 'test'
   ...
 # Subtest: restore checks destination emptiness again under its write lock
 ok 23 - restore checks destination emptiness again under its write lock
   ---
-  duration_ms: 154.7232
+  duration_ms: 165.4937
   type: 'test'
   ...
 # Subtest: restore applies the same per-record attachment capacity as uploads
 ok 24 - restore applies the same per-record attachment capacity as uploads
   ---
-  duration_ms: 580.5678
+  duration_ms: 573.0709
   type: 'test'
   ...
-# (node:9260) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:39308) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: Excel volunteer exports retain Unicode, string identity, exact scope and typed/styled cells
 ok 25 - Excel volunteer exports retain Unicode, string identity, exact scope and typed/styled cells
   ---
-  duration_ms: 212.1144
+  duration_ms: 178.3498
   type: 'test'
   ...
 # Subtest: Excel never infers formulas or links from user text, including leading symbols and URLs
 ok 26 - Excel never infers formulas or links from user text, including leading symbols and URLs
   ---
-  duration_ms: 30.5843
+  duration_ms: 32.2364
   type: 'test'
   ...
 # Subtest: empty explicit scope remains empty with valid headers and workbook index
 ok 27 - empty explicit scope remains empty with valid headers and workbook index
   ---
-  duration_ms: 136.8569
+  duration_ms: 113.3948
   type: 'test'
   ...
 # Subtest: monthly workbook matches report totals, categories, recognition and six-month trend
 ok 28 - monthly workbook matches report totals, categories, recognition and six-month trend
   ---
-  duration_ms: 223.7146
+  duration_ms: 214.2886
   type: 'test'
   ...
 # Subtest: readiness workbook uses inclusive administrative due dates and excludes archived follow-ups
 ok 29 - readiness workbook uses inclusive administrative due dates and excludes archived follow-ups
   ---
-  duration_ms: 23.9299
+  duration_ms: 27.5837
   type: 'test'
   ...
 # Subtest: project plans export complete CPM context, dependent tasks and numeric yen budgets
 ok 30 - project plans export complete CPM context, dependent tasks and numeric yen budgets
   ---
-  duration_ms: 148.7018
+  duration_ms: 105.683
   type: 'test'
   ...
 # Subtest: workspace scenarios flatten objects, additions, routes and points without credential or audit exports
 ok 31 - workspace scenarios flatten objects, additions, routes and points without credential or audit exports
   ---
-  duration_ms: 208.0515
+  duration_ms: 155.8949
   type: 'test'
   ...
 # Subtest: Excel validates filters, dates, IDs and cell text limits without dropping data
 ok 32 - Excel validates filters, dates, IDs and cell text limits without dropping data
   ---
-  duration_ms: 14.8784
+  duration_ms: 15.0982
   type: 'test'
   ...
 # Subtest: rich volunteer export preserves zero, false, archived definitions, orphan values and exact journal scope
 ok 33 - rich volunteer export preserves zero, false, archived definitions, orphan values and exact journal scope
   ---
-  duration_ms: 29.8111
+  duration_ms: 25.0218
   type: 'test'
   ...
 # Subtest: event workbook scopes modules, attendance, checklist, child records and attachment references without file bytes or meeting secrets
 ok 34 - event workbook scopes modules, attendance, checklist, child records and attachment references without file bytes or meeting secrets
   ---
-  duration_ms: 79.6956
+  duration_ms: 55.9485
   type: 'test'
   ...
 # Subtest: new rich exports preserve empty scopes, direct collection filters and complete workspace dictionaries
 ok 35 - new rich exports preserve empty scopes, direct collection filters and complete workspace dictionaries
   ---
-  duration_ms: 335.5616
+  duration_ms: 321.5011
   type: 'test'
   ...
 # Subtest: invalid stored custom-field types and oversized journal text fail explicitly without coercion or truncation
 ok 36 - invalid stored custom-field types and oversized journal text fail explicitly without coercion or truncation
   ---
-  duration_ms: 4.7498
+  duration_ms: 3.5226
   type: 'test'
   ...
 # Subtest: authenticated Excel endpoint allows viewers while preserving CSRF, origin and read-only behavior
 ok 37 - authenticated Excel endpoint allows viewers while preserving CSRF, origin and read-only behavior
   ---
-  duration_ms: 712.9582
+  duration_ms: 669.4637
   type: 'test'
   ...
-# (node:17112) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (node:23772) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: scenario transforms retain exact bounds and all supported asset kinds and floors
 ok 38 - scenario transforms retain exact bounds and all supported asset kinds and floors
   ---
-  duration_ms: 8.7073
+  duration_ms: 5.2578
   type: 'test'
   ...
 # Subtest: scenario validation rejects malformed geometry, unsafe keys and unsupported levels
 ok 39 - scenario validation rejects malformed geometry, unsafe keys and unsupported levels
   ---
-  duration_ms: 6.3422
+  duration_ms: 2.9598
   type: 'test'
   ...
 # Subtest: scenario capacity bounds apply to overrides, additions, routes and waypoints
 ok 40 - scenario capacity bounds apply to overrides, additions, routes and waypoints
   ---
-  duration_ms: 25.6536
+  duration_ms: 19.7227
   type: 'test'
   ...
 # Subtest: rehearsal routes require unique assignments and valid same-floor operational references
 ok 41 - rehearsal routes require unique assignments and valid same-floor operational references
   ---
-  duration_ms: 3.9736
+  duration_ms: 2.0839
   type: 'test'
   ...
 # Subtest: scenario CRUD enforces roles, CSRF and optimistic concurrency without changing the roster
 ok 42 - scenario CRUD enforces roles, CSRF and optimistic concurrency without changing the roster
   ---
-  duration_ms: 882.4225
+  duration_ms: 720.3175
   type: 'test'
   ...
 # Subtest: linked rehearsal routes block destructive assignment changes and schedule batches atomically
 ok 43 - linked rehearsal routes block destructive assignment changes and schedule batches atomically
   ---
-  duration_ms: 437.256
+  duration_ms: 397.5368
   type: 'test'
   ...
 # Subtest: large bounded scenarios are accepted and over-limit JSON is rejected
 ok 44 - large bounded scenarios are accepted and over-limit JSON is rejected
   ---
-  duration_ms: 396.4348
+  duration_ms: 401.1239
   type: 'test'
   ...
 # Subtest: scenario data survives SQLite restart and a validated backup restore
 ok 45 - scenario data survives SQLite restart and a validated backup restore
   ---
-  duration_ms: 5370.8415
+  duration_ms: 5148.8395
   type: 'test'
   ...
 1..45
@@ -289,4 +289,4 @@ ok 45 - scenario data survives SQLite restart and a validated backup restore
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 8212.6825
+# duration_ms 7626.5903

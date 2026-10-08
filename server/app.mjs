@@ -104,7 +104,7 @@ export function createApp(options={}) {
     transaction(()=>{db.prepare('DELETE FROM sessions WHERE expires<?').run(Date.now());if(req.sessionHash)db.prepare('DELETE FROM sessions WHERE token_hash=?').run(req.sessionHash);db.prepare('INSERT INTO sessions VALUES(?,?,?,?)').run(hash(token),user.id,csrfToken,Date.now()+cookieOptions.maxAge);audit(user.name,'login','session',user.id,'Signed in.');});
     res.cookie('vops_session',token,cookieOptions);res.json({user:publicUser(user),csrfToken,mode});
   }
-  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.3.0'}));
+  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.3.1'}));
   app.get('/api/session',(req,res)=>res.json({user:req.user||null,csrfToken:req.csrf||'',mode}));
   app.post('/api/demo-login',limitLogin,(req,res)=>{
     if(mode!=='demo')throw new HttpError(404,'Demo sign-in is unavailable.');

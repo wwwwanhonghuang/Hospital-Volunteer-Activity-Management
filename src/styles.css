@@ -130,6 +130,7 @@
   .login-story-content { padding-top: 24px; }
   .login-story h1 { font-size: 32px; letter-spacing: -1.2px; }
   .login-weave { display: none; }
+  .login-footnote { display: block; margin-top: 20px; }
   .login-main { padding-bottom: 95px; }
   .login-bottom { max-width: calc(100% - 50px); }
   .page-header { flex-wrap: wrap; }

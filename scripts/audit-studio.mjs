@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { resolve, dirname } from 'node:path';
+import { resolve, dirname, relative } from 'node:path';
 
 const baseURL = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:3001';
 const outputPath = resolve(process.env.STUDIO_AUDIT_OUTPUT || 'artifacts/qa/studio-accessibility.json');
@@ -63,7 +63,7 @@ try {
       const destination = resolve(dirname(outputPath), filename);
       await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
       await page.screenshot({ path: destination, fullPage: true });
-      report.screenshots.push(destination);
+      report.screenshots.push(relative(process.cwd(), destination).replaceAll('\\', '/'));
     }
   }
   async function panel(name) { await page.getByRole('group', { name: 'Spatial studio panels' }).getByRole('button', { name, exact: true }).click(); }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T01:08:48.383Z",
+  "generatedAt": "2026-10-08T08:34:33.129Z",
   "baseURL": "http://127.0.0.1:3001",
   "browser": "Installed Chrome via Playwright",
   "tags": [
@@ -11,7 +11,7 @@
   "health": {
     "status": "ok",
     "mode": "demo",
-    "version": "1.2.0"
+    "version": "1.3.1"
   },
   "engine": {
     "name": "axe-core",
@@ -24,7 +24,7 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:08:54.267Z",
+      "timestamp": "2026-10-08T08:34:36.137Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -309,6 +309,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -331,7 +363,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -363,7 +395,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -395,7 +427,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -427,7 +459,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -459,7 +491,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -491,7 +523,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -523,7 +555,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -652,38 +684,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -896,7 +896,7 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:00.818Z",
+      "timestamp": "2026-10-08T08:34:39.794Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -1181,6 +1181,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -1203,7 +1235,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1235,7 +1267,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1267,7 +1299,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1299,7 +1331,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1331,7 +1363,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1363,7 +1395,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1395,7 +1427,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1524,38 +1556,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -1920,7 +1920,7 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:04.700Z",
+      "timestamp": "2026-10-08T08:34:43.067Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -2205,6 +2205,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -2227,7 +2259,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2259,7 +2291,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2291,7 +2323,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2323,7 +2355,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2355,7 +2387,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2387,7 +2419,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2419,7 +2451,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2548,38 +2580,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -2944,8 +2944,8 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:06.834Z",
-      "passes": 27,
+      "timestamp": "2026-10-08T08:34:44.779Z",
+      "passes": 28,
       "violations": [],
       "incomplete": [
         {
@@ -3229,6 +3229,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -3251,7 +3283,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3283,7 +3315,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3315,7 +3347,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3347,7 +3379,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3379,7 +3411,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3411,7 +3443,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3443,7 +3475,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3572,38 +3604,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -3968,7 +3968,7 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:08.893Z",
+      "timestamp": "2026-10-08T08:34:46.549Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -4253,6 +4253,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -4275,7 +4307,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4307,7 +4339,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4339,7 +4371,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4371,7 +4403,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4403,7 +4435,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4435,7 +4467,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4467,7 +4499,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4596,38 +4628,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -4992,7 +4992,7 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:11.307Z",
+      "timestamp": "2026-10-08T08:34:48.649Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -5277,6 +5277,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -5299,7 +5331,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5331,7 +5363,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5363,7 +5395,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5395,7 +5427,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5427,7 +5459,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5459,7 +5491,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5491,7 +5523,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -5620,38 +5652,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6016,8 +6016,8 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:15.008Z",
-      "passes": 27,
+      "timestamp": "2026-10-08T08:34:51.024Z",
+      "passes": 28,
       "violations": [],
       "incomplete": [
         {
@@ -6301,6 +6301,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -6323,7 +6355,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6355,7 +6387,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6387,7 +6419,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6419,7 +6451,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6451,7 +6483,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6483,7 +6515,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6515,7 +6547,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -6644,38 +6676,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7165,8 +7165,8 @@
         "width": 1440,
         "height": 1000
       },
-      "timestamp": "2026-10-08T01:09:21.309Z",
-      "passes": 27,
+      "timestamp": "2026-10-08T08:34:52.466Z",
+      "passes": 28,
       "violations": [],
       "incomplete": [
         {
@@ -7450,6 +7450,38 @@
                   "id": "color-contrast",
                   "data": {
                     "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        ".sidebar"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Events &amp; meetings</span>",
+              "target": [
+                "div:nth-child(5) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
                     "fontSize": "7.5pt (10px)",
                     "fontWeight": "normal",
                     "messageKey": "bgGradient",
@@ -7472,7 +7504,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">OPERATIONS</p>",
               "target": [
-                "div:nth-child(6) > .nav-group"
+                "div:nth-child(7) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7504,7 +7536,7 @@
               "impact": "serious",
               "html": "<span>Activity records</span>",
               "target": [
-                "div:nth-child(6) > .nav-link > span"
+                "div:nth-child(7) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7536,7 +7568,7 @@
               "impact": "serious",
               "html": "<span>Support &amp; improvement</span>",
               "target": [
-                "div:nth-child(7) > .nav-link > span"
+                "div:nth-child(8) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7568,7 +7600,7 @@
               "impact": "serious",
               "html": "<span>Resources</span>",
               "target": [
-                "div:nth-child(8) > .nav-link > span"
+                "div:nth-child(9) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7600,7 +7632,7 @@
               "impact": "serious",
               "html": "<span>Reports &amp; insights</span>",
               "target": [
-                "div:nth-child(9) > .nav-link > span"
+                "div:nth-child(10) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7632,7 +7664,7 @@
               "impact": "serious",
               "html": "<p class=\"nav-group\">ADMINISTRATION</p>",
               "target": [
-                "div:nth-child(10) > .nav-group"
+                "div:nth-child(11) > .nav-group"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7664,7 +7696,7 @@
               "impact": "serious",
               "html": "<span>Workspace settings</span>",
               "target": [
-                "div:nth-child(10) > .nav-link > span"
+                "div:nth-child(11) > .nav-link > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -7793,38 +7825,6 @@
               "html": "<strong>Operations administrator</strong>",
               "target": [
                 ".user-box > div > strong"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        ".sidebar"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<small>Workspace administrator</small>",
-              "target": [
-                ".user-box > div > small"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -8214,7 +8214,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T01:09:26.909Z",
+      "timestamp": "2026-10-08T08:34:54.886Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -8560,7 +8560,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T01:09:31.429Z",
+      "timestamp": "2026-10-08T08:34:57.845Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -8906,7 +8906,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T01:09:33.446Z",
+      "timestamp": "2026-10-08T08:34:59.280Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -9252,7 +9252,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T01:09:35.127Z",
+      "timestamp": "2026-10-08T08:35:00.500Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -9596,15 +9596,15 @@
   "pageErrors": [],
   "unexpectedWrites": [],
   "screenshots": [
-    "C:\\Users\\Micro\\Desktop\\utokyo_hospital_publish\\volunteer\\management\\artifacts\\qa\\studio-desktop-floor-object-inspector.png",
-    "C:\\Users\\Micro\\Desktop\\utokyo_hospital_publish\\volunteer\\management\\artifacts\\qa\\studio-desktop-route-editor-with-points.png",
-    "C:\\Users\\Micro\\Desktop\\utokyo_hospital_publish\\volunteer\\management\\artifacts\\qa\\studio-mobile-floor-object-inspector.png"
+    "artifacts/qa/studio-desktop-floor-object-inspector.png",
+    "artifacts/qa/studio-desktop-route-editor-with-points.png",
+    "artifacts/qa/studio-mobile-floor-object-inspector.png"
   ],
-  "operationalStateBefore": "49df9f7d15207ecb3356b09bc7425f6a9fc2581b1cb195a9c1c0224751ac9d3b",
+  "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
   "clientAssets": [
-    "/assets/index-CezJbpRW.js"
+    "/assets/index-ByZ0r_7p.js"
   ],
-  "operationalStateAfter": "49df9f7d15207ecb3356b09bc7425f6a9fc2581b1cb195a9c1c0224751ac9d3b",
+  "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
   "operationalStateUnchanged": true,
   "summary": {
     "viewCount": 12,

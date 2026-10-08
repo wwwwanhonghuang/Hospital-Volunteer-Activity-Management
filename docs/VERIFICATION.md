@@ -1,4 +1,4 @@
-# Release verification · 守織 SHUORI 1.3.0
+# Release verification · 守織 SHUORI 1.3.1
 
 Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.js **22.17.0**, npm **10.9.2**, and installed Google Chrome driven through Playwright.
 
@@ -11,14 +11,14 @@ Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.j
 | Browser acceptance | **23 workflows passed**, zero failed, skipped or flaky tests; includes complete event workspaces, flexible volunteer records, viewer permissions and existing spatial workflows |
 | General application accessibility | **15 views**, zero automated WCAG rule violations across ten existing routes and five forms |
 | Events and records accessibility | **30 desktop/mobile states**, zero automated violations, no browser errors or horizontal overflow; nine keyboard tab checks pass and saved records remain unchanged |
-| Spatial Studio accessibility scan (retained 1.2 baseline) | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
-| Login identity accessibility (retained 1.2 baseline) | **2 desktop/mobile views**, zero automated violations or horizontal overflow |
+| Spatial Studio accessibility scan | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
+| Login identity accessibility | **2 desktop/mobile views**, zero automated violations or horizontal overflow; independent-project notice visible at both sizes |
 | Excel examples | Five genuine XLSX downloads, **55 worksheets** in total; parsed by ExcelJS and independently inspected with Python ZIP/XML; monthly totals agree |
 | Runtime browser errors | None during the captured navigation and spatial acceptance flows |
 | Mobile layout | 390 px viewport inspected; tested management routes and spatial view had no document-level horizontal overflow |
 | Detailed geometry | **590 registered objects**, 15 catalog kinds and **10,358 modeled asset components**; original assemblies use 2,470 mesh instances and 346,424 triangles |
 | 3D export | Valid GLB 2.0; eight source floor roots, **144 shared mesh definitions** and **3,078 nodes**; 590 unique object identifiers, component manifests, vertex colors and source metadata preserved |
-| 3D artifact size | **1,844,376 bytes** for the complete original building; **909,692 bytes** for the example 1F study with one added wheelchair |
+| 3D artifact size | **1,844,492 bytes** for the complete original building; **909,912 bytes** for the example 1F study with one added wheelchair |
 | WebGL fallback | Forced WebGL initialization failure produced the usable 2D floor interface |
 | Dependency advisory scan | Zero known vulnerabilities reported across runtime and development dependencies at verification time |
 
@@ -47,7 +47,7 @@ The five studio browser workflows verify adding and transforming an asset, undo/
 
 A separate pointer check drags the rendered translation arrow and rotation ring. It confirms a changed X coordinate snapped to 0.25 units and a changed rotation snapped to 15 degrees, with no operational API writes.
 
-The 1.3 release reruns the complete 23-workflow browser suite and the management/event/record accessibility checks. The spatial content and GLBs are unchanged from 1.2; detailed geometry, extraction, pointer-handle and 12-state studio accessibility reports are retained baseline evidence from that release, not new 1.3 measurements. Their content hashes remain checked by the release recorder.
+The 1.3.1 release reruns the complete 23-workflow browser suite, management/event/record accessibility checks, studio and login audits, geometry validation and model exports. Display names and the model's independence disclaimer were updated without changing geometry, materials, transforms, coordinates or stable object identifiers. Original content-extraction comparisons and pointer-handle checks remain baseline evidence from 1.2; their original dates and scope are retained. Published content hashes are checked by the release recorder.
 
 ## Excel and identity acceptance
 
@@ -57,7 +57,7 @@ Thirteen Excel API/domain cases verify Unicode and leading zeros, numeric/date c
 
 The five downloadable examples contain fictional data. An independent Python standard-library ZIP/XML reader checks archive CRCs, XML structure, Unicode branding, frozen panes and filters, worksheet-index row counts, numeric date storage, text phone numbers, absence of formulas/macros/external links, and monthly totals recomputed from the activity rows. Microsoft Excel and LibreOffice desktop applications were not used; interoperability evidence is OOXML inspection and ExcelJS readback.
 
-The original woven logo, Chinese name and English wordmark were visually reviewed on desktop and mobile. The hospital-inspired color reference and its sampling method are documented in [BRAND.md](BRAND.md). The logo is independently drawn, and the official mark is not bundled.
+The original woven logo, Chinese name and English wordmark were visually reviewed on desktop and mobile. The independent SHUORI aqua palette is documented in [BRAND.md](BRAND.md). The woven logo is original; no institutional mark is bundled. The 1.3.1 application and current screenshots use generic hospital branding and an explicit independent-project notice.
 
 ## Content extraction verification
 
@@ -100,12 +100,14 @@ For the additional audits, start a demo server at `http://127.0.0.1:3001`, then 
 node scripts/audit-accessibility.mjs
 node scripts/audit-studio.mjs
 node scripts/audit-rich-records.mjs
+node scripts/audit-neutral-identity.mjs
 node scripts/validate-spatial.mjs
 node scripts/validate-scene-handles.mjs
 node scripts/capture-preview.mjs
 node scripts/capture-studio.mjs
 node scripts/capture-exports.mjs
 python scripts/validate-excel-artifacts.py
+node scripts/sanitize-qa-paths.mjs
 ```
 
 These scripts sign into the demo and inspect/render it. The studio audit rejects non-demo servers and blocks operational API writes. Spatial validation and studio captures exercise unsaved layout or route drafts without saving operational changes. Spatial validation regenerates the original standalone GLB, the separate example-study GLB and model previews. The additional studio audit covers interactions, responsive layouts and incomplete accessibility findings. `SPATIAL_BASE_URL`, `AUDIT_BASE_URL` and `PREVIEW_URL` can respectively override the default validation, studio-audit and studio-capture URL.
@@ -116,6 +118,7 @@ These scripts sign into the demo and inspect/render it. The studio audit rejects
 - [`artifacts/qa/api-tests.txt`](../artifacts/qa/api-tests.txt): complete API/domain test output.
 - [`artifacts/qa/browser-tests.json`](../artifacts/qa/browser-tests.json): Playwright's final suite status.
 - [`artifacts/qa/brand-accessibility.json`](../artifacts/qa/brand-accessibility.json): desktop/mobile login findings.
+- [`artifacts/qa/neutral-identity.json`](../artifacts/qa/neutral-identity.json): generic rendered identity, visible independence notices, source-link attribution and unchanged operational records.
 - [`artifacts/qa/excel-examples.json`](../artifacts/qa/excel-examples.json): actual demo downloads, worksheet counts and file hashes.
 - [`artifacts/qa/excel-ooxml.json`](../artifacts/qa/excel-ooxml.json): independent ZIP/XML and monthly-total validation.
 - [`artifacts/qa/accessibility.json`](../artifacts/qa/accessibility.json): detailed axe findings, incomplete checks and typography probes.

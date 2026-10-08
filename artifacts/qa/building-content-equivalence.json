@@ -14,9 +14,9 @@
   "content": {
     "path": "content/spatial/building.json",
     "sha256": "5d1d04dc6230b057130702051f796c35a89e27bacdc44cfc57c75ff7647f1a5e",
-    "publishedSha256": "801c7dba6a22ad080d0e988c7133195ff3ef6f8a377f0b2807dbc30b7bb33a7b",
-    "publishedBytes": 1184281,
-    "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+    "publishedSha256": "ad7e185eebc72983f1d246f00a874f006ef97cef2f438727452e896b076c9778",
+    "publishedBytes": 1184336,
+    "publicationNote": "The original equivalence comparison predates publication metadata edits and neutralized display labels. Geometry, materials, transforms, coordinates and all 590 stable object IDs remain unchanged; copyright/source/license metadata, the independent-demo disclaimer and generic Library/Hospital school labels are publication-only changes."
   },
   "counts": {
     "registryObjects": 590,

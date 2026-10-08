@@ -1,10 +1,13 @@
 # Floor model provenance and simulation assumptions
 
-Reviewed on 2026-10-08, using official University of Tokyo Hospital pages.
+Reviewed on 2026-10-08, using the external source hospital's public official pages linked below. The [README notice](../README.md) identifies the source institution expressly for attribution.
+
+> [!IMPORTANT]
+> This reconstruction is bundled only as an illustrative demo for SHUORI, a general-purpose hospital volunteer coordination system developed independently as a personal project. It is not an official hospital model. The project has no affiliation with, commissioning from or endorsement by any hospital, university or other organization. Public reference links document where the example came from; they do not establish a relationship with the source institution.
 
 ## Full public-guide coverage
 
-The release models all **eight published levels** in the official English guide. Each reference image below was downloaded temporarily and visually inspected; no official map image is redistributed. The English guide may contain older service labels, so current clinical assignments require confirmation with the hospital.
+The bundled demo models all **eight published levels** in the external source hospital's official English guide. Each reference image below was downloaded temporarily and visually inspected; no official map image is redistributed. Published labels describe the reference material as reviewed, not current clinical assignments. The application uses generic example station names and fictional operational records.
 
 | Level | Official reference | Public-guide service zoning |
 | --- | --- | --- |
@@ -12,7 +15,7 @@ The release models all **eight published levels** in the official English guide.
 | B1 | [B1](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/b1.gif) | Scintigraphy, MRI, nutrition counseling, coffee, convenience store, dining/terrace. |
 | 1F | [1F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f1.gif) | Entrance, information, first visits, billing/prescriptions, orthopaedics, obstetrics/gynecology, X-ray, endoscopy, after-hours reception, admissions. |
 | 2F | [2F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f2.gif) | Internal medicine, pediatrics/pediatric surgery, pain relief, clinical diagnostics, physiological examination and clinical trial clinic. |
-| 3F | [3F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f3.gif) | Surgical specialties, ophthalmology, blood transfusion, delivery/IVF, dialysis/apheresis, Kodama branch school. |
+| 3F | [3F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f3.gif) | Surgical specialties, ophthalmology, blood transfusion, delivery/IVF, dialysis/apheresis, branch school. |
 | 4F | [4F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f4.gif) | Dermatology, urology, neuropsychiatry, oral/maxillofacial surgery and operating center. |
 | 6F | [6F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f6.gif) | Library, preventive medicine, rehabilitation in Clinical 2, and Ward A. |
 | 7F | [7F](https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f7.gif) | Cardiac rehabilitation in Clinical 2, and Ward A. |
@@ -25,14 +28,14 @@ The guide's four-wing relationship is represented: outpatient block to the left,
 
 | Reference | Supported facts | How used |
 | --- | --- | --- |
-| [English floor guide](https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html) | Hospital floor guide includes 1F and 6F. | Linked directly from the application; reference for the modeled floors. |
+| [English floor guide](https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html) | The source hospital's public floor guide includes 1F and 6F. | Reference for the bundled example floors; a source-attribution link does not imply affiliation. |
 | [Official 1F floor plan, PDF](https://www.h.u-tokyo.ac.jp/patient/shinryoutou/pdf/floor-map_1f.pdf) | Outpatient building, central clinical buildings, main entrance, general information, first-visit registration, outpatient services, and garden/green terrace appear on 1F. | Semantic reference for entrance, reception, outpatient and garden service areas. Relative coordinates in the software are original schematic positions, not extracted survey points. |
-| [Official patient library page](https://www.h.u-tokyo.ac.jp/patient/library/) | Nikoniko Bunko+ is in Central Clinical Building 2, 6F. Listed opening hours are Monday, Wednesday, Friday 10:00–14:30; closed Tuesday and Thursday. The page notes volunteer shortages can cause additional closures. | Library floor/building, published hours, and the source link in the floor inspector. Recheck local notices before operational use. |
+| [Official patient library page](https://www.h.u-tokyo.ac.jp/patient/library/) | The source hospital's patient library is in Central Clinical Building 2, 6F. At review, listed opening hours were Monday, Wednesday, Friday 10:00–14:30; closed Tuesday and Thursday. The page noted volunteer shortages could cause additional closures. | Historical reference for the example library's floor/building context. SHUORI uses a generic patient-library label; demo hours are not an assertion of current service availability. |
 | [Official 6F floor plan, PDF](https://www.h.u-tokyo.ac.jp/patient/shinryoutou/pdf/floor-map_6f.pdf) | Search-indexed text identifies the library on 6F, Central Clinical Building 2. | Secondary corroboration only: direct retrieval through the research browser failed, so no geometry has been transcribed from this file. |
 
 ## Original model
 
-`src/components/hospitalModel.ts` generates original cutaway models with Three.js, rendered and controlled by `src/components/HospitalScene.tsx`. No official floor-plan image, logo, or map artwork is bundled or redistributed. Dimensions are unknown. Walls, desks, shelving, chairs, glazing, trees, lift position, corridors, orientation, and route shapes are illustrative. They must not be used for navigation, evacuation planning, accessible-route certification, or capacity certification.
+`src/components/hospitalModel.ts` loads and assembles original cutaway model data from `content/spatial/building.json` using Three.js; `src/components/HospitalScene.tsx` renders and controls the scene. No official floor-plan image, logo, or map artwork is bundled or redistributed. Dimensions are unknown. Walls, desks, shelving, chairs, glazing, trees, lift position, corridors, orientation, and route shapes are illustrative. They must not be used for navigation, evacuation planning, accessible-route certification, or capacity certification.
 
 The scene coordinates are in arbitrary units. There is no meter scale. The north marker is explicitly labeled **concept** because the rendered orientation has not been surveyed. A facility with `source: official` means a facility reference is supported; it does **not** mean its scene coordinates have been verified. The garden service station and volunteer coordination hub are operational concepts, not claims of a staffed official facility at those coordinates.
 

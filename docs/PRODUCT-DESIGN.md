@@ -2,11 +2,11 @@
 
 ## Purpose
 
-守織 SHUORI supports the coordinator's daily questions: Who is ready to help? Where are people needed? Which preparation tasks determine an event's completion? What happened during service? Which follow-ups are still open?
+守織 SHUORI is a general-purpose hospital volunteer coordination application developed independently as a personal project. It has no affiliation with a particular hospital, university or organization. It supports the coordinator's daily questions: Who is ready to help? Where are people needed? Which preparation tasks determine an event's completion? What happened during service? Which follow-ups are still open?
 
-The job brief defines six responsibility groups. The application translates them into persistent workflows rather than unrelated demonstration widgets.
+The application connects common volunteer coordination responsibilities through persistent workflows. Each deploying organization defines its own programme, locations, requirements and working practices.
 
-| Responsibility in the supplied brief | Workspace treatment |
+| Coordination responsibility | Workspace treatment |
 | --- | --- |
 | Recruitment, selection, training, publicity and implementation | Volunteer lifecycle and eligibility; recruitment/training project briefs; dependent preparation tasks; responsibilities and dates |
 | Activity monitoring, consultation and department coordination | Daily/weekly schedule, coverage, individual history, support requests and assigned department follow-up |
@@ -14,7 +14,7 @@ The job brief defines six responsibility groups. The application translates them
 | Health-related administrative support | Clearance state and review date, follow-up visibility and assignment gates; coordination requests for arranging appointments |
 | Activity environment | Station inventory, inspection dates, maintenance, service-improvement requests and editable 3D layout scenarios |
 | Visitor reception, wayfinding and wheelchair support | Skill requirements, staffing gaps, assigned service locations, recorded interactions and schedule rehearsal |
-| Niko Niko Bunko Plus support | A sourced sixth-floor library station, library skills, library projects and service records |
+| Patient library support | A fictional example library station, library skills, library projects and service records |
 | Hospital events and service improvement | Goals, budget/spend, risk notes, ownership, dependency network, what-if durations and task board |
 | General operational administration | Named roles, version conflicts, audit records, CSV exports, backups and recovery instructions |
 
@@ -54,7 +54,7 @@ The model deliberately separates task duration analysis from person-level schedu
 
 ### From a spatial idea to a service rehearsal
 
-1. Isolate a public-guide floor and inspect its furnishings, equipment and reference zones.
+1. Isolate a bundled example floor and inspect its illustrative furnishings, equipment and reference zones.
 2. Create a named scenario for the proposed arrangement, such as a welcome-counter layout or a library activity setup.
 3. Add individual assets, adjust their position and rotation, and compare arrangements using undo, redo or saved copies.
 4. Choose a scheduled volunteer and shift on that floor and draw a proposed sequence of route points.
@@ -65,7 +65,7 @@ The scene models a proposal's objects and movement, while the operational record
 
 ## Spatial design
 
-The public guide provides horizontal building relationships and named service zones. It is translated into an original procedural scene across its eight published levels. Floor plates, partitions, doors, windows, lifts, stairs and optional facades provide a fixed architectural reference. Detailed chairs, desks, shelves, wheelchairs, beds, trolleys, signs and other assets form independently selectable objects. Their meshes model visible components such as books, wheels, leaves and rails. A building overview supports orientation; isolated floors support inspection and editing.
+The bundled demonstration reconstructs horizontal building relationships and broad service zones from an external hospital's public floor guide across eight published levels. It is an illustrative example, not an official facility model or a deployment at that hospital; [floor sources](FLOOR-SOURCES.md) preserves its provenance. Floor plates, partitions, doors, windows, lifts, stairs and optional facades provide a fixed example structure. Detailed chairs, desks, shelves, wheelchairs, beds, trolleys, signs and other assets form independently selectable objects. Their meshes model visible components such as books, wheels, leaves and rails. A building overview supports orientation; isolated floors support inspection and editing.
 
 Station counts derive from the currently selected date and rehearsal time. Articulated figures remain associated with actual assigned volunteers. A saved scenario may provide a drawn route for a specific person and shift; otherwise figures follow illustrative station paths. Routes stay within one floor and use an arbitrary 24 simulation-minute round trip. Density is assigned volunteers relative to a concept station capacity. No collision detection, automatic pathfinding, crowd simulation or emergency-route validation is performed.
 

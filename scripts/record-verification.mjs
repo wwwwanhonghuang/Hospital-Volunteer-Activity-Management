@@ -15,6 +15,9 @@ const unitOutput=await fs.readFile('artifacts/qa/api-tests.txt','utf8');
 const apiPassed=Number(unitOutput.match(/# pass (\d+)/)?.[1]);assert.ok(apiPassed>=45);assert.match(unitOutput,/# fail 0/);
 const [brand,ooxml,buildingExtraction,assetExtraction]=await Promise.all(['artifacts/qa/brand-accessibility.json','artifacts/qa/excel-ooxml.json','artifacts/qa/building-content-equivalence.json','artifacts/qa/asset-content-equivalence.json'].map(read));
 const rich=await read('artifacts/qa/rich-records-accessibility.json');
+const identity=await read('artifacts/qa/neutral-identity.json');
+assert.equal(identity.version,pkg.version);assert.equal(identity.passed,true);
+assert.equal(identity.operationalStateUnchanged,true);assert.deepEqual(identity.unexpectedWrites,[]);
 assert.equal(rich.summary.viewCount,30);assert.equal(rich.summary.ruleOccurrences,0);
 assert.deepEqual(rich.summary.horizontalOverflowViews,[]);assert.equal(rich.summary.pageErrorCount,0);
 assert.equal(rich.summary.unexpectedWriteCount,0);assert.equal(rich.summary.operationalStateUnchanged,true);
@@ -26,7 +29,7 @@ for(const file of excel.files)assert.equal(await hash(file.file),file.sha256);
 const report={clientDate:'2026-10-08',timeZone:'Asia/Tokyo',recordedAt:new Date().toISOString(),version:pkg.version,build:'passed',
   apiDomainTests:{passed:apiPassed,failed:0,evidence:'artifacts/qa/api-tests.txt'},browserTests:browser.stats,contentExtraction:{building:buildingExtraction,assets:assetExtraction},
   excelExamples:excel,independentExcelInspection:ooxml,brandAccessibility:{views:brand.views.length,violations:0},accessibility:accessibility.summary,
-  richRecordsAccessibility:rich.summary,retainedV12Evidence:['Detailed spatial geometry and model exports','Content extraction equivalence','Pointer handle checks','Studio and login accessibility baselines'],
+  richRecordsAccessibility:rich.summary,independentIdentity:identity,retainedV12Evidence:['Original content extraction equivalence','Pointer handle checks'],
   studioAccessibility:studio.summary,geometry:assets,spatial:spatial.model,pointerHandles:handles,dependencyVulnerabilities:advisories.metadata.vulnerabilities,
   sha256:{compiledEntry:await hash('dist/index.html'),model:await hash(spatial.model.file),lockfile:await hash('package-lock.json')},
   notExecuted:['Docker/Compose runtime','Institutional HTTPS deployment','Formal accessibility conformance audit']};

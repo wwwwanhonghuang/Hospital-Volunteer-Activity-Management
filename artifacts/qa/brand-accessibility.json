@@ -1,17 +1,13 @@
 {
-  "checkedAt": "2026-10-08T01:10:07.391Z",
+  "checkedAt": "2026-10-08T08:35:14.490Z",
   "baseURL": "http://127.0.0.1:3001",
   "browser": "Installed Chrome via Playwright",
-  "scope": "Desktop/mobile login, external brand artwork and software/source notice; automated checks do not establish WCAG conformance.",
+  "scope": "Independent SHUORI identity, desktop/mobile login, original artwork and software/source notice. Automated checks do not establish WCAG conformance.",
   "errors": [],
   "views": [
     {
       "name": "Desktop login",
       "title": "守織 SHUORI | Volunteer Operations",
-      "viewport": {
-        "width": 1440,
-        "height": 1080
-      },
       "overflow": false,
       "footerGap": 154.63,
       "footerWithinPage": true,
@@ -29,16 +25,18 @@
         {
           "text": "Software: AGPL-3.0",
           "href": "/software-license.txt",
-          "visible": true,
-          "unobstructed": true
+          "visible": true
         },
         {
           "text": "Source code",
-          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.2.0",
-          "visible": true,
-          "unobstructed": true
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.3.1",
+          "visible": true
         }
       ],
+      "viewport": {
+        "width": 1440,
+        "height": 1080
+      },
       "softwareLicense": {
         "status": 200,
         "containsAGPL": true
@@ -306,7 +304,7 @@
               "all": [],
               "none": [],
               "impact": "serious",
-              "html": "<p class=\"login-footnote\">Designed for the University of Tokyo Hospital volunteer coordination brief.</p>",
+              "html": "<p class=\"login-footnote\">An independent personal project for hospital volunteer coordination. No hospital or organizational affiliation.</p>",
               "target": [
                 ".login-footnote"
               ],
@@ -314,20 +312,11 @@
             }
           ]
         }
-      ],
-      "textLayout": {
-        "lastFormTextToFooterTextGap": 169.42,
-        "overlappingText": false
-      },
-      "manualReview": "Screenshot visually inspected: artwork, login form, attribution, source/license links and warranty notice are readable without overlapping text."
+      ]
     },
     {
       "name": "Mobile login",
       "title": "守織 SHUORI | Volunteer Operations",
-      "viewport": {
-        "width": 390,
-        "height": 844
-      },
       "overflow": false,
       "footerGap": -1.37,
       "footerWithinPage": true,
@@ -345,16 +334,18 @@
         {
           "text": "Software: AGPL-3.0",
           "href": "/software-license.txt",
-          "visible": true,
-          "unobstructed": true
+          "visible": true
         },
         {
           "text": "Source code",
-          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.2.0",
-          "visible": true,
-          "unobstructed": true
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.3.1",
+          "visible": true
         }
       ],
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
       "softwareLicense": {
         "status": 200,
         "containsAGPL": true
@@ -503,20 +494,41 @@
                 "h1"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<p class=\"login-footnote\">An independent personal project for hospital volunteer coordination. No hospital or organizational affiliation.</p>",
+              "target": [
+                ".login-footnote"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
             }
           ]
         }
-      ],
-      "textLayout": {
-        "lastFormTextToFooterTextGap": 13.42,
-        "overlappingText": false
-      },
-      "manualReview": "Screenshot visually inspected: artwork, login form, attribution, source/license links and warranty notice are readable without overlapping text."
+      ]
     }
-  ],
-  "summary": {
-    "viewCount": 2,
-    "viewsWithViolations": 0,
-    "ruleOccurrences": 0
-  }
+  ]
 }

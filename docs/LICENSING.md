@@ -41,7 +41,7 @@ This is an example, not a mandatory wording or placement rule. Keep any addition
 
 ## Exclusions and generated output
 
-`meta/JOB-BACKGROUND.md` is an externally supplied job-description excerpt. Official hospital diagrams, names, marks and linked pages remain their owners' material. The original schematic reconstruction is documented in [floor sources](FLOOR-SOURCES.md). Neither license implies hospital endorsement.
+`meta/JOB-BACKGROUND.md` is an externally supplied job-description excerpt. Official hospital diagrams, names, marks and linked pages remain their owners' material. The original schematic reconstruction is bundled solely as an illustrative demo, with attribution and assumptions documented in [floor sources](FLOOR-SOURCES.md). Neither license implies affiliation, commissioning or endorsement by any hospital, university or other organization. SHUORI is developed independently as a personal project.
 
 Later operator-entered records and uploaded content are not automatically licensed under either project license. An exported workbook, screenshot or model may combine those records with licensed project material; rights in each part remain separate. AGPL does not automatically license every output of a program. Original model/artwork carried into an export retains its asset license.
 

@@ -1,8 +1,8 @@
 {
   "clientDate": "2026-10-08",
   "timeZone": "Asia/Tokyo",
-  "recordedAt": "2026-10-08T08:08:33.832Z",
-  "version": "1.3.0",
+  "recordedAt": "2026-10-08T08:35:56.991Z",
+  "version": "1.3.1",
   "build": "passed",
   "apiDomainTests": {
     "passed": 45,
@@ -10,8 +10,8 @@
     "evidence": "artifacts/qa/api-tests.txt"
   },
   "browserTests": {
-    "startTime": "2026-10-08T08:06:42.931Z",
-    "duration": 100429.21900000001,
+    "startTime": "2026-10-08T08:30:55.021Z",
+    "duration": 112183.349,
     "expected": 23,
     "skipped": 0,
     "unexpected": 0,
@@ -34,9 +34,9 @@
       "content": {
         "path": "content/spatial/building.json",
         "sha256": "5d1d04dc6230b057130702051f796c35a89e27bacdc44cfc57c75ff7647f1a5e",
-        "publishedSha256": "801c7dba6a22ad080d0e988c7133195ff3ef6f8a377f0b2807dbc30b7bb33a7b",
-        "publishedBytes": 1184281,
-        "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+        "publishedSha256": "ad7e185eebc72983f1d246f00a874f006ef97cef2f438727452e896b076c9778",
+        "publishedBytes": 1184336,
+        "publicationNote": "The original equivalence comparison predates publication metadata edits and neutralized display labels. Geometry, materials, transforms, coordinates and all 590 stable object IDs remain unchanged; copyright/source/license metadata, the independent-demo disclaimer and generic Library/Hospital school labels are publication-only changes."
       },
       "counts": {
         "registryObjects": 590,
@@ -170,8 +170,8 @@
     }
   },
   "excelExamples": {
-    "generatedAt": "2026-10-08T08:07:08.103Z",
-    "version": "1.3.0",
+    "generatedAt": "2026-10-08T08:31:57.150Z",
+    "version": "1.3.1",
     "sourceMode": "demo",
     "workspaceDate": "2026-10-08",
     "note": "Fictional demonstration data only. Downloaded through the compiled application.",
@@ -180,8 +180,8 @@
       {
         "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
         "downloadName": "shuori-monthly-report-2026-10-08.xlsx",
-        "bytes": 31029,
-        "sha256": "cbd9540dc51e3805c896130b8b20b24f19293f48ddece8d68b80dfe6cb93b5fb",
+        "bytes": 31022,
+        "sha256": "a9b880bd0482966d657678f0bb8c1e891d94870d62bb2634d41d6b3d620c8bd8",
         "sheets": [
           {
             "name": "Overview",
@@ -228,8 +228,8 @@
       {
         "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
         "downloadName": "shuori-project-plan-2026-10-08.xlsx",
-        "bytes": 25462,
-        "sha256": "a7ce1dfcd2460d47059b032ea55da5f3497b4873185fbd7f4239df774b381721",
+        "bytes": 25461,
+        "sha256": "317d2819b23e5de7d59fc2c64a36caa2e4637aa239379a60ac2e15e434d1a573",
         "sheets": [
           {
             "name": "Overview",
@@ -264,8 +264,8 @@
       {
         "file": "artifacts/exports/shuori-demo-readiness.xlsx",
         "downloadName": "shuori-readiness-2026-10-08.xlsx",
-        "bytes": 13323,
-        "sha256": "70ef33aa29fad616487de09ea243a7f85a1fa4969c40ba5b249e6937943543ff",
+        "bytes": 13322,
+        "sha256": "c24fe0fee1cefe34970995325c67c17fccca5857738f2496eb165db3b212a626",
         "sheets": [
           {
             "name": "Overview",
@@ -288,8 +288,8 @@
       {
         "file": "artifacts/exports/shuori-demo-workspace.xlsx",
         "downloadName": "shuori-workspace-2026-10-08.xlsx",
-        "bytes": 63996,
-        "sha256": "8db0868a537bba5b676ee149b2680ee033b481b22678269fb7da8934ef99ba8f",
+        "bytes": 63970,
+        "sha256": "88bb98d8db5ba0968aae8445e8f12793b0345c801345b59e8da16e43ebc06f38",
         "sheets": [
           {
             "name": "Overview",
@@ -392,8 +392,8 @@
       {
         "file": "artifacts/exports/shuori-demo-events.xlsx",
         "downloadName": "shuori-events-2026-10-08.xlsx",
-        "bytes": 23199,
-        "sha256": "8b6ba063c6eaf5e054963120a67165edf65bffb58208ba3fadad50b695d3dac7",
+        "bytes": 23187,
+        "sha256": "88fd7b226ce689ef551c984d5547ac929b69feb5a6f701d1eea79ea7c795c765",
         "sheets": [
           {
             "name": "Overview",
@@ -505,11 +505,98 @@
     "operationalStateUnchanged": true,
     "keyboardCheckCount": 9
   },
+  "independentIdentity": {
+    "checkedAt": "2026-10-08T08:35:14.490Z",
+    "version": "1.3.1",
+    "baseURL": "http://127.0.0.1:3001",
+    "scope": "Rendered login, dashboard, workspace guide and spatial demo copy; source links are retained only as explicit model provenance. Demo authentication is the only permitted API write.",
+    "provenancePolicy": {
+      "allowedPublicSourceURLs": [
+        "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html",
+        "https://www.h.u-tokyo.ac.jp/patient/library/",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/b3.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/b1.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f1.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f2.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f3.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f4.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f6.gif",
+        "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f7.gif"
+      ],
+      "allowedContexts": [
+        "README warning and demo floor-source documentation",
+        "Explicit demo model provenance links",
+        "Model source/reference metadata"
+      ],
+      "institutionalNameException": "The README warning and source documentation identify the source institution for attribution; it is not the application or workspace identity."
+    },
+    "views": [
+      {
+        "name": "Desktop login",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": []
+      },
+      {
+        "name": "Mobile login",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": []
+      },
+      {
+        "name": "dashboard",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": []
+      },
+      {
+        "name": "settings",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": [
+          {
+            "text": "Public source floor maps",
+            "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+          }
+        ]
+      },
+      {
+        "name": "spatial",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": [
+          {
+            "text": "Public source floor maps",
+            "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+          }
+        ]
+      },
+      {
+        "name": "spatial-6F",
+        "institutionalNames": 0,
+        "requiredNoticePresent": true,
+        "sourceLinks": [
+          {
+            "text": "Public source floor maps",
+            "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+          },
+          {
+            "text": "public source library page",
+            "href": "https://www.h.u-tokyo.ac.jp/patient/library/"
+          }
+        ]
+      }
+    ],
+    "pageErrors": [],
+    "unexpectedWrites": [],
+    "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+    "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+    "operationalStateUnchanged": true,
+    "passed": true
+  },
   "retainedV12Evidence": [
-    "Detailed spatial geometry and model exports",
-    "Content extraction equivalence",
-    "Pointer handle checks",
-    "Studio and login accessibility baselines"
+    "Original content extraction equivalence",
+    "Pointer handle checks"
   ],
   "studioAccessibility": {
     "viewCount": 12,
@@ -523,7 +610,7 @@
     "unexpectedWriteCount": 0
   },
   "geometry": {
-    "checkedAt": "2026-10-08T01:08:50.498Z",
+    "checkedAt": "2026-10-08T08:32:25.748Z",
     "scope": "Pure procedural geometry and original object registry; no GPU required",
     "objects": 590,
     "meshes": 2470,
@@ -731,7 +818,7 @@
   },
   "spatial": {
     "file": "artifacts/models/hospital-public-floors.glb",
-    "bytes": 1844376,
+    "bytes": 1844492,
     "gltfVersion": "2.0",
     "floors": [
       "B3",
@@ -789,9 +876,9 @@
     "total": 0
   },
   "sha256": {
-    "compiledEntry": "68c0d431b3d000b5e7bb9910b02a517be757407951bf0a2e83afecc85495826b",
-    "model": "75cd0ff0bf4f7aa6f88db2639df545df92de1e71f5c433c4f2902d141dbbd4e7",
-    "lockfile": "380a1191ca04252f1744e9026fc020d115f5ea2804b3827d472b4ed21dfe5a3b"
+    "compiledEntry": "eb9b5addbc20b59c4dec650068962eca2b13c8ae42751feafec8efee0b22bb7f",
+    "model": "054a7f70adf9f95f035947fb8208d0580a9dfefa0e641f7e0943ca1ece99fd74",
+    "lockfile": "18a9c632bec8f884a47e3d6230f4a780751766b8c30b0cc29b655f8b532357eb"
   },
   "notExecuted": [
     "Docker/Compose runtime",

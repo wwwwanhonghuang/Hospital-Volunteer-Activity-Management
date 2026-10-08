@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T08:06:41.218Z",
+  "generatedAt": "2026-10-08T08:31:25.606Z",
   "baseURL": "http://127.0.0.1:3001",
   "browser": "Installed Chrome via Playwright",
   "tags": [
@@ -11,7 +11,7 @@
   "health": {
     "status": "ok",
     "mode": "demo",
-    "version": "1.3.0"
+    "version": "1.3.1"
   },
   "engine": {
     "name": "axe-core",
@@ -24,7 +24,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:42.584Z",
+      "timestamp": "2026-10-08T08:31:28.327Z",
       "passes": 24,
       "violations": [],
       "incomplete": [
@@ -832,7 +832,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:43.417Z",
+      "timestamp": "2026-10-08T08:31:30.000Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -1640,7 +1640,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:44.276Z",
+      "timestamp": "2026-10-08T08:31:32.194Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -2448,7 +2448,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:45.820Z",
+      "timestamp": "2026-10-08T08:31:34.107Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -3256,7 +3256,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:47.281Z",
+      "timestamp": "2026-10-08T08:31:37.117Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -4185,7 +4185,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:48.327Z",
+      "timestamp": "2026-10-08T08:31:39.309Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -5018,7 +5018,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:49.392Z",
+      "timestamp": "2026-10-08T08:31:44.511Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -5826,7 +5826,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:50.872Z",
+      "timestamp": "2026-10-08T08:31:46.745Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -6634,7 +6634,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:52.231Z",
+      "timestamp": "2026-10-08T08:31:48.566Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -7442,7 +7442,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:53.594Z",
+      "timestamp": "2026-10-08T08:31:50.454Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -8250,7 +8250,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:54.904Z",
+      "timestamp": "2026-10-08T08:31:52.384Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -9108,7 +9108,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:56.455Z",
+      "timestamp": "2026-10-08T08:31:53.914Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -9916,7 +9916,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:06:57.980Z",
+      "timestamp": "2026-10-08T08:31:55.620Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -10724,7 +10724,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:02.724Z",
+      "timestamp": "2026-10-08T08:31:57.886Z",
       "passes": 31,
       "violations": [],
       "incomplete": [
@@ -11461,7 +11461,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:05.804Z",
+      "timestamp": "2026-10-08T08:32:00.410Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -12248,7 +12248,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:09.088Z",
+      "timestamp": "2026-10-08T08:32:02.609Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -12960,7 +12960,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:12.067Z",
+      "timestamp": "2026-10-08T08:32:04.664Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -13672,7 +13672,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:14.617Z",
+      "timestamp": "2026-10-08T08:32:06.726Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -14434,7 +14434,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:16.681Z",
+      "timestamp": "2026-10-08T08:32:09.269Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -15146,7 +15146,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:18.567Z",
+      "timestamp": "2026-10-08T08:32:11.740Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -15858,7 +15858,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:19.355Z",
+      "timestamp": "2026-10-08T08:32:12.712Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -16570,7 +16570,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:20.286Z",
+      "timestamp": "2026-10-08T08:32:13.963Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -17330,7 +17330,7 @@
         "width": 1440,
         "height": 1080
       },
-      "timestamp": "2026-10-08T08:07:21.468Z",
+      "timestamp": "2026-10-08T08:32:15.358Z",
       "passes": 22,
       "violations": [],
       "incomplete": [
@@ -18042,7 +18042,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:22.459Z",
+      "timestamp": "2026-10-08T08:32:16.536Z",
       "passes": 26,
       "violations": [],
       "incomplete": [
@@ -18178,7 +18178,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:23.481Z",
+      "timestamp": "2026-10-08T08:32:17.666Z",
       "passes": 30,
       "violations": [],
       "incomplete": [
@@ -18314,7 +18314,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:24.516Z",
+      "timestamp": "2026-10-08T08:32:19.120Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -18450,7 +18450,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:25.502Z",
+      "timestamp": "2026-10-08T08:32:20.323Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -18611,7 +18611,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:26.687Z",
+      "timestamp": "2026-10-08T08:32:23.803Z",
       "passes": 32,
       "violations": [],
       "incomplete": [],
@@ -18629,7 +18629,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:27.947Z",
+      "timestamp": "2026-10-08T08:32:25.999Z",
       "passes": 30,
       "violations": [],
       "incomplete": [],
@@ -18647,7 +18647,7 @@
         "width": 390,
         "height": 844
       },
-      "timestamp": "2026-10-08T08:07:29.179Z",
+      "timestamp": "2026-10-08T08:32:31.895Z",
       "passes": 28,
       "violations": [],
       "incomplete": [],
@@ -18737,7 +18737,7 @@
       "path": "artifacts/previews/11-record-fields.png"
     }
   ],
-  "operationalStateBefore": "95cca0526e8bedad25ee4880cf0fb2bafca7d7047b65714a709f38a3992a1fa8",
+  "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
   "sampleIds": {
     "meeting": "event-briefing",
     "attendanceEvent": "event-orientation",
@@ -18745,9 +18745,9 @@
     "journal": "entry-orientation"
   },
   "clientAssets": [
-    "/assets/index-BpIVki_X.js"
+    "/assets/index-BOzu0uYb.js"
   ],
-  "operationalStateAfter": "95cca0526e8bedad25ee4880cf0fb2bafca7d7047b65714a709f38a3992a1fa8",
+  "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
   "operationalStateUnchanged": true,
   "summary": {
     "viewCount": 30,

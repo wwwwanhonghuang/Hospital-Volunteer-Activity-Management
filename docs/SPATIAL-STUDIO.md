@@ -99,6 +99,6 @@ Existing databases require no table migration. An absent scenario collection rea
 
 ## Source and model boundaries
 
-The building retains the original public-guide reconstruction and documented service references. Added detail does not create new evidence about the hospital's actual furniture, equipment, room dimensions, accessibility, circulation or inventory. The published guide omits B2 and 5F; the application continues to omit them. It does not reconstruct unpublished wards or the whole campus.
+The bundled example retains an original reconstruction of an external source hospital's public floor guide, with provenance in [Floor sources](FLOOR-SOURCES.md). It is an illustrative demo, not an official model or evidence of affiliation. Added detail does not create new evidence about the source hospital's actual furniture, equipment, room dimensions, accessibility, circulation or inventory. The published guide omits B2 and 5F; the application continues to omit them. It does not reconstruct unpublished wards or the whole campus. A deploying organization must provide and validate its own operational locations.
 
 See [Floor sources](FLOOR-SOURCES.md) for source provenance and [Architecture](ARCHITECTURE.md) for the data and authorization model. The release's executed checks and remaining validation limits are recorded separately in [Verification](VERIFICATION.md).

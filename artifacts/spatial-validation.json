@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-10-08T01:08:27.840Z",
+  "checkedAt": "2026-10-08T08:31:43.717Z",
   "scope": "Built application, original geometry, and one unsaved detailed scenario addition",
   "errors": [],
   "model": {
     "file": "artifacts/models/hospital-public-floors.glb",
-    "bytes": 1844376,
+    "bytes": 1844492,
     "gltfVersion": "2.0",
     "floors": [
       "B3",
@@ -41,7 +41,7 @@
   },
   "scenarioExport": {
     "file": "artifacts/models/hospital-spatial-study-example.glb",
-    "bytes": 909692,
+    "bytes": 909912,
     "addedObjects": 1,
     "detailPreserved": true
   },

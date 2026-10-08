@@ -1,5 +1,7 @@
 # Running and operating 守織 SHUORI
 
+SHUORI is a general-purpose hospital volunteer coordination application developed independently as a personal project, with no affiliation to any particular hospital, university or organization. The bundled floor reconstruction is an illustrative demo with [documented external sources](FLOOR-SOURCES.md), not an official facility model. Deployment requires the operator's own location data, programme rules and acceptance review.
+
 ## Prerequisites
 
 Use Node.js 22.13 or newer, npm, and a current browser with WebGL support for the 3D view. The implementation was tested on Node.js 22.17 on Windows. This Node release prints an experimental warning for its built-in SQLite module; it is not a startup failure.

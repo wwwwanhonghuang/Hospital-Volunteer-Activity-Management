@@ -2,17 +2,23 @@
 
 <p><img src="public/shuori-logo.svg" alt="守織 SHUORI" width="320" /></p>
 
+> [!WARNING]
+> **Independent personal project — no hospital or organizational affiliation.**
+> SHUORI is a general-purpose hospital volunteer activity management and scheduling system, developed by **HUANG WANHONG in a personal capacity**. It is not affiliated with, commissioned by, sponsored by, endorsed by or an official product of any hospital or organization.
+>
+> **Demo 3D model provenance:** the bundled example was reconstructed from the **University of Tokyo Hospital (UTOKYO Hospital)** [publicly available official floor maps](https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html). It is an independently made, illustrative example with invented geometry, furnishings and routes, not an official or surveyed building model. Referencing these maps does not imply any relationship with the source hospital. The demo is not suitable for real-world navigation, evacuation or clinical decisions. See the [source register](docs/FLOOR-SOURCES.md) for provenance and limitations.
+
 [Documentation](docs/README.md) · [Events and records](docs/EVENTS-AND-RECORDS.md) · [Excel guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
 
-A complete English-language workspace for hospital volunteer coordination, built around the responsibilities in [`meta/JOB-BACKGROUND.md`](meta/JOB-BACKGROUND.md).
+A general-purpose English-language workspace for hospital volunteer coordination, activity planning, scheduling and record management.
 
-守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.3** adds modular event workspaces, custom event types, richer volunteer profiles, configurable typed fields, dated volunteer records, authenticated report uploads and shared-folder links. Meetings can connect to saved Zoom, Google Meet or Teams links; attendance, preparation checklists, event relationships and Excel exports remain with the event. It builds on the 守織 SHUORI identity, hospital-inspired aqua palette and formatted Excel workbooks for administrative reporting. Spatial Studio provides a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the hospital's public floor guide.
+守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.3** adds modular event workspaces, custom event types, richer volunteer profiles, configurable typed fields, dated volunteer records, authenticated report uploads and shared-folder links. Meetings can connect to saved Zoom, Google Meet or Teams links; attendance, preparation checklists, event relationships and Excel exports remain with the event. It builds on the 守織 SHUORI identity, SHUORI aqua palette and formatted Excel workbooks for administrative reporting. Spatial Studio provides a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the public source floor guide for the bundled demonstration.
 
 ![Operations overview](artifacts/previews/01-overview.png)
 
 ## Open the application
 
-Download the [packaged SHUORI 1.3.0 application](artifacts/releases/shuori-1.3.0.zip) ([SHA-256](artifacts/releases/shuori-1.3.0.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
+Download the [packaged SHUORI 1.3.1 application](artifacts/releases/shuori-1.3.1.zip) ([SHA-256](artifacts/releases/shuori-1.3.1.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
 
 Clone this repository first:
 
@@ -59,7 +65,7 @@ Use **Export Excel** on a list to download every matching record across all page
 
 The files contain separate named worksheets, frozen headings, filters, readable references and native numeric/date cells. Japanese text and phone-number leading zeros are preserved. Workbooks are snapshots of saved data; editing them does not change the application. See the [Excel guide](docs/EXCEL-EXPORTS.md) for contents and scope.
 
-Five fictional-data examples are included: [event workspace](artifacts/exports/shuori-demo-events.xlsx), [monthly report](artifacts/exports/shuori-demo-monthly-report.xlsx), [project plan](artifacts/exports/shuori-demo-project-plan.xlsx), [readiness](artifacts/exports/shuori-demo-readiness.xlsx) and [complete workspace](artifacts/exports/shuori-demo-workspace.xlsx). The [identity guide](docs/BRAND.md) documents the original logo, hospital color reference and compatibility with earlier releases.
+Five fictional-data examples are included: [event workspace](artifacts/exports/shuori-demo-events.xlsx), [monthly report](artifacts/exports/shuori-demo-monthly-report.xlsx), [project plan](artifacts/exports/shuori-demo-project-plan.xlsx), [readiness](artifacts/exports/shuori-demo-readiness.xlsx) and [complete workspace](artifacts/exports/shuori-demo-workspace.xlsx). The [identity guide](docs/BRAND.md) documents the original logo, independent aqua palette and compatibility with earlier releases.
 
 ## Flexible records and connected events
 
@@ -123,7 +129,7 @@ meta/JOB-BACKGROUND.md  Original task background, preserved unchanged
 
 The frontend is built with React, TypeScript and Vite, with Three.js for 3D. The backend uses Express and Node's built-in SQLite driver. Fonts are bundled, and the application makes no external font, analytics or map requests. See [architecture](docs/ARCHITECTURE.md) and [product design](docs/PRODUCT-DESIGN.md).
 
-This is an independent implementation of the supplied job brief, not an official hospital product. It is prepared for local evaluation and controlled deployment. Institutional acceptance, actual operating procedures, verified building data and environment-specific security review remain deployment responsibilities.
+This general-purpose system is developed in a personal capacity and has no affiliation with any hospital or organization. It is prepared for local evaluation and controlled deployment. Institutional acceptance, actual operating procedures, verified building data and environment-specific security review remain deployment responsibilities.
 
 ## License and attribution
 

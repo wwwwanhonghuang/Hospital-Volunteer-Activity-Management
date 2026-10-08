@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-10-08T08:35:14.490Z",
+  "version": "1.3.1",
+  "baseURL": "http://127.0.0.1:3001",
+  "scope": "Rendered login, dashboard, workspace guide and spatial demo copy; source links are retained only as explicit model provenance. Demo authentication is the only permitted API write.",
+  "provenancePolicy": {
+    "allowedPublicSourceURLs": [
+      "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html",
+      "https://www.h.u-tokyo.ac.jp/patient/library/",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/b3.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/b1.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f1.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f2.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f3.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f4.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f6.gif",
+      "https://www.h.u-tokyo.ac.jp/english/images/international-patients/floor-guide/f7.gif"
+    ],
+    "allowedContexts": [
+      "README warning and demo floor-source documentation",
+      "Explicit demo model provenance links",
+      "Model source/reference metadata"
+    ],
+    "institutionalNameException": "The README warning and source documentation identify the source institution for attribution; it is not the application or workspace identity."
+  },
+  "views": [
+    {
+      "name": "Desktop login",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": []
+    },
+    {
+      "name": "Mobile login",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": []
+    },
+    {
+      "name": "dashboard",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": []
+    },
+    {
+      "name": "settings",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": [
+        {
+          "text": "Public source floor maps",
+          "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+        }
+      ]
+    },
+    {
+      "name": "spatial",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": [
+        {
+          "text": "Public source floor maps",
+          "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+        }
+      ]
+    },
+    {
+      "name": "spatial-6F",
+      "institutionalNames": 0,
+      "requiredNoticePresent": true,
+      "sourceLinks": [
+        {
+          "text": "Public source floor maps",
+          "href": "https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html"
+        },
+        {
+          "text": "public source library page",
+          "href": "https://www.h.u-tokyo.ac.jp/patient/library/"
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "unexpectedWrites": [],
+  "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+  "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+  "operationalStateUnchanged": true,
+  "passed": true
+}

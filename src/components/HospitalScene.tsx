@@ -42,7 +42,7 @@ export function stationCount(shifts: Shift[], locationId: string) {
   return new Set(shifts.filter(s => s.locationId === locationId).flatMap(s => s.volunteerIds)).size;
 }
 const colorOf = (id: string) => stationColors[id] || '#56899e';
-const abbreviate = (location: Location) => ({ entrance: 'Main entrance', reception: 'Reception', outpatient: 'Outpatient', coordination: 'Volunteer hub', garden: 'Garden', library: 'Nikoniko Bunko+' }[location.id] || location.name);
+const abbreviate = (location: Location) => ({ entrance: 'Main entrance', reception: 'Reception', outpatient: 'Outpatient', coordination: 'Volunteer hub', garden: 'Garden', library: 'Library' }[location.id] || location.name);
 const seedOf = (id: string) => [...id].reduce((n, c) => (n * 31 + c.charCodeAt(0)) % 997, 0);
 
 /** A conceptual corridor graph, expressed in arbitrary scene units. */

@@ -5,6 +5,13 @@ for their respective original contributions.
 Project and attribution source:
 https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management
 
+SHUORI is a general-purpose hospital volunteer management and scheduling
+system, developed by HUANG WANHONG in a personal capacity. It is not
+affiliated with, commissioned by, sponsored by, endorsed by or an official
+product of any hospital or organization. The bundled floor model is an
+independently reconstructed demonstration example from public source maps;
+see README.md and docs/FLOOR-SOURCES.md for attribution and limitations.
+
 Original software is licensed under the GNU Affero General Public License,
 version 3 only (SPDX: AGPL-3.0-only). The complete terms are in LICENSE.
 This includes original application/API/rendering code, scripts, tests and

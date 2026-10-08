@@ -2,22 +2,22 @@
 
 The application name is **守織 SHUORI**. The characters lead the wordmark; SHUORI provides a consistent Latin spelling. The rest of the interface remains English, as requested.
 
-The original woven symbol suggests individual contributions crossing to form a supportive whole. It is a new application mark, distinct from the hospital's own communication mark.
+The original woven symbol suggests individual contributions crossing to form a supportive whole. It identifies this independently developed personal project and does not represent any hospital, university or other organization.
 
-## Color reference
+## SHUORI palette
 
-The University of Tokyo Hospital's [communication-mark page](https://www.h.u-tokyo.ac.jp/about/mark/) and its linked [published mark image](https://www.h.u-tokyo.ac.jp/about/mark/images/index_img01.jpg) were inspected on 8 October 2026. The dominant flat aqua pixels in that JPEG sample are RGB **0, 167, 203** (`#00A7CB`). This is a measured reference from a public raster image, not a claim that an official brand manual specifies that exact value.
+SHUORI uses an aqua and pale-blue interface palette. These values specify the application's current presentation; they are not an institutional brand specification or evidence of endorsement.
 
 | Use | Color |
 | --- | --- |
-| Hospital-inspired aqua accent | `#00A7CB` |
+| SHUORI aqua accent | `#00A7CB` |
 | Primary controls and strong blue text | `#176B91` / `#006B88` |
 | Pale aqua surface | `#E6F7FB` |
 | Cool white canvas | `#F4FAFD` |
 
 Pale shades are used for backgrounds and selected states. Stronger blue is used where text and controls need contrast. Warning, error and status colors retain their meanings. The 3D scene uses cooler clinical surfaces and upholstery while keeping natural wood and plant colors and distinct building-zone tints.
 
-The hospital's logo image is used only as a local design reference and is not redistributed in the release. The application does not represent hospital endorsement. Public source links remain available in the source documentation.
+No external organization's logo or communication mark is bundled. The example floor model's separate source attribution is documented in [Floor sources](FLOOR-SOURCES.md); those references are not part of SHUORI's identity.
 
 ## Upgrade compatibility
 

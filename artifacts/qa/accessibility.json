@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T08:02:05.742Z",
+  "generatedAt": "2026-10-08T08:34:33.903Z",
   "baseURL": "http://127.0.0.1:3001",
   "viewport": {
     "width": 1440,
@@ -21,7 +21,7 @@
       "name": "Overview",
       "route": "dashboard",
       "url": "http://127.0.0.1:3001/#/dashboard",
-      "timestamp": "2026-10-08T08:02:07.396Z",
+      "timestamp": "2026-10-08T08:34:35.502Z",
       "passes": 26,
       "violations": [],
       "incomplete": [
@@ -849,13 +849,13 @@
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -885,7 +885,7 @@
       "name": "Projects & planning",
       "route": "projects",
       "url": "http://127.0.0.1:3001/#/projects",
-      "timestamp": "2026-10-08T08:02:08.928Z",
+      "timestamp": "2026-10-08T08:34:36.814Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -1561,13 +1561,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -1597,7 +1597,7 @@
       "name": "Volunteers",
       "route": "volunteers",
       "url": "http://127.0.0.1:3001/#/volunteers",
-      "timestamp": "2026-10-08T08:02:10.693Z",
+      "timestamp": "2026-10-08T08:34:38.718Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -2273,13 +2273,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -2309,7 +2309,7 @@
       "name": "Schedule",
       "route": "schedule",
       "url": "http://127.0.0.1:3001/#/schedule",
-      "timestamp": "2026-10-08T08:02:12.724Z",
+      "timestamp": "2026-10-08T08:34:40.243Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -3003,13 +3003,13 @@
             "tag": "small"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -3039,7 +3039,7 @@
       "name": "Spatial simulation",
       "route": "spatial",
       "url": "http://127.0.0.1:3001/#/spatial",
-      "timestamp": "2026-10-08T08:02:15.448Z",
+      "timestamp": "2026-10-08T08:34:43.338Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -3944,13 +3944,13 @@
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -3980,7 +3980,7 @@
       "name": "Activity records",
       "route": "records",
       "url": "http://127.0.0.1:3001/#/records",
-      "timestamp": "2026-10-08T08:02:19.034Z",
+      "timestamp": "2026-10-08T08:34:46.918Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -4656,13 +4656,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -4692,7 +4692,7 @@
       "name": "Support & improvement",
       "route": "support",
       "url": "http://127.0.0.1:3001/#/support",
-      "timestamp": "2026-10-08T08:02:20.467Z",
+      "timestamp": "2026-10-08T08:34:48.895Z",
       "passes": 23,
       "violations": [],
       "incomplete": [
@@ -5416,13 +5416,13 @@
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -5452,7 +5452,7 @@
       "name": "Resources",
       "route": "resources",
       "url": "http://127.0.0.1:3001/#/resources",
-      "timestamp": "2026-10-08T08:02:22.061Z",
+      "timestamp": "2026-10-08T08:34:50.461Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -6128,13 +6128,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -6164,7 +6164,7 @@
       "name": "Reports & insights",
       "route": "reports",
       "url": "http://127.0.0.1:3001/#/reports",
-      "timestamp": "2026-10-08T08:02:23.476Z",
+      "timestamp": "2026-10-08T08:34:52.045Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -6840,13 +6840,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -6876,7 +6876,7 @@
       "name": "Workspace settings",
       "route": "settings",
       "url": "http://127.0.0.1:3001/#/settings",
-      "timestamp": "2026-10-08T08:02:24.695Z",
+      "timestamp": "2026-10-08T08:34:53.486Z",
       "passes": 33,
       "violations": [],
       "incomplete": [
@@ -7552,13 +7552,13 @@
             "tag": "p"
           },
           {
-            "text": "Â© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
+            "text": "© 2026 HUANG WANHONGSoftware: AGPL-3.0Source codeNo warranty",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
           },
           {
-            "text": "Â© 2026 HUANG WANHONG",
+            "text": "© 2026 HUANG WANHONG",
             "fontSize": 11,
             "color": "rgb(75, 106, 126)",
             "tag": "span"
@@ -7590,7 +7590,7 @@
       "name": "Add volunteer",
       "route": "volunteers/create",
       "url": "http://127.0.0.1:3001/#/volunteers",
-      "timestamp": "2026-10-08T08:02:26.345Z",
+      "timestamp": "2026-10-08T08:34:55.616Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -8265,7 +8265,7 @@
       "name": "Log activity",
       "route": "records/create",
       "url": "http://127.0.0.1:3001/#/records",
-      "timestamp": "2026-10-08T08:02:28.702Z",
+      "timestamp": "2026-10-08T08:34:58.065Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -8940,7 +8940,7 @@
       "name": "New request",
       "route": "support/create",
       "url": "http://127.0.0.1:3001/#/support",
-      "timestamp": "2026-10-08T08:02:30.390Z",
+      "timestamp": "2026-10-08T08:34:59.430Z",
       "passes": 26,
       "violations": [],
       "incomplete": [
@@ -9328,6 +9328,12 @@
                   },
                   "relatedNodes": [
                     {
+                      "html": "<button class=\"nav-link \">",
+                      "target": [
+                        "div:nth-child(7) > .nav-link"
+                      ]
+                    },
+                    {
                       "html": "<aside class=\"sidebar \">",
                       "target": [
                         "aside"
@@ -9344,6 +9350,44 @@
               "html": "<span>Activity records</span>",
               "target": [
                 "div:nth-child(7) > .nav-link > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<button class=\"nav-link active\" aria-current=\"page\">",
+                      "target": [
+                        ".active"
+                      ]
+                    },
+                    {
+                      "html": "<aside class=\"sidebar \">",
+                      "target": [
+                        "aside"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>Support &amp; improvement</span>",
+              "target": [
+                ".active > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -9615,7 +9659,7 @@
       "name": "Add resource",
       "route": "resources/create",
       "url": "http://127.0.0.1:3001/#/resources",
-      "timestamp": "2026-10-08T08:02:31.675Z",
+      "timestamp": "2026-10-08T08:35:00.634Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -10035,6 +10079,12 @@
                   },
                   "relatedNodes": [
                     {
+                      "html": "<button class=\"nav-link \">",
+                      "target": [
+                        "div:nth-child(8) > .nav-link"
+                      ]
+                    },
+                    {
                       "html": "<aside class=\"sidebar \">",
                       "target": [
                         "aside"
@@ -10290,7 +10340,7 @@
       "name": "Create workspace account",
       "route": "settings/accounts/create",
       "url": "http://127.0.0.1:3001/#/settings",
-      "timestamp": "2026-10-08T08:02:33.115Z",
+      "timestamp": "2026-10-08T08:35:01.826Z",
       "passes": 31,
       "violations": [],
       "incomplete": [

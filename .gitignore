@@ -16,3 +16,7 @@ artifacts/reference-local/
 artifacts/releases/komorebi-*
 __pycache__/
 *.py[cod]
+
+# Historical branded archives remain available only in their original Git tags.
+artifacts/releases/shuori-1.2.0.*
+artifacts/releases/shuori-1.3.0.*

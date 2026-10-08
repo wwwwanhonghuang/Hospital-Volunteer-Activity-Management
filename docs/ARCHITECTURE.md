@@ -1,6 +1,6 @@
 # 守織 SHUORI architecture
 
-守織 SHUORI is an English-language volunteer operations workspace built around the duties in `meta/JOB-BACKGROUND.md`: recruitment and orientation, volunteer support and administrative clearance reminders, visitor guidance, library support, event planning, activity reporting, recognition, service improvement and departmental coordination.
+守織 SHUORI is an English-language, general-purpose hospital volunteer operations workspace developed independently as a personal project. It supports recruitment and orientation, volunteer support and administrative clearance reminders, visitor guidance, library support, event planning, activity reporting, recognition, service improvement and departmental coordination. It is not affiliated with, commissioned by or endorsed by any particular hospital, university or organization.
 
 ## Runtime and boundaries
 
@@ -129,7 +129,7 @@ Durations are integer calendar days, with project start as day zero. Weekends an
 
 The visualization is a schematic planning model. Floors, stations, geometry, paths, furnishings, camera orientation and moving volunteer figures are illustrative unless a specific field explicitly cites an official source. The animation follows scheduled assignments; it does not consume live tracking, patient occupancy or physical access-control data. Station capacity is a planning hint.
 
-The official [floor guide](https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html) and [Nikoniko Bunko Plus page](https://www.h.u-tokyo.ac.jp/patient/library/) provide the reference context. The library metadata identifies Central Clinical Building 2, sixth floor; its schematic coordinates are invented. Official information should be rechecked before real operational use. The model is unsuitable for evacuation, clinical routing or accessibility certification.
+The bundled demo uses an original illustrative reconstruction of an external source hospital's public floor guide. The [source register](FLOOR-SOURCES.md) preserves the official references and distinguishes published information from invented geometry. Demo station names and schedules are examples; their presence does not describe current services, an approved deployment or organizational affiliation. Replace and validate operational location data for the deploying organization. The example model is unsuitable for evacuation, clinical routing or accessibility certification.
 
 ## Spatial Studio state and interaction
 
