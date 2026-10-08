@@ -29,6 +29,8 @@ jobs:
           package-manager-cache: false
       - name: Install locked dependencies
         run: npm ci
+      - name: Verify README screenshot links and bytes
+        run: node scripts/publish-readme-previews.mjs --check
       - name: Build application
         run: npm run build
       - name: Run API and domain tests

@@ -55,6 +55,8 @@ node scripts/validate-spatial-assets.mjs
 
 Use focused regression coverage for changes that affect behavior. For visual changes, inspect the affected desktop and mobile views and include current screenshots. Do not claim a check passed unless you ran it; describe any environment limitation.
 
+When refreshing README screenshots, capture them from a fictional demo workspace and visually check the images for the independent SHUORI identity. Then run `node scripts/publish-readme-previews.mjs` to publish byte-identical copies with content-specific filenames and update the README links. This gives changed images new URLs so README image caches cannot retain an older branded screenshot. Run `node scripts/publish-readme-previews.mjs --check` to verify the links, image bytes and SHA-256 manifest before committing. The existing capture scripts continue to use their stable output filenames.
+
 ## Submit a pull request
 
 Describe the concrete problem, resulting behavior, validation performed and any migration or compatibility impact. Link the relevant issue when one exists. Keep unrelated cleanup separate so reviewers can understand the effect of the change.

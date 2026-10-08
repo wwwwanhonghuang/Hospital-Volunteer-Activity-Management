@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Operations overview",
+    "source": "artifacts/previews/01-overview.png",
+    "published": "artifacts/previews/readme/overview-68b461e16857141e.png",
+    "sha256": "68b461e16857141e5b7ebb41f0bf02b57cbe0cb84bf536ac969c334198ac748c",
+    "bytes": 333743
+  },
+  {
+    "label": "Export preview",
+    "source": "artifacts/previews/12-export-views.png",
+    "published": "artifacts/previews/readme/export-views-f4e2db7d62c09c4a.png",
+    "sha256": "f4e2db7d62c09c4aa9599a464f20fd5b3a9ef73a1e429e4e981e6524bb952686",
+    "bytes": 249145
+  },
+  {
+    "label": "Events and meetings",
+    "source": "artifacts/previews/08-events.png",
+    "published": "artifacts/previews/readme/events-1abdf62ebc11f3bb.png",
+    "sha256": "1abdf62ebc11f3bbc3bc883246b6cc2313efcbb8ed6f6ed70c9538e895845905",
+    "bytes": 197912
+  },
+  {
+    "label": "Eight-floor hospital model",
+    "source": "artifacts/previews/04-spatial.png",
+    "published": "artifacts/previews/readme/spatial-4cbc4589347bdcd7.png",
+    "sha256": "4cbc4589347bdcd794e064c356f5de8cd0f9ac9fd6859a59fd086acb1e1fb2c5",
+    "bytes": 433048
+  }
+]

@@ -16,7 +16,7 @@ A general-purpose English-language workspace for hospital volunteer coordination
 
 Version **1.4** adds a PDF and Excel export studio: volunteer-by-time timetables, station coverage boards, weekly rosters, event briefs and chronological agendas. Preview the saved scope, choose A4/A3, and download documents with readable pagination, exact-time registers and embedded Japanese typography in PDFs.
 
-![Operations overview](artifacts/previews/01-overview.png)
+![Operations overview](artifacts/previews/readme/overview-68b461e16857141e.png)
 
 ## Open the application
 
@@ -57,7 +57,7 @@ Open **Export views** in Schedule or Events, **Export brief** inside an event, o
 
 Timelines separate overlapping assignments into lanes, identify open places and retain exact times in a complete register. Long days split into readable time panels; long notes continue across pages or numbered spreadsheet rows. Occupied hours count unique booked minutes within the selected window, not recorded service hours. Contact and health records, meeting access credentials and file contents are excluded; notes and custom event fields are optional. See the [view export guide](docs/VIEW-EXPORTS.md) for scope, limits and print settings.
 
-![Export preview](artifacts/previews/12-export-views.png)
+![Export preview](artifacts/previews/readme/export-views-f4e2db7d62c09c4a.png)
 
 ## What is implemented
 
@@ -87,7 +87,7 @@ Five fictional-data examples are included: [event workspace](artifacts/exports/s
 
 ## Flexible records and connected events
 
-![Events and meetings](artifacts/previews/08-events.png)
+![Events and meetings](artifacts/previews/readme/events-1abdf62ebc11f3bb.png)
 
 Open **Volunteers > Customize records** or **Workspace settings > Record fields** to define text, long-text, number, date, choice-list and yes/no fields for profiles, events, service activity or dated volunteer records. Archive fields to preserve their existing values. Volunteer records provide a separate dated history for training, qualifications, recognition, conversations and follow-ups without changing service-hour totals.
 
@@ -99,7 +99,7 @@ Google Drive and other cloud folders work through existing HTTPS sharing links. 
 
 ## Explore the model
 
-![Eight-floor hospital model](artifacts/previews/04-spatial.png)
+![Eight-floor hospital model](artifacts/previews/readme/spatial-4cbc4589347bdcd7.png)
 
 The spatial page reconstructs the **published guide levels B3, B1, 1F, 2F, 3F, 4F, 6F and 7F** across the outpatient clinic, Central Clinical Buildings 1 and 2, and Ward A. Each level has source-derived service zones with original schematic partitions and furnishings. Use **Building** for the exploded stack and a floor button for a closer view.
 
