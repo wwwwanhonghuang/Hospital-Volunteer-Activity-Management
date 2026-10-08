@@ -1,8 +1,72 @@
 {
-  "health": "passed",
-  "compiledHtml": "passed",
-  "compiledAsset": "passed",
-  "productionLogin": "passed",
-  "emptyProductionData": "passed",
-  "note": "Extracted archive; installed lockfile dependencies resolved from parent workspace. Temporary in-memory database; TLS proxy not exercised."
+  "version": "1.3.0",
+  "archive": "artifacts/releases/shuori-1.3.0.zip",
+  "archiveSha256": "f4c371757b087718cc25ef529785c38a74af5f5a154d8d59a2b62bde144ab75d",
+  "archiveEntries": 234,
+  "startedAt": "2026-10-08T08:10:57.378Z",
+  "nodeVersion": "v22.17.0",
+  "dependencySource": "Workspace-installed node_modules, resolved through parent directories; no dependency installation performed.",
+  "extractedDirectory": "artifacts/release-check/v13-runtime-6a0804020a/shuori-1.3.0",
+  "isolatedDatabase": true,
+  "ephemeralLoopbackPort": true,
+  "checks": [
+    {
+      "name": "Archive manifest hashes",
+      "passed": true,
+      "files": 233
+    },
+    {
+      "name": "Packaged server health",
+      "passed": true
+    },
+    {
+      "name": "Compiled index matches archive",
+      "passed": true
+    },
+    {
+      "name": "Spatial JSON resources",
+      "passed": true,
+      "files": 3
+    },
+    {
+      "name": "Compiled JavaScript and CSS assets",
+      "passed": true
+    },
+    {
+      "name": "Exact AGPL license served",
+      "passed": true
+    },
+    {
+      "name": "Anonymous state access denied",
+      "passed": true
+    },
+    {
+      "name": "Authentication and fresh connected-event seed",
+      "passed": true
+    },
+    {
+      "name": "Event create and versioned update",
+      "passed": true
+    },
+    {
+      "name": "Attachment upload and byte-exact protected download",
+      "passed": true,
+      "bytes": 60
+    },
+    {
+      "name": "Anonymous attachment download denied",
+      "passed": true
+    },
+    {
+      "name": "Backup includes event, attachment metadata and exact file bytes",
+      "passed": true
+    },
+    {
+      "name": "Attachment and event deletion",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "serverStopped": true,
+  "finishedAt": "2026-10-08T08:11:00.941Z"
 }

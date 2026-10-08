@@ -8,20 +8,25 @@ const [pkg,browser,accessibility,studio,spatial,assets,advisories,handles,excel]
   'package.json','artifacts/qa/browser-tests.json','artifacts/qa/accessibility.json','artifacts/qa/studio-accessibility.json',
   'artifacts/spatial-validation.json','artifacts/qa/spatial-assets.json','artifacts/qa/dependency-audit.json','artifacts/qa/scene-handles.json','artifacts/qa/excel-examples.json'
 ].map(read));
-assert.equal(browser.stats.unexpected,0);assert.equal(browser.stats.skipped,0);assert.equal(browser.stats.flaky,0);assert.equal(browser.stats.expected,20);
+assert.equal(browser.stats.unexpected,0);assert.equal(browser.stats.skipped,0);assert.equal(browser.stats.flaky,0);assert.equal(browser.stats.expected,23);
 assert.equal(accessibility.summary.viewsWithViolations,0);assert.equal(spatial.errors.length,0);assert.equal(advisories.metadata.vulnerabilities.total,0);
 assert.ok(studio.views.every(view=>view.violations.length===0));assert.equal(spatial.model.registeredObjects,590);
 const unitOutput=await fs.readFile('artifacts/qa/api-tests.txt','utf8');
-const apiPassed=Number(unitOutput.match(/# pass (\d+)/)?.[1]);assert.ok(apiPassed>=32);assert.match(unitOutput,/# fail 0/);
+const apiPassed=Number(unitOutput.match(/# pass (\d+)/)?.[1]);assert.ok(apiPassed>=45);assert.match(unitOutput,/# fail 0/);
 const [brand,ooxml,buildingExtraction,assetExtraction]=await Promise.all(['artifacts/qa/brand-accessibility.json','artifacts/qa/excel-ooxml.json','artifacts/qa/building-content-equivalence.json','artifacts/qa/asset-content-equivalence.json'].map(read));
+const rich=await read('artifacts/qa/rich-records-accessibility.json');
+assert.equal(rich.summary.viewCount,30);assert.equal(rich.summary.ruleOccurrences,0);
+assert.deepEqual(rich.summary.horizontalOverflowViews,[]);assert.equal(rich.summary.pageErrorCount,0);
+assert.equal(rich.summary.unexpectedWriteCount,0);assert.equal(rich.summary.operationalStateUnchanged,true);
 assert.equal(await hash('content/spatial/building.json'),buildingExtraction.content.publishedSha256);
 assert.equal(await hash('content/spatial/assets.json'),assetExtraction.content.publishedSha256);
 assert.ok(brand.views.every(view=>view.violations.length===0&&!view.overflow));assert.equal(ooxml.passed,true);
-assert.equal(excel.version,pkg.version);assert.deepEqual(excel.errors,[]);assert.equal(excel.files.length,4);
+assert.equal(excel.version,pkg.version);assert.deepEqual(excel.errors,[]);assert.equal(excel.files.length,5);
 for(const file of excel.files)assert.equal(await hash(file.file),file.sha256);
 const report={clientDate:'2026-10-08',timeZone:'Asia/Tokyo',recordedAt:new Date().toISOString(),version:pkg.version,build:'passed',
   apiDomainTests:{passed:apiPassed,failed:0,evidence:'artifacts/qa/api-tests.txt'},browserTests:browser.stats,contentExtraction:{building:buildingExtraction,assets:assetExtraction},
   excelExamples:excel,independentExcelInspection:ooxml,brandAccessibility:{views:brand.views.length,violations:0},accessibility:accessibility.summary,
+  richRecordsAccessibility:rich.summary,retainedV12Evidence:['Detailed spatial geometry and model exports','Content extraction equivalence','Pointer handle checks','Studio and login accessibility baselines'],
   studioAccessibility:studio.summary,geometry:assets,spatial:spatial.model,pointerHandles:handles,dependencyVulnerabilities:advisories.metadata.vulnerabilities,
   sha256:{compiledEntry:await hash('dist/index.html'),model:await hash(spatial.model.file),lockfile:await hash('package-lock.json')},
   notExecuted:['Docker/Compose runtime','Institutional HTTPS deployment','Formal accessibility conformance audit']};

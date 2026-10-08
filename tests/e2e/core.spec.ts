@@ -9,10 +9,10 @@ test('overview and navigation render real state without runtime errors',async({p
   const shifts=state.shifts.filter((s:any)=>s.date===date&&s.status!=='cancelled');
   await expect(page.locator('.stat-card').first().locator('.stat-value')).toContainText(String(new Set(shifts.flatMap((s:any)=>s.volunteerIds)).size));
   await page.getByRole('button',{name:'Search workspace',exact:false}).click();
-  await page.getByRole('textbox',{name:'Search volunteers, projects, shifts and requests'}).fill(state.volunteers[0].name);
+  await page.getByRole('textbox',{name:'Search volunteers, projects, shifts, events and requests'}).fill(state.volunteers[0].name);
   await expect(page.locator('.search-results')).toContainText(state.volunteers[0].name);
   await page.keyboard.press('Escape');
-  for(const name of ['Projects & planning','Schedule','Spatial simulation','Reports & insights']){
+  for(const name of ['Projects & planning','Schedule','Events & meetings','Spatial simulation','Reports & insights']){
     await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name,exact:false}).click();
     await expect(page.locator('main h1')).toBeVisible();
     await expect(page.getByText('This view could not load')).toHaveCount(0);

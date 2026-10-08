@@ -9,6 +9,7 @@ Start with the [project overview and quick start](../README.md). This directory 
 | Run the demo, configure a deployment, manage accounts or restore a backup | [Deployment and operations](DEPLOYMENT.md) |
 | Understand the workflows and the original job brief | [Product design](PRODUCT-DESIGN.md) and [job background](../meta/JOB-BACKGROUND.md) |
 | Inspect, edit or export the 3D environment and rehearse routes | [Spatial Studio](SPATIAL-STUDIO.md) |
+| Configure volunteer records, run events and meetings, attach reports or connect shared folders | [Events and flexible records](EVENTS-AND-RECORDS.md) |
 | Export lists, project plans, monthly reports or the complete workspace to Excel | [Excel exports](EXCEL-EXPORTS.md) |
 | Understand the API, persistence, access control and scheduling calculations | [Architecture](ARCHITECTURE.md) |
 | Review the floor-guide references and distinguish sourced facts from illustrative geometry | [Floor sources and model assumptions](FLOOR-SOURCES.md) |
@@ -20,7 +21,7 @@ Start with the [project overview and quick start](../README.md). This directory 
 
 ## Working examples
 
-The repository includes [application screenshots](../artifacts/previews/), [standalone GLB models](../artifacts/models/) and four [Excel workbooks containing fictional data](../artifacts/exports/). The [verification record](VERIFICATION.md) links to the underlying test and inspection evidence.
+The repository includes [application screenshots](../artifacts/previews/), [standalone GLB models](../artifacts/models/) and five [Excel workbooks containing fictional data](../artifacts/exports/). The [verification record](VERIFICATION.md) links to the underlying test and inspection evidence.
 
 The demo is editable and persists to its own local SQLite database. Production uses a separate database and requires administrator setup. Excel workbooks are reporting snapshots; use the documented backup and restore procedure for recovery.
 

@@ -68,7 +68,7 @@ def inspect(path):
 
 
 results = [inspect(path) for path in sorted(Path('artifacts/exports').glob('*.xlsx'))]
-assert len(results) == 4
+assert len(results) == 5
 report = {'passed': True, 'reader': 'Python stdlib ZIP and XML, independent of ExcelJS',
           'checks': ['ZIP CRC and XML well-formedness', 'Unicode brand text', 'Frozen headings and filters',
                      'Workbook index counts', 'No formulas, macros or external links',

@@ -14,7 +14,7 @@ export const locations = [
   { id: 'garden', name: 'Courtyard activity station', floor: '1F', building: 'Concept activity zone', x: 10, z: 9, capacity: 6, source: 'concept', description: 'Proposed event station for simulation only; operational approval and a site check are required.' },
   { id: 'coordination', name: 'Volunteer coordination', floor: '1F', building: 'Concept operations zone', x: -9, z: -8, capacity: 4, source: 'concept', description: 'Illustrative volunteer briefing point; not an official hospital office location.' },
 ];
-export function emptyState() { return { volunteers: [], projects: [], tasks: [], shifts: [], records: [], requests: [], resources: [], scenarios: [], audit: [], locations }; }
+export function emptyState() { return { volunteers: [], projects: [], tasks: [], shifts: [], records: [], requests: [], resources: [], scenarios: [], eventTypes:[], events:[], fieldDefinitions:[], entries:[], attachments:[], audit: [], locations }; }
 export function seedState(today = tokyoDate()) {
   const now = new Date().toISOString(), base = id => ({ id, version: 1, createdAt: now, updatedAt: now });
   const names = ['Aiko Tanaka', 'Daniel Kim', 'Emi Sato', 'Haruto Suzuki', 'Maya Chen', 'Kenji Mori', 'Yuki Nakamura', 'Sofia Garcia', 'Ren Ito', 'Hana Kobayashi', 'Oliver Park', 'Mei Watanabe', 'Sara Yamamoto', 'Leo Nishida', 'Nora Hayashi', 'Kai Takahashi', 'Rina Abe', 'Theo Matsuda'];
@@ -74,5 +74,28 @@ export function seedState(today = tokyoDate()) {
     { ...base('resource-4'),name:'Portable event display',category:'Event supplies',locationId:'coordination',quantity:2,available:0,inspectedDate:addDays(today,-1),status:'maintenance',notes:'Inspection requested before the appreciation gathering.' },
     { ...base('resource-5'),name:'Visitor support wheelchairs',category:'Mobility support',locationId:'entrance',quantity:6,available:4,inspectedDate:today,status:'ready',notes:'Illustrative inventory. Use only after training and local approval.' },
   ];
-  return { volunteers,projects,tasks,shifts,records,requests,resources,scenarios:[],locations,audit:[{ id:'audit-seed',timestamp:now,actor:'System',action:'seed',entity:'system',entityId:'demo',summary:'Loaded synthetic demonstration data. All names and records are fictional.' }] };
+  const eventTypes=[
+    {...base('event-type-meeting'),name:'Team meeting',description:'Briefings, planning and retrospective conversations.',color:'blue',defaultModules:['meeting','checklist'],active:true},
+    {...base('event-type-training'),name:'Training & orientation',description:'Learning sessions with attendance and preparation.',color:'purple',defaultModules:['attendance','checklist'],active:true},
+    {...base('event-type-activity'),name:'Community activity',description:'Volunteer-led activities linked to projects and resources.',color:'green',defaultModules:['attendance','checklist'],active:true},
+    {...base('event-type-review'),name:'Follow-up & review',description:'Administrative reviews and one-to-one support.',color:'amber',defaultModules:['checklist'],active:true},
+  ];
+  const eventBase={description:'Synthetic demonstration event. Confirm arrangements before operational use.',owner:'Volunteer coordinator',locationId:'coordination',locationText:'Volunteer briefing point',projectId:'',volunteerIds:[],shiftIds:[],resourceIds:[],meeting:{provider:'other',url:'',meetingId:'',passcode:'',agenda:''},checklist:[],attendance:[],customFields:{}};
+  const events=[
+    {...base('event-briefing'),...eventBase,title:'Welcome team planning circle',typeId:'event-type-meeting',date:today,endDate:today,start:'15:30',end:'16:15',status:'confirmed',modules:['meeting','checklist'],projectId:'project-welcome',volunteerIds:['vol-1','vol-2','vol-3'],meeting:{provider:'zoom',url:'',meetingId:'',passcode:'',agenda:'Review the welcome pilot, share observations and agree the next improvement.'},checklist:[{id:'briefing-agenda',title:'Prepare the anonymous feedback summary',done:true,owner:'Operations team',dueDate:today},{id:'briefing-notes',title:'Upload meeting notes and next actions',done:false,owner:'Volunteer coordinator',dueDate:addDays(today,1)}]},
+    {...base('event-orientation'),...eventBase,title:'New volunteer orientation',typeId:'event-type-training',date:addDays(today,2),endDate:addDays(today,2),start:'10:00',end:'12:00',status:'draft',modules:['attendance','checklist'],projectId:'project-onboarding',volunteerIds:['vol-15','vol-16'],resourceIds:['resource-2'],attendance:[{volunteerId:'vol-15',status:'confirmed',notes:''},{volunteerId:'vol-16',status:'invited',notes:''}],checklist:[{id:'orientation-materials',title:'Prepare orientation materials',done:false,owner:'Volunteer office',dueDate:addDays(today,1)}]},
+    {...base('event-library'),...eventBase,title:'Reading programme preparation',typeId:'event-type-activity',date:addDays(today,4),endDate:addDays(today,4),start:'13:00',end:'14:00',status:'draft',modules:['attendance','checklist'],locationId:'library',locationText:'Nikoniko Bunko Plus',projectId:'project-library',volunteerIds:['vol-2','vol-8'],resourceIds:['resource-3'],attendance:[{volunteerId:'vol-2',status:'invited',notes:''},{volunteerId:'vol-8',status:'invited',notes:''}]},
+  ];
+  const fieldDefinitions=[
+    {...base('field-preferred-role'),scope:'volunteers',label:'Preferred contribution',type:'select',options:['Welcome desk','Library programme','Event support','Behind the scenes'],required:false,active:true,order:0},
+    {...base('field-accessibility'),scope:'events',label:'Accessibility arrangements',type:'textarea',options:[],required:false,active:true,order:0},
+    {...base('field-review-agreed'),scope:'entries',label:'Follow-up agreed',type:'boolean',options:[],required:false,active:true,order:0},
+  ];
+  volunteers.forEach((volunteer,i)=>{volunteer.contactPreference='email';volunteer.emergencyContact={name:'',relationship:'',phone:''};volunteer.address='';volunteer.tags=i<3?['Welcome team']:i>=14&&i<=15?['New intake']:[];volunteer.customFields={'field-preferred-role':['Welcome desk','Library programme','Behind the scenes'][i%3]};});
+  events[1].customFields={'field-accessibility':'Offer a written agenda and step-free access. Confirm individual requests privately.'};
+  const entries=[
+    {...base('entry-orientation'),volunteerId:'vol-15',eventId:'event-orientation',title:'Orientation preparation check-in',category:'Onboarding',status:'open',date:today,dueDate:addDays(today,2),body:'Synthetic note: send the session agenda and confirm the preferred contact method. No clinical details.',customFields:{'field-review-agreed':true}},
+    {...base('entry-appreciation'),volunteerId:'vol-2',eventId:'',title:'Welcome desk contribution recognised',category:'Recognition',status:'complete',date:addDays(today,-2),dueDate:'',body:'Synthetic note: thanked the volunteer for helping refine the first-visit guidance card.',customFields:{}},
+  ];
+  return { volunteers,projects,tasks,shifts,records,requests,resources,scenarios:[],eventTypes,events,fieldDefinitions,entries,attachments:[],locations,audit:[{ id:'audit-seed',timestamp:now,actor:'System',action:'seed',entity:'system',entityId:'demo',summary:'Loaded synthetic demonstration data. All names and records are fictional.' }] };
 }

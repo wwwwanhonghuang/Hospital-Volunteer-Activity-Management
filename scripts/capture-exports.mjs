@@ -50,6 +50,8 @@ try {
   await download('Workspace workbook', 'workspace');
   await clearTransientUI();
   await page.screenshot({ path: 'artifacts/previews/07-excel-exports.png', fullPage: true });
+  await page.getByRole('navigation').getByRole('button', { name: 'Events & meetings', exact: true }).click();
+  await download('Export Excel', 'events');
   assert.deepEqual(errors, []);
   const result = { generatedAt: new Date().toISOString(), version: health.version, sourceMode: health.mode, workspaceDate: date, note: 'Fictional demonstration data only. Downloaded through the compiled application.', errors, files };
   await writeFile('artifacts/qa/excel-examples.json', JSON.stringify(result, null, 2) + '\n');

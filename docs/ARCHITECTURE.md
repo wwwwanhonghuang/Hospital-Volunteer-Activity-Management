@@ -13,7 +13,10 @@ flowchart LR
   API --> Validation[Zod validation and domain rules]
   Validation --> DB[(SQLite operational database)]
   API --> Algorithms[Shared scheduling and CPM modules]
-  API --> Exports[CSV and operational JSON backup]
+  API --> Exports[Excel, CSV and JSON backup with local files]
+  API --> Files[Authenticated upload and download]
+  Files --> DB
+  Browser -->|Open saved HTTPS links| Services[Meeting and cloud document providers]
 ```
 
 The supported deployment is one application process on one host with a persistent local database. The demo uses synthetic profiles and records. Production starts with empty operational collections and an initial administrator account. Database metadata prevents opening a demo database as production or the reverse.
@@ -26,8 +29,8 @@ The supported deployment is one application process on one host with a persisten
 | `src/api.ts` | Browser API client and CSRF header handling |
 | `src/pages/` | Operational screens |
 | `src/components/HospitalScene.tsx` | Spatial planning visualization |
-| `src/components/hospitalModel.ts` | Eight-floor procedural geometry and stable scene object registry |
-| `src/components/spatialAssets.ts` | Detailed furniture, equipment, signs and articulated volunteer figures |
+| `src/components/hospitalModel.ts` | Generic loader for eight-floor declarative geometry and stable scene object registry |
+| `src/components/spatialAssets.ts` | Generic assembly loader for furniture, equipment, signs and articulated volunteer figures |
 | `src/components/spatialTypes.ts` | Scene object metadata and the 15-kind asset catalog |
 | `src/components/spatialInteraction.ts` | Picking, focus, transform controls, scene overrides and route drawing |
 | `src/components/SpatialStudioPanel.tsx` | Searchable object browser, inspector and asset palette |
@@ -36,6 +39,11 @@ The supported deployment is one application process on one host with a persisten
 | `shared/cpm.mjs` | Critical-path calculation |
 | `shared/spatial-scenario.mjs` | Scenario schemas, capacity limits and operational route references |
 | `server/app.mjs` | API, authentication, persistence and exports |
+| `server/attachments.mjs` | Validated file upload, authenticated download, storage limits and external document links |
+| `server/backup.mjs` | Shared atomic operational/blob backup and restore implementation |
+| `src/components/CustomFields.tsx` | Typed custom-field rendering and definition management |
+| `src/components/AttachmentPanel.tsx` | Per-record files and external links |
+| `src/components/JournalPanel.tsx` | Dated volunteer history and follow-up records |
 | `content/spatial/*.json` | Independently licensed declarative building, furnishing and catalog content |
 | `src/components/loadSpatialContent.ts` | Cached loading of separate content resources without executing data |
 | `server/excel-export.mjs` | Typed Excel workbooks, scope validation, reporting and export limits |
@@ -44,17 +52,24 @@ The supported deployment is one application process on one host with a persisten
 | `scripts/backup.mjs` | Operational JSON backup and safe restore |
 | `tests/api.test.mjs` | Real HTTP and SQLite integration tests |
 | `tests/domain.test.mjs` | Scheduling and project-network tests |
+| `tests/event-records.test.mjs` | Event references, custom-field rules, file permissions, upload validation and blob recovery |
+| `tests/excel-export.test.mjs` | Typed workbook read-back, exact scope, event child tables and file references |
 | `tests/spatial-scenario.test.mjs` | Scenario geometry, authorization, persistence, reference integrity and backup compatibility |
 
 ## Data model
 
 | Collection | Purpose and relationships |
 | --- | --- |
-| Volunteers | Contact details, programme status, skills, languages, availability, training completion, administrative clearance status and weekly hour cap |
+| Volunteers | Contact details and preference, address, emergency contact, tags, programme status, skills, languages, availability, training completion, administrative clearance, weekly hour cap and custom fields |
 | Projects | Purpose, ownership, department, dates, budget, spending, outcomes and risks |
 | Tasks | Project-owned work items, duration, predecessors, owner, status and progress |
 | Shifts | Date, hours, service location, requirements, assignments and optional project |
-| Activity records | One record per assigned volunteer and shift, with actual hours and aggregate service count |
+| Activity records | One record per assigned volunteer and shift, with actual hours, aggregate service count, optional event link and custom fields |
+| Events | Single- or multi-day schedule, type, owner, venue, project, volunteers, shift/resource references, modules, meeting details, checklist, attendance and custom fields |
+| Event types | Custom classification, display color, active state and default meeting/checklist/attendance modules |
+| Field definitions | Scoped labels, stable IDs, types, options, required/active flags and display order for volunteers, events, activity records and journal entries |
+| Journal entries | Volunteer-owned dated record, category, status, follow-up date, body, optional event and custom fields |
+| Attachments | Metadata for a local file or HTTPS link belonging to an event, volunteer, shift, activity record or journal entry |
 | Requests | Consultation, improvement, incident and coordination follow-up |
 | Resources | Inventory, available quantity, location, inspection date and maintenance status |
 | Scenarios | Named spatial studies with object overrides, added assets and routes linked to a volunteer/shift pair |
@@ -63,9 +78,27 @@ The supported deployment is one application process on one host with a persisten
 
 Operational records have a stable ID and integer version. Updates and deletions require the version last read by the client. A stale version returns HTTP 409; the coordinator refreshes before retrying. Creation, updates, deletion and schedule application write the entity and audit entry in the same SQLite transaction. Deleting an entity still referenced by another record is refused.
 
-SQLite uses write-ahead logging, foreign keys for account/session relationships, parameterized statements and a five-second busy timeout. Operational entities are validated JSON documents stored under a collection/ID primary key. Cross-record relationships are enforced by the application inside write transactions. The schema version is currently 1; automatic migrations between future versions are not implemented. Spatial scenarios use the same entity table, so existing databases require no table migration. Schema 1 backups that predate scenarios restore with an empty scenario collection.
+SQLite uses write-ahead logging, foreign keys for account/session relationships, parameterized statements and a five-second busy timeout. Operational entities are validated JSON documents stored under a collection/ID primary key. Cross-record relationships are enforced by the application inside write transactions. `attachment_blobs` stores raw file bytes by attachment ID; upload/removal commits metadata, bytes and audit together.
+
+The database and backup schema version remains 1. Startup creates the new blob table with `CREATE TABLE IF NOT EXISTS`; event and record collections use the existing entity table. Parsing supplies defaults for new optional profile and activity fields, so prior records remain usable. Existing workspaces are not reseeded. There is no general migration framework. Older schema 1 backups that predate scenarios or the new collections restore with those collections empty. File-bearing backups additionally carry an `attachmentBlobs` array of attachment IDs and base64 data. Recovery rejects missing, duplicate, orphan or altered blobs and validates file limits before committing the complete import.
 
 The ordinary state response includes the latest 1,000 audit entries. JSON backups contain the complete audit history. Audit entries have no edit/delete API, but database administrators with filesystem access remain able to alter the database. This is an operational audit trail, not a tamper-evident compliance ledger.
+
+## Flexible fields, events and record history
+
+Custom values are scalar strings, finite numbers, Booleans or null, keyed by field-definition ID. Validation enforces the definition's scope and type, selected options and required active fields. Zero and `false` count as recorded values. Existing values prevent changing a field's scope/type or deleting the definition; used select options must remain. Archiving retains history and stops a field from being required on later edits. There are at most 100 custom values per record, with text values bounded to 4,000 characters.
+
+Event types define defaults; each event saves its own chosen modules. Events permit multi-day durations and require the combined end date/time to follow the start. All references must exist. Attendance entries must identify unique volunteers already present in the event participant list. Checklists and attendance each permit up to 100 entries. Journal entries always reference a volunteer and may reference an event. They track follow-up and history independently of the actual service-hour ledger.
+
+Meeting URLs are saved HTTPS addresses; the browser opens the chosen provider. Resource and shift links are explicit planning relationships, not inventory reservations or automatic assignment changes. Event attendance does not create activity hours. The event planner and the operational shift allocator retain distinct responsibilities. See [Events and records](EVENTS-AND-RECORDS.md) for workflows and permission boundaries.
+
+## File storage and external services
+
+All parent records use the same attachment service. Metadata appears in the authenticated state response, while bytes are only available through the authenticated download endpoint. Uploads use raw `application/octet-stream` bodies, avoiding base64 expansion in ordinary upload requests. The server permits non-empty PDF, Office, UTF-8 text/CSV and supported image files, checks filenames and basic signatures, computes SHA-256 itself, and applies limits of 10 MiB per file, 250 MiB total file bytes and 200 attachments per parent. These are application constants, reported by `/api/storage`.
+
+Downloads use an attachment disposition, `application/octet-stream`, no-store caching, no-sniff headers and a restrictive sandbox content-security policy. The service does not render uploaded HTML or execute file contents. File signature checks are not malware scanning or full document validation. Concurrent uploads recheck capacity inside the write transaction. Deleting a parent with attachments is refused until its attachments are removed; deleting an attachment removes metadata and bytes together.
+
+External attachments store an HTTPS address without embedded username/password credentials. The server does not retrieve it. Google Drive, SharePoint and other providers continue to control file permissions. Meetings similarly use existing Zoom, Google Meet, Teams or other HTTPS join URLs. There is no provider OAuth, cloud bucket storage, automatic document synchronization, meeting provisioning or recording import. No external provider credentials are required for the local upload and saved-link implementation.
 
 ## Scheduling rules
 
@@ -122,21 +155,26 @@ Active figures interpolate along a custom route or an illustrative default stati
 | `POST /api/demo-login` | Demo-only sign-in as admin, coordinator or viewer |
 | `POST /api/logout` | End the current session |
 | `GET /api/state` | Authenticated operational state |
-| `POST /api/:collection` | Coordinator/admin creation |
-| `PUT /api/:collection/:id` | Coordinator/admin update with version |
-| `DELETE /api/:collection/:id` | Coordinator/admin deletion with version |
+| `POST /api/:collection` | Coordinator/admin creation; attachment writes use dedicated endpoints |
+| `PUT /api/:collection/:id` | Coordinator/admin update with version; attachments have no generic update endpoint |
+| `DELETE /api/:collection/:id` | Coordinator/admin deletion with version; attachment deletion also removes its blob |
 | `POST /api/schedule/suggest` | Coordinator/admin proposal for a date |
 | `POST /api/schedule/apply` | Coordinator/admin atomic proposal application |
 | `GET /api/export/:collection.csv` | Authenticated CSV export |
 | `POST /api/export/xlsx` | Authenticated, CSRF-protected Excel snapshot export; viewers allowed |
-| `GET /api/backup` | Administrator-only operational JSON backup |
+| `GET /api/storage` | Authenticated storage usage, provider and upload limits |
+| `POST /api/attachments/upload` | Coordinator/admin raw file upload; query parameters identify target, filename and optional description |
+| `POST /api/attachments/link` | Coordinator/admin creation of an external HTTPS link |
+| `GET /api/attachments/:id/download` | Authenticated local file download; external links are opened at their provider |
+| `DELETE /api/attachments/:id` | Coordinator/admin atomic metadata/blob deletion with version |
+| `GET /api/backup` | Administrator-only JSON backup including local file bytes |
 | `GET /api/users` | Administrator-only account list |
 | `POST /api/users` | Administrator-only account creation |
 | `PUT /api/users/:id` | Administrator-only name, role or password change |
 
-Viewers can read operational data and download Excel and CSV files. Coordinators can manage operational records and scheduling. Administrators additionally manage accounts and download complete backups. There is no department-scoped or field-level authorization. Grant viewer access only to people permitted to see the full operational workspace.
+Viewers can read operational data, event meeting details and attachment metadata, download local files and export Excel/CSV. Coordinators can manage operational records, event types, custom definitions, attachments and scheduling. Administrators additionally manage accounts and download complete backups. There is no department-, event- or field-scoped authorization. Event membership and module settings are not access-control lists. Grant viewer access only to people permitted to see the full operational workspace.
 
-Passwords use scrypt with per-password random salts. Random session tokens are stored as SHA-256 hashes in SQLite; sessions expire after twelve hours. Session cookies are HttpOnly, SameSite=Strict and Secure in production. Authenticated writes require the session CSRF token. Browser writes with an unexpected Origin header are refused. Login attempts are rate limited, JSON requests are limited to 1 MiB, and unexpected server errors return a generic message. Scenario JSON receives additional object-count and field-size limits; prototype-related object identifiers are rejected before parsing the override map.
+Passwords use scrypt with per-password random salts. Random session tokens are stored as SHA-256 hashes in SQLite; sessions expire after twelve hours. Session cookies are HttpOnly, SameSite=Strict and Secure in production. Authenticated writes require the session CSRF token. Browser writes with an unexpected Origin header are refused. Login attempts are rate limited, ordinary JSON requests are limited to 1 MiB, and unexpected server errors return a generic message. Authenticated file uploads have a separate 10 MiB raw-body limit and do not permit compressed bodies. Scenario JSON receives additional object-count and field-size limits; prototype-related object identifiers are rejected before parsing the override map.
 
 Account updates revoke every active session for that account. The last administrator cannot be demoted. There is no public registration, email password recovery, SSO, MFA or account deletion endpoint. Administrators can reset a password or replace an account's password with an unknown strong value to stop further use. Sensitive deployments should place the service behind approved identity and network controls.
 
@@ -146,10 +184,12 @@ Tests exercise real HTTP requests, disposable SQLite databases, production resta
 
 The application has no patient record model and should contain aggregate service counts and minimal administrative clearance information. Free-text fields are not a substitute for approved medical systems. Database and exported files are not encrypted by the application. Retention, access review, encrypted storage, backup protection and deployment acceptance remain responsibilities of the deploying organization.
 
-Other boundaries include one local SQLite writer, no email/calendar integration, no push notifications, no attachments, no background auto-assignment and no emergency dispatch functionality. Refreshing the workspace retrieves other coordinators' changes; optimistic versions protect against overwriting stale records.
+Other boundaries include one local SQLite writer, no automatic email/calendar synchronization, no push notifications, no provider account integrations, no background auto-assignment and no emergency dispatch functionality. Refreshing the workspace retrieves other coordinators' changes; optimistic versions protect against overwriting stale records.
 
 ## Excel snapshots
 
 ExcelJS generates OOXML on the server from the current saved operational state. List views send the full set of matching IDs, including rows beyond the visible pagination. An empty ID array is an empty scope; omitted IDs mean the complete requested collection. Workbook overviews enumerate child tables, and every worksheet identifies its scope and export time. Project exports run the same shared critical-path implementation as the planning UI. Monthly workbooks derive participation, categories and totals from activity records.
+
+Volunteer and event workbooks include precisely scoped history, child tables and attachment references. Custom columns retain labels, stable IDs and native types, with archived definitions preserved in a field dictionary. Meeting passcodes and meeting URL query/fragment data are omitted; external attachment URLs retain their saved addresses. Excel includes file metadata and authenticated relative download paths, never local file bytes. Administrator JSON backup is the file-bearing recovery format.
 
 Excel downloads use authenticated POST requests because precise selections can be larger than a URL. CSRF protection applies, but exporting is a read operation available to viewers. Workbooks contain no account, password, session or audit tables. They are analysis snapshots rather than restore files. See [Excel exports](EXCEL-EXPORTS.md) for workbook contents, administrative interpretation and bounds.

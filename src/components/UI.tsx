@@ -1,7 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-import { Children, cloneElement, isValidElement, useEffect, useId, useRef, type ReactElement, type ReactNode } from 'react';
+import { Children, cloneElement, isValidElement, useEffect, useId, useRef, type ReactElement, type ReactNode, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { Inbox, X } from 'lucide-react';
+
+export function handleTabKeys(event: ReactKeyboardEvent<HTMLElement>) {
+  if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+  const tabs = [...event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+  const index = tabs.indexOf(document.activeElement as HTMLButtonElement);
+  if (index < 0 || !tabs.length) return;
+  event.preventDefault();
+  const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+  tabs[next].focus(); tabs[next].click();
+}
 
 export function Modal({ title, onClose, children, wide = false }: { title: string; onClose: () => void; children: ReactNode; wide?: boolean }) {
   const titleId = useId(); const ref = useRef<HTMLDivElement>(null); const closeRef = useRef(onClose); closeRef.current = onClose;
@@ -11,6 +21,8 @@ export function Modal({ title, onClose, children, wide = false }: { title: strin
     const focusable = () => [...(ref.current?.querySelectorAll<HTMLElement>('button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex="0"]') || [])].filter(el => el.offsetParent !== null);
     const timer = setTimeout(() => (focusable()[0] || ref.current)?.focus(), 20);
     const handle = (e: KeyboardEvent) => {
+      const dialogs = document.querySelectorAll('[role="dialog"][aria-modal="true"]');
+      if (dialogs[dialogs.length - 1] !== ref.current) return;
       if (e.key === 'Escape') closeRef.current();
       if (e.key === 'Tab') { const els = focusable(); const first = els[0]; const last = els[els.length - 1]; if (!els.length) {e.preventDefault(); return;}
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }

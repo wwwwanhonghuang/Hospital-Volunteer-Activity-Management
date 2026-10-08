@@ -170,6 +170,9 @@ test('scenario data survives SQLite restart and a validated backup restore', asy
   const linkedBackup = JSON.parse(readFileSync(snapshot, 'utf8'));
   const sample = seedState('2026-10-08');
   linkedBackup.state.volunteers = [{ ...sample.volunteers[0], id: 'vol-1', status: 'archived' }];
+  // Current demo profiles contain custom values; their definitions are part of
+  // the corresponding backup, just as linked shift and volunteer IDs are.
+  linkedBackup.state.fieldDefinitions = sample.fieldDefinitions.filter(field => field.scope === 'volunteers');
   linkedBackup.state.shifts = [{ ...sample.shifts[0], id: 'shift-1', date: '2000-01-03', status: 'completed', volunteerIds: ['vol-1'], projectId: '', locationId: 'entrance' }];
   linkedBackup.state.scenarios[0].routes = [route()];
   const linkedFile = join(dir, 'linked.json'), linkedTarget = join(dir, 'linked.sqlite'); writeFileSync(linkedFile, JSON.stringify(linkedBackup));

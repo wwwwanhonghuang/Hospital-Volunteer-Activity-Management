@@ -1,4 +1,4 @@
-# Release verification · 守織 SHUORI 1.2.0
+# Release verification · 守織 SHUORI 1.3.0
 
 Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.js **22.17.0**, npm **10.9.2**, and installed Google Chrome driven through Playwright.
 
@@ -7,12 +7,13 @@ Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.j
 | Check | Observed result |
 | --- | --- |
 | TypeScript and production compilation | Passed; Vite emitted the compiled application into `dist/` |
-| API and domain tests | **32 passed**, zero failures, including nine Excel cases and eight spatial-scenario cases |
-| Browser acceptance | **20 workflows passed**, zero failed, skipped or flaky tests; final combined run includes saved-draft restoration and actual mouse selection |
-| General application accessibility | **15 views**, zero automated WCAG rule violations across all main routes and five forms |
-| Spatial Studio accessibility scan | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
-| Login identity accessibility | **2 desktop/mobile views**, zero automated violations or horizontal overflow |
-| Excel examples | Four genuine XLSX downloads, **36 worksheets** in total; parsed by ExcelJS and independently inspected with Python ZIP/XML; monthly totals agree |
+| API and domain tests | **45 passed**, zero failures, including 13 Excel cases, seven event/record/storage groups, two calendar/conflict cases and eight spatial-scenario cases |
+| Browser acceptance | **23 workflows passed**, zero failed, skipped or flaky tests; includes complete event workspaces, flexible volunteer records, viewer permissions and existing spatial workflows |
+| General application accessibility | **15 views**, zero automated WCAG rule violations across ten existing routes and five forms |
+| Events and records accessibility | **30 desktop/mobile states**, zero automated violations, no browser errors or horizontal overflow; nine keyboard tab checks pass and saved records remain unchanged |
+| Spatial Studio accessibility scan (retained 1.2 baseline) | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
+| Login identity accessibility (retained 1.2 baseline) | **2 desktop/mobile views**, zero automated violations or horizontal overflow |
+| Excel examples | Five genuine XLSX downloads, **55 worksheets** in total; parsed by ExcelJS and independently inspected with Python ZIP/XML; monthly totals agree |
 | Runtime browser errors | None during the captured navigation and spatial acceptance flows |
 | Mobile layout | 390 px viewport inspected; tested management routes and spatial view had no document-level horizontal overflow |
 | Detailed geometry | **590 registered objects**, 15 catalog kinds and **10,358 modeled asset components**; original assemblies use 2,470 mesh instances and 346,424 triangles |
@@ -34,6 +35,10 @@ The browser acceptance suite verifies actual persistence and server responses. T
 9. Administrator account creation, role changes and secret-free backup download.
 10. Read-only controls and server enforcement of viewer restrictions.
 
+The three new browser workflows exercise custom event type creation, meeting links, multi-module event editing, checklist ownership/due dates, attendance notes, linked volunteers/shifts, file upload and byte-exact download, Drive links, calendar/Excel export and reload. Volunteer workflows add typed custom fields, emergency contacts, tags, dated notes and per-record attachments; viewer inspection confirms write controls remain unavailable.
+
+The new backend tests cover required/type-safe fields, archived values, prevention of destructive definition changes, 100-field scope limits, relation protection, stale writes, upload role/CSRF checks, filename/content signatures, exact 10 MiB uploads, byte-identical backup recovery, corrupt backup rejection, destination-lock checks and 200-attachment target limits. Calendar tests validate JST conversion, multi-day intervals, Unicode folding and cancellation status; overlap tests distinguish touching times, cancellations, other participants and explicitly linked work.
+
 Domain/API tests additionally cover session revocation, CSRF and origin validation, malformed requests, login throttling, last-administrator protection, optimistic concurrency, reference integrity, dependency cycles, spreadsheet-formula escaping, readiness changes, transfer-buffer boundaries, weekly workload accounting, production/demo isolation, restart persistence and backup restoration.
 
 The spatial additions cover validated transforms and all 15 asset kinds, coordinate and capacity bounds, unsafe object identifiers, unique same-floor rehearsal assignments, role enforcement, CSRF, version conflicts, scenario CSV/backup export, SQLite restart and restore, and atomic rejection of roster changes that would invalidate a saved route. Scenario operations are checked against the original volunteer and shift records to confirm that editing a spatial study does not change the roster.
@@ -42,15 +47,15 @@ The five studio browser workflows verify adding and transforming an asset, undo/
 
 A separate pointer check drags the rendered translation arrow and rotation ring. It confirms a changed X coordinate snapped to 0.25 units and a changed rotation snapped to 15 degrees, with no operational API writes.
 
-After extracting the separately licensed model data and adding the software/source notices, the complete 20-workflow browser suite, geometry validation, spatial acceptance, pointer-handle checks and accessibility audits were refreshed against the final build.
+The 1.3 release reruns the complete 23-workflow browser suite and the management/event/record accessibility checks. The spatial content and GLBs are unchanged from 1.2; detailed geometry, extraction, pointer-handle and 12-state studio accessibility reports are retained baseline evidence from that release, not new 1.3 measurements. Their content hashes remain checked by the release recorder.
 
 ## Excel and identity acceptance
 
-The five new browser workflows download and read actual XLSX files. They check filtered viewer rosters and empty selections, every page of filtered activity records, the displayed schedule week, project CPM with the full task graph, support/resource filters, monthly totals, readiness and complete-workspace exports, CSV compatibility, saved-only scenario data, error recovery and mobile layout. Export failures leave the action usable.
+The five Excel browser workflows download and read actual XLSX files. They check filtered viewer rosters and empty selections, every page of filtered activity records, the displayed schedule week, project CPM with the full task graph, support/resource filters, monthly totals, readiness and complete-workspace exports, CSV compatibility, saved-only scenario data, error recovery and mobile layout. Export failures leave the action usable.
 
-Nine API/domain cases verify Unicode and leading zeros, numeric/date cells and styling, formula-like text stored literally, empty worksheets, monthly definitions and trends, shared CPM calculations, normalized scenario tables, invalid requests and limits, and authenticated role/CSRF behavior. Backup tests explicitly exercise both new `shuori-backup` exports and legacy `komorebi-backup` restoration with original IDs and content intact. The scene browser tests import the legacy scene format and export the new one.
+Thirteen Excel API/domain cases verify Unicode and leading zeros, numeric/date cells and styling, formula-like text stored literally, empty worksheets, monthly definitions and trends, shared CPM calculations, normalized scenario tables, invalid requests and limits, and authenticated role/CSRF behavior. Backup tests explicitly exercise both new `shuori-backup` exports and legacy `komorebi-backup` restoration with original IDs and content intact. The scene browser tests import the legacy scene format and export the new one.
 
-The four downloadable examples contain fictional data. An independent Python standard-library ZIP/XML reader checks archive CRCs, XML structure, Unicode branding, frozen panes and filters, worksheet-index row counts, numeric date storage, text phone numbers, absence of formulas/macros/external links, and monthly totals recomputed from the activity rows. Microsoft Excel and LibreOffice desktop applications were not used; interoperability evidence is OOXML inspection and ExcelJS readback.
+The five downloadable examples contain fictional data. An independent Python standard-library ZIP/XML reader checks archive CRCs, XML structure, Unicode branding, frozen panes and filters, worksheet-index row counts, numeric date storage, text phone numbers, absence of formulas/macros/external links, and monthly totals recomputed from the activity rows. Microsoft Excel and LibreOffice desktop applications were not used; interoperability evidence is OOXML inspection and ExcelJS readback.
 
 The original woven logo, Chinese name and English wordmark were visually reviewed on desktop and mobile. The hospital-inspired color reference and its sampling method are documented in [BRAND.md](BRAND.md). The logo is independently drawn, and the official mark is not bundled.
 
@@ -94,6 +99,7 @@ For the additional audits, start a demo server at `http://127.0.0.1:3001`, then 
 ```powershell
 node scripts/audit-accessibility.mjs
 node scripts/audit-studio.mjs
+node scripts/audit-rich-records.mjs
 node scripts/validate-spatial.mjs
 node scripts/validate-scene-handles.mjs
 node scripts/capture-preview.mjs
@@ -106,6 +112,7 @@ These scripts sign into the demo and inspect/render it. The studio audit rejects
 
 ## Evidence
 
+- [`artifacts/qa/rich-records-accessibility.json`](../artifacts/qa/rich-records-accessibility.json): 30 event/profile/storage views, keyboard checks and saved-state guard.
 - [`artifacts/qa/api-tests.txt`](../artifacts/qa/api-tests.txt): complete API/domain test output.
 - [`artifacts/qa/browser-tests.json`](../artifacts/qa/browser-tests.json): Playwright's final suite status.
 - [`artifacts/qa/brand-accessibility.json`](../artifacts/qa/brand-accessibility.json): desktop/mobile login findings.

@@ -2,17 +2,17 @@
 
 <p><img src="public/shuori-logo.svg" alt="守織 SHUORI" width="320" /></p>
 
-[Documentation](docs/README.md) · [Excel guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
+[Documentation](docs/README.md) · [Events and records](docs/EVENTS-AND-RECORDS.md) · [Excel guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
 
 A complete English-language workspace for hospital volunteer coordination, built around the responsibilities in [`meta/JOB-BACKGROUND.md`](meta/JOB-BACKGROUND.md).
 
-守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.2** introduces the 守織 SHUORI identity, a hospital-inspired aqua palette, and formatted Excel workbooks for administrative reporting. It retains Spatial Studio: a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the hospital's public floor guide.
+守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.3** adds modular event workspaces, custom event types, richer volunteer profiles, configurable typed fields, dated volunteer records, authenticated report uploads and shared-folder links. Meetings can connect to saved Zoom, Google Meet or Teams links; attendance, preparation checklists, event relationships and Excel exports remain with the event. It builds on the 守織 SHUORI identity, hospital-inspired aqua palette and formatted Excel workbooks for administrative reporting. Spatial Studio provides a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the hospital's public floor guide.
 
 ![Operations overview](artifacts/previews/01-overview.png)
 
 ## Open the application
 
-Download the [packaged SHUORI 1.2.0 application](artifacts/releases/shuori-1.2.0.zip) ([SHA-256](artifacts/releases/shuori-1.2.0.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
+Download the [packaged SHUORI 1.3.0 application](artifacts/releases/shuori-1.3.0.zip) ([SHA-256](artifacts/releases/shuori-1.3.0.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
 
 Clone this repository first:
 
@@ -41,10 +41,11 @@ Production mode has a separate empty database and requires a real administrator 
 | --- | --- |
 | Overview | Selected-day staffing, coverage, recorded hours, monthly service interactions, upcoming activities, project progress, actionable follow-ups |
 | Projects & planning | Project briefs, ownership, goals, risks, budget/spend, task board, dependent tasks, Gantt view, calculated critical path and float, editable duration scenarios |
-| Volunteers | Recruitment-to-active lifecycle, searchable profiles, skills/languages, weekly availability, workload caps, training, administrative health readiness, individual activity history |
+| Volunteers | Recruitment-to-active lifecycle, searchable profiles, skills/languages, weekly availability, workload caps, training, administrative health readiness, individual activity history, emergency contacts, tags, typed custom fields, dated follow-up records and profile attachments |
 | Schedule | Daily activity/volunteer timelines, weekly board, station coverage, manual assignments, eligibility explanations, reviewed allocation suggestions, calendar export |
+| Events & meetings | Custom event types, multi-day events, participant/project/shift/resource links, optional meeting/checklist/attendance modules, reports and shared folders, calendar and Excel export |
 | Spatial Studio | Eight public levels, detailed interiors, 15 asset types, selectable objects and people, search/filter/inspector, move/rotate controls, numeric transforms, undo/redo, saved scenarios, route drawing for assignments, time/speed controls, density overlay, 2D fallback, GLB/PNG/scene JSON export |
-| Activity records | Actual hours and service counts, shift/volunteer references, validation, corrections and filtered Excel and CSV |
+| Activity records | Actual hours and service counts, shift/volunteer references, validation, corrections, custom fields, linked events, supporting files and filtered Excel and CSV |
 | Support & improvement | Consultation, service improvements, incident follow-up and department coordination; priorities, owners, due dates and recorded resolutions |
 | Resources | Station inventory, available quantity, inspections and maintenance |
 | Reports & insights | Month selection, service/hours trends, category breakdown, participation summaries, recognition candidates, monthly Excel workbooks, CSV and print layout |
@@ -58,7 +59,19 @@ Use **Export Excel** on a list to download every matching record across all page
 
 The files contain separate named worksheets, frozen headings, filters, readable references and native numeric/date cells. Japanese text and phone-number leading zeros are preserved. Workbooks are snapshots of saved data; editing them does not change the application. See the [Excel guide](docs/EXCEL-EXPORTS.md) for contents and scope.
 
-Four fictional-data examples are included: [monthly report](artifacts/exports/shuori-demo-monthly-report.xlsx), [project plan](artifacts/exports/shuori-demo-project-plan.xlsx), [readiness](artifacts/exports/shuori-demo-readiness.xlsx) and [complete workspace](artifacts/exports/shuori-demo-workspace.xlsx). The [identity guide](docs/BRAND.md) documents the original logo, hospital color reference and compatibility with earlier releases.
+Five fictional-data examples are included: [event workspace](artifacts/exports/shuori-demo-events.xlsx), [monthly report](artifacts/exports/shuori-demo-monthly-report.xlsx), [project plan](artifacts/exports/shuori-demo-project-plan.xlsx), [readiness](artifacts/exports/shuori-demo-readiness.xlsx) and [complete workspace](artifacts/exports/shuori-demo-workspace.xlsx). The [identity guide](docs/BRAND.md) documents the original logo, hospital color reference and compatibility with earlier releases.
+
+## Flexible records and connected events
+
+![Events and meetings](artifacts/previews/08-events.png)
+
+Open **Volunteers > Customize records** or **Workspace settings > Record fields** to define text, long-text, number, date, choice-list and yes/no fields for profiles, events, service activity or dated volunteer records. Archive fields to preserve their existing values. Volunteer records provide a separate dated history for training, qualifications, recognition, conversations and follow-ups without changing service-hour totals.
+
+Create a type in **Events & meetings**, then enable meeting, preparation checklist and attendance modules for each event. Link projects, service shifts, resources and participants. The Schedule shows events alongside staffed shifts. Event overlap warnings are advisory; service-shift allocation and reported service hours remain governed by the roster and activity records.
+
+Every event, shift, volunteer profile and record can hold authenticated uploads or external document/folder links. Coordinators and administrators can upload/remove files; viewers can download. Uploads are stored atomically with their metadata in SQLite, capped at 10 MiB per file and 250 MiB per workspace, and included in portable backups. File checking verifies supported document signatures; it is not a malware scanner.
+
+Google Drive and other cloud folders work through existing HTTPS sharing links. The external provider retains its permissions; SHUORI does not create Zoom meetings, authenticate to Google, synchronize folders or provision Cloud Storage. See the [events and records guide](docs/EVENTS-AND-RECORDS.md) for the complete workflow and boundaries.
 
 ## Explore the model
 

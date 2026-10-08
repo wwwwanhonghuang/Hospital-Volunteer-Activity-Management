@@ -6,7 +6,9 @@ import { mkdirSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { z } from 'zod';
 import { seedState, emptyState, tokyoDate } from './seed.mjs';
-import { collections, parseEntity, validateStateChange, validateDelete, HttpError, dateSchema } from './validation.mjs';
+import { collections, managedCollections, parseEntity, validateStateChange, validateDelete, HttpError, dateSchema } from './validation.mjs';
+import { installAttachmentRoutes } from './attachments.mjs';
+import { exportBackup } from './backup.mjs';
 import { suggestSchedule } from '../shared/scheduling.mjs';
 import { buildExcelExport } from './excel-export.mjs';
 
@@ -21,6 +23,8 @@ const writeMethods = new Set(['POST','PUT','PATCH','DELETE']);
 export function createApp(options={}) {
   const mode=options.mode || process.env.APP_MODE || 'demo';
   if (!['demo','production'].includes(mode)) throw new Error('APP_MODE must be demo or production.');
+  const demoLoginLimit=options.demoLoginLimit??20;
+  if(!Number.isInteger(demoLoginLimit)||demoLoginLimit<1||demoLoginLimit>1000)throw new Error('demoLoginLimit must be an integer between 1 and 1000.');
   const demoDate=options.demoDate||process.env.DEMO_DATE||tokyoDate();
   if(!dateSchema.safeParse(demoDate).success)throw new Error('DEMO_DATE must be a valid YYYY-MM-DD date.');
   const appOrigin=options.origin||process.env.APP_ORIGIN;
@@ -34,6 +38,7 @@ export function createApp(options={}) {
     CREATE TABLE IF NOT EXISTS audit (id TEXT PRIMARY KEY,timestamp TEXT NOT NULL,actor TEXT NOT NULL,action TEXT NOT NULL,entity TEXT NOT NULL,entity_id TEXT NOT NULL,summary TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY,username TEXT UNIQUE NOT NULL,name TEXT NOT NULL,role TEXT NOT NULL,password_hash TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,csrf TEXT NOT NULL,expires INTEGER NOT NULL);
+    CREATE TABLE IF NOT EXISTS attachment_blobs (id TEXT PRIMARY KEY,bytes BLOB NOT NULL);
     CREATE INDEX IF NOT EXISTS audit_timestamp ON audit(timestamp);`);
   const storedMode=db.prepare('SELECT value FROM metadata WHERE key=?').get('mode');
   if(storedMode && storedMode.value!==mode){db.close();throw new Error('Database mode differs from APP_MODE. Use a separate database for production and demo.');}
@@ -93,13 +98,13 @@ export function createApp(options={}) {
   };
   const requireAdmin=(req,res,next)=>req.user?.role==='admin'?next():res.status(403).json({error:'This action requires an administrator.'});
   const rate=new Map();
-  function limitLogin(req,res,next){const key=req.ip,now=Date.now();let value=rate.get(key);if(!value||value.reset<now){if(rate.size>=5000){for(const [k,v]of rate)if(v.reset<now)rate.delete(k);if(!rate.has(key)&&rate.size>=5000){res.setHeader('Retry-After','900');return res.status(429).json({error:'Sign-in is temporarily busy. Try again later.'});}}value={count:0,reset:now+15*60*1000};rate.set(key,value);}value.count++;if(value.count>20){res.setHeader('Retry-After',Math.ceil((value.reset-now)/1000));return res.status(429).json({error:'Too many sign-in attempts. Try again in 15 minutes.'});}next();}
+  function limitLogin(req,res,next){const key=req.ip,now=Date.now();let value=rate.get(key);if(!value||value.reset<now){if(rate.size>=5000){for(const [k,v]of rate)if(v.reset<now)rate.delete(k);if(!rate.has(key)&&rate.size>=5000){res.setHeader('Retry-After','900');return res.status(429).json({error:'Sign-in is temporarily busy. Try again later.'});}}value={count:0,reset:now+15*60*1000};rate.set(key,value);}value.count++;if(value.count>(mode==='demo'&&req.path==='/api/demo-login'?demoLoginLimit:20)){res.setHeader('Retry-After',Math.ceil((value.reset-now)/1000));return res.status(429).json({error:'Too many sign-in attempts. Try again in 15 minutes.'});}next();}
   function establishSession(req,res,user){
     const token=randomBytes(32).toString('hex'),csrfToken=randomBytes(32).toString('hex');
     transaction(()=>{db.prepare('DELETE FROM sessions WHERE expires<?').run(Date.now());if(req.sessionHash)db.prepare('DELETE FROM sessions WHERE token_hash=?').run(req.sessionHash);db.prepare('INSERT INTO sessions VALUES(?,?,?,?)').run(hash(token),user.id,csrfToken,Date.now()+cookieOptions.maxAge);audit(user.name,'login','session',user.id,'Signed in.');});
     res.cookie('vops_session',token,cookieOptions);res.json({user:publicUser(user),csrfToken,mode});
   }
-  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.2.0'}));
+  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.3.0'}));
   app.get('/api/session',(req,res)=>res.json({user:req.user||null,csrfToken:req.csrf||'',mode}));
   app.post('/api/demo-login',limitLogin,(req,res)=>{
     if(mode!=='demo')throw new HttpError(404,'Demo sign-in is unavailable.');
@@ -118,13 +123,14 @@ export function createApp(options={}) {
     if(!equalSecret(req.get('x-csrf-token'),req.csrf))throw new HttpError(403,'The security token is invalid.');
     db.prepare('DELETE FROM sessions WHERE token_hash=?').run(req.sessionHash);res.clearCookie('vops_session',{...cookieOptions,maxAge:undefined});res.json({ok:true});
   });
-  function getState(){const state=emptyState();state.locations=JSON.parse(db.prepare('SELECT value FROM metadata WHERE key=?').get('locations').value);for(const collection of collections)state[collection]=db.prepare('SELECT data FROM entities WHERE collection=? ORDER BY rowid').all(collection).map(row=>JSON.parse(row.data));state.audit=db.prepare('SELECT id,timestamp,actor,action,entity,entity_id AS entityId,summary FROM audit ORDER BY rowid DESC LIMIT 1000').all();return state;}
+  function getState(){const state=emptyState();state.locations=JSON.parse(db.prepare('SELECT value FROM metadata WHERE key=?').get('locations').value);for(const collection of collections)state[collection]=db.prepare('SELECT data FROM entities WHERE collection=? ORDER BY rowid').all(collection).map(row=>parseEntity(collection,JSON.parse(row.data)));state.audit=db.prepare('SELECT id,timestamp,actor,action,entity,entity_id AS entityId,summary FROM audit ORDER BY rowid DESC LIMIT 1000').all();return state;}
   app.locals.getState=getState;
   app.get('/api/state',requireAuth,(_req,res)=>res.json(getState()));
-  function validCollection(value){if(!collections.includes(value))throw new HttpError(404,'Collection was not found.');return value;}
-  function getEntity(collection,id){const row=db.prepare('SELECT data FROM entities WHERE collection=? AND id=?').get(collection,id);if(!row)throw new HttpError(404,'Record was not found.');return JSON.parse(row.data);}
+  function validCollection(value,{write=false}={}){if(!(write?managedCollections:collections).includes(value))throw new HttpError(404,'Collection was not found.');return value;}
+  function getEntity(collection,id){const row=db.prepare('SELECT data FROM entities WHERE collection=? AND id=?').get(collection,id);if(!row)throw new HttpError(404,'Record was not found.');return parseEntity(collection,JSON.parse(row.data));}
   function checkVersion(entity,version){if(!Number.isInteger(version)||entity.version!==version)throw new HttpError(409,'This record changed since it was opened. Refresh and try again.');}
   function replaceEntity(collection,entity){db.prepare('UPDATE entities SET version=?,data=? WHERE collection=? AND id=?').run(entity.version,JSON.stringify(entity),collection,entity.id);}
+  installAttachmentRoutes(app,{db,requireAuth,requireWrite,transaction,getState,getEntity,checkVersion,insertEntity,audit});
   app.post('/api/schedule/suggest',requireWrite,(req,res)=>{
     const result=dateSchema.safeParse(req.body?.date);if(!result.success)throw new HttpError(400,'Choose a valid schedule date.');res.json(suggestSchedule(getState(),result.data));
   });
@@ -160,8 +166,8 @@ export function createApp(options={}) {
     }finally{excelExportsInFlight--;}
   });
   app.get('/api/backup',requireAuth,requireAdmin,(req,res)=>{
-    const state=getState();state.audit=db.prepare('SELECT id,timestamp,actor,action,entity,entity_id AS entityId,summary FROM audit ORDER BY rowid').all();
-    res.setHeader('Content-Disposition',`attachment; filename="shuori-backup-${tokyoDate()}.json"`);res.json({format:'shuori-backup',schemaVersion:1,exportedAt:new Date().toISOString(),mode,state,users:db.prepare('SELECT id,name,username,role FROM users').all()});
+    const backup=transaction(()=>exportBackup(db,getState,mode));
+    res.setHeader('Content-Disposition',`attachment; filename="shuori-backup-${tokyoDate()}.json"`);res.json(backup);
   });
   app.get('/api/users',requireAuth,requireAdmin,(_req,res)=>res.json(db.prepare('SELECT id,name,username,role FROM users ORDER BY username').all()));
   app.post('/api/users',requireWrite,requireAdmin,(req,res)=>{
@@ -178,16 +184,16 @@ export function createApp(options={}) {
     transaction(()=>{db.prepare('UPDATE users SET name=?,role=?,password_hash=? WHERE id=?').run(value.name,value.role,value.password?passwordHash(value.password):user.password_hash,user.id);db.prepare('DELETE FROM sessions WHERE user_id=?').run(user.id);audit(req.user.name,'update','users',user.id,`Updated account ${user.username}; active sessions revoked.`);});res.json(publicUser(value));
   });
   app.post('/api/:collection',requireWrite,(req,res)=>{
-    const collection=validCollection(req.params.collection),now=new Date().toISOString();
+    const collection=validCollection(req.params.collection,{write:true}),now=new Date().toISOString();
     const entity=parseEntity(collection,{...req.body,id:randomUUID(),version:1,createdAt:now,updatedAt:now});
     transaction(()=>{const state=getState();state[collection].push(entity);validateStateChange(state,collection,entity);insertEntity(collection,entity);audit(req.user.name,'create',collection,entity.id,`Created ${entity.title||entity.name||collection.slice(0,-1)}.`);});res.status(201).json(entity);
   });
   app.put('/api/:collection/:id',requireWrite,(req,res)=>{
-    const collection=validCollection(req.params.collection);
-    const entity=transaction(()=>{const current=getEntity(collection,req.params.id);checkVersion(current,req.body?.version);const updated=parseEntity(collection,{...current,...req.body,id:current.id,version:current.version+1,createdAt:current.createdAt,updatedAt:new Date().toISOString()});const state=getState();state[collection]=state[collection].map(item=>item.id===current.id?updated:item);validateStateChange(state,collection,updated);replaceEntity(collection,updated);audit(req.user.name,'update',collection,updated.id,`Updated ${updated.title||updated.name||collection.slice(0,-1)}.`);return updated;});res.json(entity);
+    const collection=validCollection(req.params.collection,{write:true});
+    const entity=transaction(()=>{const current=getEntity(collection,req.params.id);checkVersion(current,req.body?.version);const updated=parseEntity(collection,{...current,...req.body,id:current.id,version:current.version+1,createdAt:current.createdAt,updatedAt:new Date().toISOString()});const state=getState();state[collection]=state[collection].map(item=>item.id===current.id?updated:item);validateStateChange(state,collection,updated,{previous:current});replaceEntity(collection,updated);audit(req.user.name,'update',collection,updated.id,`Updated ${updated.title||updated.name||collection.slice(0,-1)}.`);return updated;});res.json(entity);
   });
   app.delete('/api/:collection/:id',requireWrite,(req,res)=>{
-    const collection=validCollection(req.params.collection);transaction(()=>{const entity=getEntity(collection,req.params.id);checkVersion(entity,req.body?.version);validateDelete(getState(),collection,entity.id);db.prepare('DELETE FROM entities WHERE collection=? AND id=?').run(collection,entity.id);audit(req.user.name,'delete',collection,entity.id,`Deleted ${entity.title||entity.name||collection.slice(0,-1)}.`);});res.json({ok:true});
+    const collection=validCollection(req.params.collection,{write:true});transaction(()=>{const entity=getEntity(collection,req.params.id);checkVersion(entity,req.body?.version);validateDelete(getState(),collection,entity.id);db.prepare('DELETE FROM entities WHERE collection=? AND id=?').run(collection,entity.id);audit(req.user.name,'delete',collection,entity.id,`Deleted ${entity.title||entity.name||collection.slice(0,-1)}.`);});res.json({ok:true});
   });
   app.use('/api',(_req,res)=>res.status(404).json({error:'API endpoint was not found.'}));
   const distPath=options.distPath||resolve('dist');

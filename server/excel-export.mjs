@@ -8,7 +8,8 @@ import { eligibility, minutes, shiftHours } from '../shared/scheduling.mjs';
 
 export const EXCEL_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 export const EXCEL_LIMITS = Object.freeze({ rows: 30000, cells: 400000, textCharacters: 8000000, cellCharacters: 32767, bytes: 16 * 1024 * 1024 });
-const kinds = [...collections, 'locations', 'workspace', 'monthly-report', 'readiness', 'project-plan', 'schedule'];
+const dataKinds = [...new Set([...collections, 'events', 'eventTypes', 'entries', 'fieldDefinitions', 'attachments'])];
+const kinds = [...dataKinds, 'locations', 'workspace', 'monthly-report', 'readiness', 'project-plan', 'schedule'];
 const exportSchema = z.object({
   kind: z.enum(kinds), ids: z.array(z.string().min(1).max(160)).max(10000).optional(),
   month: z.string().regex(/^[1-9]\d{3}-(0[1-9]|1[0-2])$/, 'Use a valid YYYY-MM month.').optional(),
@@ -21,7 +22,7 @@ const exportSchema = z.object({
   if (value.kind === 'project-plan' && !value.projectId) fail('Choose a project for the plan.');
   if (value.month && value.kind !== 'monthly-report') fail('Month is supported only for a monthly report.');
   if (value.projectId && value.kind !== 'project-plan') fail('Project ID is supported only for a project plan.');
-  if (value.date && !['schedule', 'shifts', 'readiness', 'volunteers'].includes(value.kind)) fail('Date is supported only for schedule or volunteer readiness exports.');
+  if (value.date && !['schedule', 'shifts', 'events', 'readiness', 'volunteers'].includes(value.kind)) fail('Date is supported only for schedule, event or volunteer readiness exports.');
   if (value.ids && ['workspace', 'monthly-report', 'project-plan'].includes(value.kind)) fail('This export kind does not accept a row ID filter.');
 });
 export function parseExcelRequest(value) {
@@ -36,7 +37,7 @@ const titleColumn = column('title', 'Title', 'text', 36);
 const noteColumn = column('notes', 'Administrative notes', 'text', 55);
 const list = value => (value || []).join('\n');
 const sum = (values, key) => values.reduce((total, value) => total + value[key], 0);
-const byId = values => new Map(values.map(value => [value.id, value]));
+const byId = (values = []) => new Map(values.map(value => [value.id, value]));
 function* mapped(values, fn) { for (const value of values) yield fn(value); }
 function selectRows(values, ids) {
   if (ids === undefined) return values;
@@ -78,12 +79,37 @@ export async function buildExcelExport(state, input, options = {}) {
   workbook.subject = 'Volunteer operations export'; workbook.description = `English operational workbook. Dates and times use Asia/Tokyo. ${scope}`;
   const overview = workbook.addWorksheet('Overview');
   const counters = { rows: 0, cells: 0, textCharacters: 0 }, index = [];
-  const names = { volunteers: byId(state.volunteers), projects: byId(state.projects), locations: byId(state.locations), shifts: byId(state.shifts), tasks: byId(state.tasks) };
+  const names = Object.fromEntries(['volunteers', 'projects', 'locations', 'shifts', 'tasks', 'events', 'eventTypes', 'resources', 'records', 'entries'].map(key => [key, byId(state[key])]));
   const volunteerName = id => names.volunteers.get(id)?.name || id;
   const projectName = id => names.projects.get(id)?.title || id || '';
   const locationName = id => names.locations.get(id)?.name || id;
   const shiftName = id => names.shifts.get(id)?.title || id;
   const taskName = id => names.tasks.get(id)?.title || id;
+  const eventName = id => names.events.get(id)?.title || id || '';
+  const usedFields = new Map();
+  let includeFieldDictionary = false;
+
+  function customColumns(scope, values) {
+    includeFieldDictionary = true;
+    const definitions = (state.fieldDefinitions || []).filter(value => value.scope === scope).map(value => ({ ...value, provenance: 'Registered field' }));
+    const known = new Set(definitions.map(value => value.id));
+    // Preserve old values even if a definition was removed outside the application.
+    for (const id of new Set(values.flatMap(value => Object.keys(value.customFields || {})))) {
+      if (known.has(id)) continue;
+      const samples = values.map(value => value.customFields?.[id]).filter(value => value !== null && value !== undefined && value !== '');
+      const type = samples.length && samples.every(value => typeof value === 'number') ? 'number' : samples.length && samples.every(value => typeof value === 'boolean') ? 'boolean' : 'text';
+      definitions.push({ id, scope, label: `Unregistered field ${id}`, type, options: [], required: false, active: false, order: Number.MAX_SAFE_INTEGER, provenance: 'Definition missing; original field ID and values retained' });
+    }
+    definitions.sort((a, b) => (a.order || 0) - (b.order || 0) || a.label.localeCompare(b.label) || a.id.localeCompare(b.id));
+    if (values.length) for (const definition of definitions) usedFields.set(`${scope}:${definition.id}`, definition);
+    return definitions.map(value => column(`custom:${value.id}`, `${value.label} [${value.id}]${value.active === false ? ' (archived)' : ''}`, ['number', 'date', 'boolean'].includes(value.type) ? value.type : 'text', value.type === 'textarea' ? 55 : 30));
+  }
+  const customValues = value => Object.fromEntries(Object.entries(value.customFields || {}).map(([id, content]) => [`custom:${id}`, content]));
+  function meetingAddress(value) {
+    if (!value) return '';
+    try { const url = new URL(value); return `${url.origin}${url.pathname}`; }
+    catch { return '[Invalid stored meeting address]'; }
+  }
 
   function safeValue(value, type, address) {
     if (value === undefined || value === null || value === '') return null;
@@ -104,7 +130,10 @@ export async function buildExcelExport(state, input, options = {}) {
       if (typeof value !== 'number' || !Number.isFinite(value)) throw new HttpError(422, `Invalid stored numeric value at ${address}.`);
       return value;
     }
-    if (type === 'boolean') return Boolean(value);
+    if (type === 'boolean') {
+      if (typeof value !== 'boolean') throw new HttpError(422, `Invalid stored Boolean value at ${address}.`);
+      return value;
+    }
     // ExcelJS only infers formulas or hyperlinks from objects, never strings.
     const text = String(value);
     if (text.length > EXCEL_LIMITS.cellCharacters) throw new HttpError(413, `Text at ${address} exceeds Excel's 32,767-character cell limit. Shorten the source field or choose a smaller export; no text was truncated.`);
@@ -120,7 +149,7 @@ export async function buildExcelExport(state, input, options = {}) {
     const last = columns.length;
     for (const row of [1, 2, 3, 4]) sheet.mergeCells(row, 1, row, last);
     sheet.getCell(1, 1).value = safeValue(`守織 SHUORI · ${title}`, 'text', `${title}!A1`);
-    sheet.getCell(2, 1).value = safeValue(`Generated ${stamp} JST · Asia/Tokyo · ${options.mode || 'workspace'} · version ${options.version || '1.2.0'}`, 'text', `${title}!A2`);
+    sheet.getCell(2, 1).value = safeValue(`Generated ${stamp} JST · Asia/Tokyo · ${options.mode || 'workspace'} · version ${options.version || '1.3.0'}`, 'text', `${title}!A2`);
     sheet.getCell(3, 1).value = safeValue(scope, 'text', `${title}!A3`);
     sheet.getCell(4, 1).value = safeValue(note || 'Dates are Tokyo civil dates. User-entered text is stored as text. No rows are omitted silently.', 'text', `${title}!A4`);
     sheet.getRow(1).height = 34; sheet.getRow(2).height = 23; sheet.getRow(3).height = 32; sheet.getRow(4).height = 36;
@@ -175,7 +204,7 @@ export async function buildExcelExport(state, input, options = {}) {
   const dateColumn = column('date', 'Date', 'date', 15);
 
   function volunteers(values) {
-    sheet('Volunteers', [idColumn, column('name', 'Volunteer name', 'text', 28), column('kana', 'Name reading', 'text', 25), column('email', 'Email', 'text', 32), column('phone', 'Phone (text)', 'text', 22), column('status', 'Programme status'), column('skills', 'Skills', 'text', 30), column('languages', 'Languages'), column('trainingStatus', 'Training status'), column('healthStatus', 'Administrative clearance'), column('healthDueDate', 'Next clearance review', 'date', 20), column('ready', 'Administratively ready', 'boolean', 23), column('availability', 'Available weekdays'), column('availableFrom', 'Available from', 'time', 16), column('availableTo', 'Available until', 'time', 16), column('maxHoursPerWeek', 'Weekly hour cap', 'number', 18), column('joinedDate', 'Joined date', 'date', 15), noteColumn, ...commonColumns], mapped(values, value => ({ ...value, skills: list(value.skills), languages: list(value.languages), availability: list(value.availability), ready: readiness(value, referenceDate).ready })), `Administrative readiness as of ${referenceDate}. Actual shift eligibility also depends on skills, availability, workload and conflicts. No clinical findings are modeled.`);
+    sheet('Volunteers', [idColumn, column('name', 'Volunteer name', 'text', 28), column('kana', 'Name reading', 'text', 25), column('email', 'Email', 'text', 32), column('phone', 'Phone (text)', 'text', 22), column('contactPreference', 'Contact preference'), column('address', 'Postal address', 'text', 45), column('emergencyName', 'Emergency contact name', 'text', 28), column('emergencyRelationship', 'Emergency contact relationship', 'text', 30), column('emergencyPhone', 'Emergency contact phone (text)', 'text', 30), column('tags', 'Profile tags', 'text', 30), column('status', 'Programme status'), column('skills', 'Skills', 'text', 30), column('languages', 'Languages'), column('trainingStatus', 'Training status'), column('healthStatus', 'Administrative clearance'), column('healthDueDate', 'Next clearance review', 'date', 20), column('ready', 'Administratively ready', 'boolean', 23), column('availability', 'Available weekdays'), column('availableFrom', 'Available from', 'time', 16), column('availableTo', 'Available until', 'time', 16), column('maxHoursPerWeek', 'Weekly hour cap', 'number', 18), column('joinedDate', 'Joined date', 'date', 15), noteColumn, ...customColumns('volunteers', values), ...commonColumns], mapped(values, value => ({ ...value, ...customValues(value), emergencyName: value.emergencyContact?.name, emergencyRelationship: value.emergencyContact?.relationship, emergencyPhone: value.emergencyContact?.phone, tags: list(value.tags), skills: list(value.skills), languages: list(value.languages), availability: list(value.availability), ready: readiness(value, referenceDate).ready })), `Administrative readiness as of ${referenceDate}. Actual shift eligibility also depends on skills, availability, workload and conflicts. No clinical findings are modeled.`);
   }
   function projects(values) {
     sheet('Projects', [idColumn, titleColumn, column('category', 'Category'), column('description', 'Purpose and approach', 'text', 55), column('owner', 'Owner'), column('department', 'Department'), column('status', 'Status'), column('startDate', 'Start date', 'date', 15), column('dueDate', 'Due date', 'date', 15), column('budget', 'Budget (JPY)', 'currency', 20), column('spent', 'Spent (JPY)', 'currency', 20), column('remaining', 'Budget remaining (JPY)', 'currency', 24), column('goals', 'Goals', 'text', 55), column('risks', 'Risks', 'text', 55), ...commonColumns], mapped(values, value => ({ ...value, remaining: value.budget - value.spent })));
@@ -202,7 +231,7 @@ export async function buildExcelExport(state, input, options = {}) {
     })(), 'One row per volunteer/shift assignment. Historical completed or cancelled shifts are preserved without applying current readiness retroactively.');
   }
   function records(values) {
-    sheet('Activity records', [idColumn, ...personColumns, column('shiftId', 'Shift ID', 'text', 39), column('shift', 'Shift', 'text', 32), dateColumn, column('hours', 'Recorded hours', 'number', 18), column('serviceCount', 'Service interactions', 'integer', 22), column('category', 'Service category', 'text', 28), noteColumn, ...commonColumns], mapped(values, value => ({ ...value, volunteer: volunteerName(value.volunteerId), shift: shiftName(value.shiftId) })), 'Service interactions are aggregate recorded interactions, not unique patients or visitors.');
+    sheet('Activity records', [idColumn, ...personColumns, column('shiftId', 'Shift ID', 'text', 39), column('shift', 'Shift', 'text', 32), column('eventId', 'Event ID', 'text', 39), column('event', 'Event', 'text', 32), dateColumn, column('hours', 'Recorded hours', 'number', 18), column('serviceCount', 'Service interactions', 'integer', 22), column('category', 'Service category', 'text', 28), noteColumn, ...customColumns('records', values), ...commonColumns], mapped(values, value => ({ ...value, ...customValues(value), volunteer: volunteerName(value.volunteerId), shift: shiftName(value.shiftId), event: eventName(value.eventId) })), 'Service interactions are aggregate recorded interactions, not unique patients or visitors.');
   }
   function requests(values) {
     sheet('Support requests', [idColumn, titleColumn, column('category', 'Category'), column('priority', 'Priority'), column('status', 'Status'), column('owner', 'Owner'), column('department', 'Department'), column('dueDate', 'Due date', 'date', 15), column('description', 'Description', 'text', 60), column('resolution', 'Resolution', 'text', 60), ...commonColumns], values);
@@ -222,10 +251,43 @@ export async function buildExcelExport(state, input, options = {}) {
     sheet('Scene routes', [...scene, column('id', 'Route ID', 'text', 43), ...personColumns, column('shiftId', 'Shift ID', 'text', 39), column('shift', 'Shift', 'text', 32), column('floor', 'Floor', 'text', 10), column('points', 'Waypoints', 'integer', 15)], (function* () { for (const value of values) for (const item of value.routes) yield { scenarioId: value.id, scenario: value.name, ...item, volunteer: volunteerName(item.volunteerId), shift: shiftName(item.shiftId), points: item.points.length }; })(), 'Illustrative floor-local rehearsal. A round trip is 24 simulation minutes; no collision detection, measured walking speed or cross-floor routing.');
     sheet('Route points', [...scene, column('routeId', 'Route ID', 'text', 43), column('sequence', 'Point sequence', 'integer', 19), column('x', 'Local X', 'number', 14), column('z', 'Local Z', 'number', 14)], (function* () { for (const value of values) for (const route of value.routes) for (let point = 0; point < route.points.length; point++) yield { scenarioId: value.id, scenario: value.name, routeId: route.id, sequence: point + 1, ...route.points[point] }; })());
   }
-  const writers = { volunteers, projects, tasks, shifts, records, requests, resources, scenarios, locations };
+  function eventTypes(values) {
+    sheet('Event types', [idColumn, column('name', 'Type name', 'text', 30), column('description', 'Description', 'text', 55), column('color', 'Display color'), column('defaultModules', 'Default modules', 'text', 30), column('active', 'Active', 'boolean', 12), ...commonColumns], mapped(values, value => ({ ...value, defaultModules: list(value.defaultModules) })), 'Custom event classifications and module defaults. A type does not grant additional access permissions.');
+  }
+  function events(values) {
+    const eventColumns = [column('eventId', 'Event ID', 'text', 39), column('event', 'Event', 'text', 35)];
+    sheet('Events', [idColumn, titleColumn, column('typeId', 'Event type ID', 'text', 39), column('type', 'Event type', 'text', 28), dateColumn, column('endDate', 'End date', 'date', 15), column('start', 'Start (JST)', 'time', 16), column('end', 'End (JST)', 'time', 16), column('status', 'Status'), column('owner', 'Owner'), column('description', 'Description', 'text', 60), ...locationColumns, column('locationText', 'Venue or access details', 'text', 40), column('projectId', 'Project ID', 'text', 39), column('project', 'Project', 'text', 32), column('modules', 'Enabled modules', 'text', 30), column('meetingProvider', 'Meeting provider'), column('meetingUrl', 'Meeting address (without query)', 'text', 55), column('meetingId', 'Meeting ID (text)', 'text', 24), column('agenda', 'Meeting agenda', 'text', 60), ...customColumns('events', values), ...commonColumns], mapped(values, value => ({ ...value, ...customValues(value), endDate: value.endDate || value.date, type: names.eventTypes.get(value.typeId)?.name || value.typeId, location: locationName(value.locationId), floor: names.locations.get(value.locationId)?.floor || '', project: projectName(value.projectId), modules: list(value.modules), meetingProvider: value.meeting?.provider, meetingUrl: meetingAddress(value.meeting?.url), meetingId: value.meeting?.meetingId, agenda: value.meeting?.agenda })), 'Tokyo civil dates and times. Meeting passcodes and URL query/fragment data are excluded; use the event in SHUORI for its complete join link. Attendance does not create service hours.');
+    sheet('Event attendance', [...eventColumns, ...personColumns, column('status', 'Attendance status'), column('notes', 'Attendance notes', 'text', 55)], (function* () { for (const value of values) for (const item of value.attendance || []) yield { eventId: value.id, event: value.title, ...item, volunteer: volunteerName(item.volunteerId) }; })(), 'Recorded invitation, confirmation and attendance states. Assigned participants without an attendance entry remain in Event relationships.');
+    sheet('Event checklist', [...eventColumns, column('id', 'Checklist item ID', 'text', 39), titleColumn, column('done', 'Complete', 'boolean', 14), column('owner', 'Owner'), column('dueDate', 'Due date', 'date', 15)], (function* () { for (const value of values) for (const item of value.checklist || []) yield { eventId: value.id, event: value.title, ...item }; })());
+    sheet('Event relationships', [...eventColumns, column('targetType', 'Linked collection'), column('targetId', 'Linked record ID', 'text', 39), column('target', 'Linked record', 'text', 40)], (function* () {
+      for (const value of values) {
+        const links = [['volunteers', value.volunteerIds || []], ['shifts', value.shiftIds || []], ['resources', value.resourceIds || []], ['projects', value.projectId ? [value.projectId] : []]];
+        for (const [targetType, ids] of links) for (const targetId of ids) { const target = names[targetType].get(targetId); yield { eventId: value.id, event: value.title, targetType, targetId, target: target?.title || target?.name || targetId }; }
+      }
+    })(), 'Explicit links to participants, shifts, resources and project. A resource link is a planning reference, not an inventory reservation.');
+  }
+  function entries(values) {
+    sheet('Journal entries', [idColumn, titleColumn, column('category', 'Category'), column('status', 'Status'), dateColumn, column('dueDate', 'Follow-up date', 'date', 18), ...personColumns, column('eventId', 'Event ID', 'text', 39), column('event', 'Event', 'text', 35), column('body', 'Record body', 'text', 70), ...customColumns('entries', values), ...commonColumns], mapped(values, value => ({ ...value, ...customValues(value), volunteer: volunteerName(value.volunteerId), event: eventName(value.eventId) })), 'Flexible journal and follow-up records. These entries are not counted as service hours; activity records remain the source for hours and interactions.');
+  }
+  function attachments(values) {
+    sheet('Files and links', [idColumn, column('targetType', 'Parent collection'), column('targetId', 'Parent record ID', 'text', 39), column('target', 'Parent record', 'text', 35), column('name', 'File or link name', 'text', 40), column('kind', 'Storage kind'), column('url', 'External URL (text)', 'text', 60), column('downloadPath', 'Authenticated download path', 'text', 60), column('contentType', 'Content type', 'text', 35), column('size', 'Size (bytes)', 'integer', 18), column('sha256', 'SHA-256', 'text', 68), column('uploadedBy', 'Uploaded by', 'text', 30), column('description', 'Description', 'text', 60), ...commonColumns], mapped(values, value => { const target = names[value.targetType]?.get(value.targetId); return { ...value, target: target?.title || target?.name || value.targetId, url: value.kind === 'link' ? value.url : '', downloadPath: value.kind === 'file' ? `/api/attachments/${encodeURIComponent(value.id)}/download` : '' }; }), 'Metadata only: file bytes, physical storage paths and credentials are excluded. File download paths require a signed-in session on the originating SHUORI installation. External URLs remain literal text and retain their saved query parameters.');
+  }
+  function fieldDefinitions(values) {
+    includeFieldDictionary = true;
+    for (const value of values) usedFields.set(`${value.scope}:${value.id}`, { ...value, provenance: 'Registered field' });
+  }
+  function relatedRecords(targetType, values) {
+    const ids = new Set(values.map(value => value.id));
+    const relatedEntries = (state.entries || []).filter(value => ids.has(targetType === 'volunteers' ? value.volunteerId : value.eventId));
+    const relatedActivity = state.records.filter(value => ids.has(targetType === 'volunteers' ? value.volunteerId : value.eventId));
+    records(relatedActivity); entries(relatedEntries);
+    const activityIds = new Set(relatedActivity.map(value => value.id)), entryIds = new Set(relatedEntries.map(value => value.id));
+    attachments((state.attachments || []).filter(value => (value.targetType === targetType && ids.has(value.targetId)) || (value.targetType === 'records' && activityIds.has(value.targetId)) || (value.targetType === 'entries' && entryIds.has(value.targetId))));
+  }
+  const writers = { volunteers, projects, tasks, shifts, records, requests, resources, scenarios, locations, events, eventTypes, entries, fieldDefinitions, attachments };
 
   if (request.kind === 'workspace') {
-    for (const key of [...collections, 'locations']) writers[key](state[key]);
+    for (const key of [...dataKinds, 'locations']) writers[key](state[key] || []);
   } else if (request.kind === 'monthly-report') {
     const month = request.month, monthly = state.records.filter(value => value.date.startsWith(month));
     const monthlyShifts = state.shifts.filter(value => value.date.startsWith(month) && value.status !== 'cancelled');
@@ -276,14 +338,23 @@ export async function buildExcelExport(state, input, options = {}) {
     }
     shifts(selected);
   } else {
-    let selected = selectRows(state[request.kind], request.ids);
+    let selected = selectRows(state[request.kind] || [], request.ids);
     if (request.kind === 'shifts' && request.date) {
       if (request.ids && selected.some(value => value.date !== request.date)) throw new HttpError(400, 'Selected shifts must match the requested date.');
       selected = selected.filter(value => value.date === request.date);
     }
+    if (request.kind === 'events' && request.date) {
+      const containsDate = value => value.date <= request.date && (value.endDate || value.date) >= request.date;
+      if (request.ids && selected.some(value => !containsDate(value))) throw new HttpError(400, 'Selected events must include the requested date.');
+      selected = selected.filter(containsDate);
+    }
     writers[request.kind](selected);
     if (request.kind === 'projects') { const selectedIds = new Set(selected.map(value => value.id)); tasks(state.tasks.filter(value => selectedIds.has(value.projectId))); }
+    if (['volunteers', 'events'].includes(request.kind)) relatedRecords(request.kind, selected);
+    if (request.kind === 'events') { const typeIds = new Set(selected.map(value => value.typeId)); eventTypes((state.eventTypes || []).filter(value => typeIds.has(value.id))); }
+    if (['entries', 'records'].includes(request.kind)) { const selectedIds = new Set(selected.map(value => value.id)); attachments((state.attachments || []).filter(value => value.targetType === request.kind && selectedIds.has(value.targetId))); }
   }
+  if (includeFieldDictionary) sheet('Field dictionary', [idColumn, column('scope', 'Applies to'), column('label', 'Field label', 'text', 40), column('type', 'Value type'), column('options', 'Select options', 'text', 45), column('required', 'Required', 'boolean', 14), column('active', 'Active', 'boolean', 14), column('order', 'Display order', 'integer', 18), column('provenance', 'Definition status', 'text', 65), ...commonColumns], mapped([...usedFields.values()], value => ({ ...value, options: list(value.options) })), 'Custom columns retain stable field IDs, labels and native value types. Archived definitions and existing values remain exportable. An empty selected scope includes headers only.');
   populate(overview, 'Workbook overview', [column('sheet', 'Worksheet', 'text', 32), column('rows', 'Data rows', 'integer', 16), column('purpose', 'Contents and interpretation', 'text', 90)], index, 'Snapshot export. User accounts, passwords, sessions and audit logs are excluded. This workbook is not a restorable workspace backup. Dates and times are Japan Standard Time.');
   const buffer = Buffer.from(await workbook.xlsx.writeBuffer());
   if (buffer.length > EXCEL_LIMITS.bytes) throw new HttpError(413, 'This workbook exceeds the 16 MiB export limit. Export a smaller filtered selection.');

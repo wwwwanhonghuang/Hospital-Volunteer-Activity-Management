@@ -32,9 +32,11 @@ npm.cmd start
 
 For development, `npm.cmd run dev` runs the API on port 3001 and Vite on `http://127.0.0.1:5173`, with API requests proxied to port 3001. Keep the default API port for this command unless you also update the Vite proxy configuration. Production runs the compiled interface and API together; Vite is not needed at runtime.
 
-## Upgrade to SHUORI 1.2
+## Upgrade to SHUORI 1.3
 
-Stop the running service, preserve its configured database and backup location, install dependencies with `npm.cmd ci`, rebuild, and restart with the same environment. The name and color change does not require a database migration. Existing Docker service/volume keys and calendar event IDs remain stable. `Start-SHUORI.cmd` is the Windows launcher; the earlier launcher remains a compatibility wrapper.
+Download a backup, stop the running service, preserve its configured database and backup location, install dependencies with `npm.cmd ci`, rebuild, and restart with the same environment. Startup adds the `attachment_blobs` table if it does not exist. Events, event types, field definitions, journal entries and attachment metadata use the existing entity table. New optional volunteer/activity fields receive schema defaults when read. Existing records are preserved, and existing demo databases are not reseeded with new examples. Use a new disposable database path if you want the full 1.3 demo dataset.
+
+Create event types and custom field definitions in the interface when upgrading an existing workspace; a production workspace is not populated with demonstration definitions. Existing Docker service/volume keys and calendar event IDs remain stable. `Start-SHUORI.cmd` is the Windows launcher; the earlier launcher remains a compatibility wrapper. There is no general schema migration framework. Preserve the pre-upgrade database if rollback is needed; an older application version does not understand the new collections or file-bearing backups.
 
 New JSON exports use `shuori-backup` and `shuori-scene`. Legacy `komorebi-backup` and `komorebi-scene` files remain readable. Excel exports are reporting snapshots and cannot replace a restorable backup. Their controls and limits are documented in [Excel exports](EXCEL-EXPORTS.md).
 
@@ -65,7 +67,7 @@ Run the process through the organization's service manager, under a dedicated op
 
 ## License and source offer
 
-The software is **AGPL-3.0-only**. The interface's **Source code** link defaults to the exact [`v1.2.0` release source](https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.2.0). When deploying a modified version for users to interact with over a network, prominently offer those users its actual Corresponding Source at no charge. Include the required source and material needed to build, install, run and modify that version. An unchanged upstream link does not provide the source of your local modifications. See [licensing and attribution](LICENSING.md) and AGPL Sections 1 and 13 in [LICENSE](../LICENSE).
+The software is **AGPL-3.0-only**. The interface's **Source code** link uses the release source URL in [`SoftwareNotice.tsx`](../src/components/SoftwareNotice.tsx), unless overridden at build time. Verify that this URL identifies the source of the version you deploy. When deploying a modified version for users to interact with over a network, prominently offer those users its actual Corresponding Source at no charge. Include the required source and material needed to build, install, run and modify that version. An unchanged upstream link does not provide the source of your local modifications. See [licensing and attribution](LICENSING.md) and AGPL Sections 1 and 13 in [LICENSE](../LICENSE).
 
 Set **`VITE_SOURCE_URL` before building** to point to an accessible source archive or an exact commit/tag containing the deployed version. Replace the example URL below with your published source location; never include credentials, access tokens or private record data in it. The URL is embedded in the browser bundle and visible to everyone who loads the application.
 
@@ -90,7 +92,7 @@ The supplied model descriptions, artwork and documentation are separately licens
 | `TRUST_PROXY` | Disabled | Set exactly `1` when running behind one trusted reverse proxy |
 | `ADMIN_PASSWORD` | None | Initial production administrator password; only used when creating the first administrator |
 | `DEMO_DATE` | Today's date in Asia/Tokyo | Synthetic-data anchor, `YYYY-MM-DD`; used only when creating a demo database |
-| `VITE_SOURCE_URL` | GitHub source at tag `v1.2.0` | **Frontend build time only**; public link to the deployed version's Corresponding Source; never include credentials |
+| `VITE_SOURCE_URL` | Release source URL in `src/components/SoftwareNotice.tsx` | **Frontend build time only**; public link to the deployed version's Corresponding Source; never include credentials |
 
 The API refuses to open a database whose stored mode differs from `APP_MODE`. Do not point production at a demonstration database. Application data, browser-visible dates and passwords should not be placed in source-control configuration files.
 
@@ -102,7 +104,24 @@ Administrators can create accounts through `POST /api/users` with `username`, `n
 
 Sessions last twelve hours, and logging out invalidates the current session. A process restart preserves unexpired sessions. Sign-in is limited to twenty attempts per IP address per fifteen minutes; successful and unsuccessful attempts both count. The rate-limit store is process-local and resets on restart. In front of a reverse proxy, configure forwarding correctly so different users are not all counted as the proxy itself.
 
-All signed-in roles can view volunteer contact details and clearance status. There is no department-level partitioning. Coordinators manage operations; administrators additionally manage accounts and full backups. Match account access to the organization's information-handling policy.
+All signed-in roles can view volunteer contact details, clearance status, event meeting details and attached files. There is no department-, event- or field-level partitioning. Event participant lists do not restrict who can read an event or its files. Coordinators manage operations, field definitions, event types and uploads; administrators additionally manage accounts and full backups. Match account access to the organization's information-handling policy.
+
+## Files, shared documents and meetings
+
+The local file provider stores uploaded bytes in the SQLite database alongside their metadata. The configured database path is the complete application storage location; there is no public upload directory or separate file service to configure. File download requests require a signed-in account and return an attachment, not an inline preview. The UI exposes usage under **Settings → File storage**; `GET /api/storage` reports the same provider, counts and limits.
+
+| Limit | Value |
+| --- | --- |
+| Maximum single file | 10 MiB (10,485,760 bytes), non-empty |
+| Total uploaded file bytes | 250 MiB per workspace |
+| Files and external links per parent record | 200 |
+| Allowed extensions | `.pdf`, `.doc`, `.docx`, `.xls`, `.xlsx`, `.ppt`, `.pptx`, `.txt`, `.csv`, `.png`, `.jpg`, `.jpeg`, `.webp` |
+
+These limits are code constants in `server/attachments.mjs`, not environment settings. Uploads use `application/octet-stream`; the existing 1 MiB JSON request limit does not apply to file bodies. Configure the HTTPS proxy to accept requests of at least 10 MiB on the upload endpoint. Proxy timeouts and response handling must also accommodate authenticated file downloads and larger backups. A proxy rejection may happen before the application can display its own error message.
+
+The server checks filenames, allowed extensions and basic file signatures, records its own SHA-256 hash, and enforces storage limits inside the upload transaction. It does not perform antivirus scanning or guarantee that an Office/PDF document is safe to open. Apply the organization's document-handling controls. Uploaded bytes, database pages and backups are not encrypted by SHUORI. The 250 MiB limit counts active file bytes, not total SQLite/WAL size; removed files can leave reusable database pages, and audit/operational records add further disk use. Monitor free disk space separately.
+
+An event, profile, shift, activity record or journal entry may instead store an external HTTPS file/folder link. The link is opened at its provider; SHUORI does not retrieve its contents, grant cloud permissions or include the remote file in a backup. Google Drive and other providers retain their own access controls. Meeting modules likewise open an existing Zoom, Google Meet, Teams or other HTTPS join URL. There is no Google OAuth, direct Google Cloud Storage backend, Drive synchronization, calendar synchronization, meeting creation API or recording retrieval in this release. No provider credentials are needed for saved links. See [Events and records](EVENTS-AND-RECORDS.md) for the operational workflows.
 
 ## Backups
 
@@ -120,7 +139,9 @@ By default, the script writes a timestamped file under `backups/`. Provide a des
 node scripts/backup.mjs 'backups/production-before-upgrade.json'
 ```
 
-The script refuses to overwrite an existing destination. It reads a consistent transaction snapshot. Backups include operational entities, location metadata, the complete audit history and public account names/roles. They exclude password hashes, session tokens and CSRF secrets. Backup files still contain volunteer information and require the same access protection as the live workspace.
+The script refuses to overwrite an existing destination. It reads a consistent transaction snapshot. Backups include all operational collections and custom definitions, location metadata, the complete audit history, public account names/roles and an `attachmentBlobs` array with base64-encoded local file bytes. The HTTP backup uses the same file-bearing format. Password hashes, session tokens and CSRF secrets are excluded. Event meeting passcodes and saved external URLs remain part of operational backup data. Protect backups as complete copies of the workspace's records and uploaded documents.
+
+Base64 adds roughly one third to file-byte size before JSON metadata is added. A workspace near its 250 MiB file limit can produce a backup larger than 333 MiB. Export and restore currently assemble the backup in memory; allow sufficient process memory, storage space and download time. For large workspaces, prefer the command-line workflow and verify the resulting file. Excel and CSV contain file metadata only and cannot recover uploaded bytes. Remote cloud documents are not copied into any SHUORI backup; maintain their provider-side recovery process.
 
 Schedule this command with the organization's task scheduler or service tooling. Check its exit status, protect and encrypt the destination, retain copies according to policy, and practice restoration. The application itself does not schedule backups or encrypt exports.
 
@@ -137,9 +158,11 @@ $env:ADMIN_PASSWORD = [System.Net.NetworkCredential]::new('', (Read-Host 'Restor
 node scripts/backup.mjs --restore 'backups/production-before-upgrade.json'
 ```
 
-The restore validates field schemas, dates, dependencies and references before committing operational records. Historical assignments are preserved without requiring the volunteer's current readiness state. Installed location definitions are used when restoring; invalid location references are rejected. The import is atomic, appends a restoration audit entry, and invalidates destination sessions.
+The restore validates field schemas, custom values, dates, dependencies and references before committing operational records. Historical assignments are preserved without requiring the volunteer's current readiness state, and older records are not rejected solely for a newly required custom field. Installed location definitions are used when restoring; invalid location references are rejected. File restore verifies canonical base64, matching metadata, file signatures, byte counts, SHA-256 hashes, attachment counts and workspace storage limits. Missing, duplicate or orphan blobs are rejected. Records, audit history and validated file bytes are imported atomically; a restoration audit entry is appended and destination sessions are invalidated.
 
-Sign in with the destination workspace's `admin` account and bootstrap password. Additional accounts must be recreated because credentials are intentionally excluded from JSON backups. Check collection counts and a representative project, activity record and schedule before switching the service's `DATABASE_PATH` to the restored file. Keep the previous database until the recovered service has been accepted.
+Older schema 1 backups that omit the new collections restore them as empty. A backup that declares a local file must include its bytes; metadata-only file references cannot be restored as working uploads. Restore continues to refuse an occupied destination, including a second check under its write lock. Stop any service process using the destination while restoring.
+
+Sign in with the destination workspace's `admin` account and bootstrap password. Additional accounts must be recreated because credentials are intentionally excluded from JSON backups. Check collection counts, custom fields, a representative event, activity record, schedule and an authenticated attachment download before switching the service's `DATABASE_PATH` to the restored file. Compare a restored file's bytes/hash with the source backup evidence. Keep the previous database until the recovered service has been accepted.
 
 Demo backups are intended as portable evidence and cannot be imported into production. The standard demo initializer creates records immediately, so the empty-workspace restore workflow is intended for production recovery.
 
@@ -151,7 +174,7 @@ npm.cmd test
 npm.cmd run test:e2e
 ```
 
-The build type-checks TypeScript and creates the production assets. The API/domain tests use temporary databases and verify authentication, authorization, CSRF, stale-write protection, audit atomicity, scheduling, dependencies, CSV escaping, readiness changes, persistence and backup restoration. End-to-end tests use installed Google Chrome through Playwright; the README describes the alternative Chromium setup.
+The build type-checks TypeScript and creates the production assets. The API/domain tests use temporary databases and verify authentication, authorization, CSRF, stale-write protection, audit atomicity, scheduling, dependencies, CSV escaping, readiness changes, custom-field rules, event references, attachment validation, persistence and file-bearing backup restoration. End-to-end tests use installed Google Chrome through Playwright; the README describes the alternative Chromium setup.
 
 The repository also provides a multi-stage `Dockerfile` and `compose.yaml`. Configure `APP_ORIGIN` and the first-start `ADMIN_PASSWORD` in the shell or a private Compose environment file, then run `docker compose up --build -d`. The container uses a non-root account, persists `/app/data` in a named volume, and exposes its service only at host loopback port 3001. The external HTTPS reverse proxy remains the operator's responsibility. Docker was not available in the build environment, so this optional deployment path has not been runtime-validated.
 

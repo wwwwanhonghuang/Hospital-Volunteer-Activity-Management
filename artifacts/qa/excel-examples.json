@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-08T01:10:37.177Z",
-  "version": "1.2.0",
+  "generatedAt": "2026-10-08T08:07:08.103Z",
+  "version": "1.3.0",
   "sourceMode": "demo",
   "workspaceDate": "2026-10-08",
   "note": "Fictional demonstration data only. Downloaded through the compiled application.",
@@ -9,12 +9,12 @@
     {
       "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
       "downloadName": "shuori-monthly-report-2026-10-08.xlsx",
-      "bytes": 29249,
-      "sha256": "2d12d9281c3d35ae52bd4178d92ccd523189d5c543b02da8bf9fa665ba1fecca",
+      "bytes": 31029,
+      "sha256": "cbd9540dc51e3805c896130b8b20b24f19293f48ddece8d68b80dfe6cb93b5fb",
       "sheets": [
         {
           "name": "Overview",
-          "rows": 8
+          "rows": 9
         },
         {
           "name": "Monthly summary",
@@ -47,14 +47,18 @@
         {
           "name": "Assignment roster",
           "rows": 45
+        },
+        {
+          "name": "Field dictionary",
+          "rows": 0
         }
       ]
     },
     {
       "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
       "downloadName": "shuori-project-plan-2026-10-08.xlsx",
-      "bytes": 25461,
-      "sha256": "a11fcc389deccd92072e0b8adabe3f757436cd05e33c701504d94d65613ac8b9",
+      "bytes": 25462,
+      "sha256": "a7ce1dfcd2460d47059b032ea55da5f3497b4873185fbd7f4239df774b381721",
       "sheets": [
         {
           "name": "Overview",
@@ -90,7 +94,7 @@
       "file": "artifacts/exports/shuori-demo-readiness.xlsx",
       "downloadName": "shuori-readiness-2026-10-08.xlsx",
       "bytes": 13323,
-      "sha256": "72bb0a5022a593bcca7ac5c89f6342d8be3330aeb0958b23617c7b85bfbd6d62",
+      "sha256": "70ef33aa29fad616487de09ea243a7f85a1fa4969c40ba5b249e6937943543ff",
       "sheets": [
         {
           "name": "Overview",
@@ -113,12 +117,12 @@
     {
       "file": "artifacts/exports/shuori-demo-workspace.xlsx",
       "downloadName": "shuori-workspace-2026-10-08.xlsx",
-      "bytes": 49288,
-      "sha256": "aa7281ce8510495b6cd79e4f3595604cd6402b36b8d63d7f4afdcf4b508f7916",
+      "bytes": 63996,
+      "sha256": "8db0868a537bba5b676ee149b2680ee033b481b22678269fb7da8934ef99ba8f",
       "sheets": [
         {
           "name": "Overview",
-          "rows": 15
+          "rows": 23
         },
         {
           "name": "Volunteers",
@@ -177,8 +181,88 @@
           "rows": 0
         },
         {
+          "name": "Event types",
+          "rows": 4
+        },
+        {
+          "name": "Events",
+          "rows": 3
+        },
+        {
+          "name": "Event attendance",
+          "rows": 4
+        },
+        {
+          "name": "Event checklist",
+          "rows": 3
+        },
+        {
+          "name": "Event relationships",
+          "rows": 12
+        },
+        {
+          "name": "Journal entries",
+          "rows": 2
+        },
+        {
+          "name": "Files and links",
+          "rows": 0
+        },
+        {
           "name": "Locations",
           "rows": 6
+        },
+        {
+          "name": "Field dictionary",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-events.xlsx",
+      "downloadName": "shuori-events-2026-10-08.xlsx",
+      "bytes": 23199,
+      "sha256": "8b6ba063c6eaf5e054963120a67165edf65bffb58208ba3fadad50b695d3dac7",
+      "sheets": [
+        {
+          "name": "Overview",
+          "rows": 9
+        },
+        {
+          "name": "Events",
+          "rows": 3
+        },
+        {
+          "name": "Event attendance",
+          "rows": 4
+        },
+        {
+          "name": "Event checklist",
+          "rows": 3
+        },
+        {
+          "name": "Event relationships",
+          "rows": 12
+        },
+        {
+          "name": "Activity records",
+          "rows": 0
+        },
+        {
+          "name": "Journal entries",
+          "rows": 1
+        },
+        {
+          "name": "Files and links",
+          "rows": 0
+        },
+        {
+          "name": "Event types",
+          "rows": 3
+        },
+        {
+          "name": "Field dictionary",
+          "rows": 2
         }
       ]
     }

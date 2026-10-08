@@ -28,9 +28,13 @@ export const saveEntity = <T extends object>(collection: Collection, value: T & 
 export const deleteEntity = (collection: Collection, value: Entity) => api(`/${collection}/${value.id}`, { method: 'DELETE', body: JSON.stringify({version: value.version}) });
 export async function downloadFile(path: string, filename: string) {
   const response = await fetch(`/api${path}`, { credentials: 'same-origin' });
-  if (!response.ok) throw new Error('Export failed. Please try again.');
+  if (!response.ok) {
+    if (response.status === 401) window.dispatchEvent(new Event('komorebi-session-expired'));
+    const error = await response.json().catch(() => ({}));
+    throw new Error(error.error || `Download failed (${response.status}). Please try again.`);
+  }
   const url = URL.createObjectURL(await response.blob()); const a = document.createElement('a');
-  a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
+  a.href = url; a.download = filename; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 export type ExcelExportRequest = {

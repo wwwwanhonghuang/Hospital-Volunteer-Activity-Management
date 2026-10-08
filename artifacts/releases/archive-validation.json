@@ -1,8 +1,9 @@
 {
+  "version": "1.3.0",
   "zipCrc": "passed",
   "manifestHashes": "passed",
-  "files": 202,
-  "verifiedHashes": 201,
+  "files": 234,
+  "verifiedHashes": 233,
   "excludedSensitiveRuntimeFiles": true,
-  "archiveSha256": "b6d95552c07bf3567e3865d13e145a3f83c92f341724791610dc209ed78ab7ff"
+  "archiveSha256": "f4c371757b087718cc25ef529785c38a74af5f5a154d8d59a2b62bde144ab75d"
 }
