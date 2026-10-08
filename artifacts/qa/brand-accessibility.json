@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-08T08:35:14.490Z",
+  "checkedAt": "2026-10-08T09:03:52.288Z",
   "baseURL": "http://127.0.0.1:3001",
   "browser": "Installed Chrome via Playwright",
   "scope": "Independent SHUORI identity, desktop/mobile login, original artwork and software/source notice. Automated checks do not establish WCAG conformance.",
@@ -29,7 +29,7 @@
         },
         {
           "text": "Source code",
-          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.3.1",
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.4.0",
           "visible": true
         }
       ],
@@ -338,7 +338,7 @@
         },
         {
           "text": "Source code",
-          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.3.1",
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.4.0",
           "visible": true
         }
       ],

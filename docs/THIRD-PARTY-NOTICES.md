@@ -11,6 +11,8 @@ The project's original software uses [AGPL-3.0-only](../LICENSE); its designated
 | Lucide icons | ISC; Lucide contributors |
 | Express | MIT; Express contributors |
 | Zod | MIT; Colin McDonnell and contributors |
+| PDFKit and fontkit | MIT; Devon Govett and contributors; notices in `docs/licenses/pdfkit.txt` and `docs/licenses/fontkit.txt` |
+| Noto Sans JP PDF font | SIL Open Font License 1.1; Adobe/Google Fonts; full license and pinned source/derived hashes in [`server/fonts/`](../server/fonts/README.md) |
 | ExcelJS | MIT; ExcelJS contributors; direct license included in `docs/licenses/exceljs.txt` |
 | Vite, TypeScript and Playwright | Respective MIT / Apache-2.0 package licenses |
 | DM Sans | SIL Open Font License 1.1; bundled through Fontsource |

@@ -8,17 +8,19 @@
 >
 > **Demo 3D model provenance:** the bundled example was reconstructed from the **University of Tokyo Hospital (UTOKYO Hospital)** [publicly available official floor maps](https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html). It is an independently made, illustrative example with invented geometry, furnishings and routes, not an official or surveyed building model. Referencing these maps does not imply any relationship with the source hospital. The demo is not suitable for real-world navigation, evacuation or clinical decisions. See the [source register](docs/FLOOR-SOURCES.md) for provenance and limitations.
 
-[Documentation](docs/README.md) · [Events and records](docs/EVENTS-AND-RECORDS.md) · [Excel guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
+[Documentation](docs/README.md) · [Events and records](docs/EVENTS-AND-RECORDS.md) · [PDF & Excel views](docs/VIEW-EXPORTS.md) · [Excel data guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
 
 A general-purpose English-language workspace for hospital volunteer coordination, activity planning, scheduling and record management.
 
 守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.3** adds modular event workspaces, custom event types, richer volunteer profiles, configurable typed fields, dated volunteer records, authenticated report uploads and shared-folder links. Meetings can connect to saved Zoom, Google Meet or Teams links; attendance, preparation checklists, event relationships and Excel exports remain with the event. It builds on the 守織 SHUORI identity, SHUORI aqua palette and formatted Excel workbooks for administrative reporting. Spatial Studio provides a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the public source floor guide for the bundled demonstration.
 
+Version **1.4** adds a PDF and Excel export studio: volunteer-by-time timetables, station coverage boards, weekly rosters, event briefs and chronological agendas. Preview the saved scope, choose A4/A3, and download documents with readable pagination, exact-time registers and embedded Japanese typography in PDFs.
+
 ![Operations overview](artifacts/previews/01-overview.png)
 
 ## Open the application
 
-Download the [packaged SHUORI 1.3.1 application](artifacts/releases/shuori-1.3.1.zip) ([SHA-256](artifacts/releases/shuori-1.3.1.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
+Download the [packaged SHUORI 1.4.0 application](artifacts/releases/shuori-1.4.0.zip) ([SHA-256](artifacts/releases/shuori-1.4.0.sha256)) for source, compiled assets, models and examples, or clone the repository below. Node.js is required for either route.
 
 Clone this repository first:
 
@@ -40,6 +42,22 @@ Open **http://127.0.0.1:3001** and choose **Explore demo workspace**. The demo i
 For development, `npm.cmd run dev` starts the interface at **http://127.0.0.1:5173** and the API at port 3001. Stop an existing API server before starting development.
 
 Production mode has a separate empty database and requires a real administrator password. See the [deployment guide](docs/DEPLOYMENT.md) for HTTPS, accounts, service operation, backups and restoration. Production does not expose demo sign-in.
+
+## Printable PDF and Excel views
+
+Open **Export views** in Schedule or Events, **Export brief** inside an event, or **Schedule & event views** in Reports. Review the preview, choose dates and statuses, and download either format. Existing data workbooks remain available for analysis.
+
+| Document | PDF example | Editable Excel example |
+| --- | --- | --- |
+| Volunteer timetable: people × time | [PDF](artifacts/exports/shuori-demo-volunteer-timeline.pdf) | [Excel](artifacts/exports/shuori-demo-volunteer-timeline.xlsx) |
+| Station coverage: locations × time | [PDF](artifacts/exports/shuori-demo-station-timeline.pdf) | [Excel](artifacts/exports/shuori-demo-station-timeline.xlsx) |
+| Weekly roster: people × dates | [PDF](artifacts/exports/shuori-demo-weekly-roster.pdf) | [Excel](artifacts/exports/shuori-demo-weekly-roster.xlsx) |
+| Event briefing and participant sheet | [PDF](artifacts/exports/shuori-demo-event-brief.pdf) | [Excel](artifacts/exports/shuori-demo-event-brief.xlsx) |
+| Event agenda | [PDF](artifacts/exports/shuori-demo-event-agenda.pdf) | [Excel](artifacts/exports/shuori-demo-event-agenda.xlsx) |
+
+Timelines separate overlapping assignments into lanes, identify open places and retain exact times in a complete register. Long days split into readable time panels; long notes continue across pages or numbered spreadsheet rows. Occupied hours count unique booked minutes within the selected window, not recorded service hours. Contact and health records, meeting access credentials and file contents are excluded; notes and custom event fields are optional. See the [view export guide](docs/VIEW-EXPORTS.md) for scope, limits and print settings.
+
+![Export preview](artifacts/previews/12-export-views.png)
 
 ## What is implemented
 
@@ -63,7 +81,7 @@ All ordinary create/edit actions are stored in SQLite. Concurrent edits are chec
 
 Use **Export Excel** on a list to download every matching record across all pages. Schedule exports follow the selected day or week; project workbooks include task dependencies and calculated critical-path values. **Monthly report Excel** includes totals, participation, recognition planning, service categories and a six-month trend. **Workspace settings** provides whole-collection, complete-workspace and administrative-readiness workbooks.
 
-The files contain separate named worksheets, frozen headings, filters, readable references and native numeric/date cells. Japanese text and phone-number leading zeros are preserved. Workbooks are snapshots of saved data; editing them does not change the application. See the [Excel guide](docs/EXCEL-EXPORTS.md) for contents and scope.
+The files contain separate named worksheets, frozen headings, filters, readable references and native numeric/date cells. Japanese text and phone-number leading zeros are preserved. Workbooks are snapshots of saved data; editing them does not change the application. See the [Excel data guide](docs/EXCEL-EXPORTS.md) for contents and scope, and the [PDF and Excel view guide](docs/VIEW-EXPORTS.md) for printable layouts.
 
 Five fictional-data examples are included: [event workspace](artifacts/exports/shuori-demo-events.xlsx), [monthly report](artifacts/exports/shuori-demo-monthly-report.xlsx), [project plan](artifacts/exports/shuori-demo-project-plan.xlsx), [readiness](artifacts/exports/shuori-demo-readiness.xlsx) and [complete workspace](artifacts/exports/shuori-demo-workspace.xlsx). The [identity guide](docs/BRAND.md) documents the original logo, independent aqua palette and compatibility with earlier releases.
 

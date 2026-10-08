@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import type { AppState, Collection, Entity, User } from './types';
+import type { ViewExportRequest, ViewReport } from '../shared/export-views.mjs';
 let csrfToken = '';
 export async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(`/api${path}`, {
@@ -70,6 +71,35 @@ export async function downloadExcel(request: ExcelExportRequest): Promise<string
   if (!blob.size) throw new Error('The workbook was empty. Please retry the export.');
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
+  link.href = url; link.download = filename; document.body.appendChild(link); link.click(); link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  return filename;
+}
+
+/** Both preview and download are built from the authenticated, saved server state. */
+export const previewExportView = (request: ViewExportRequest, signal?: AbortSignal) => api<ViewReport>('/export/view-preview', { method: 'POST', body: JSON.stringify(request), signal });
+
+export async function downloadExportView(request: ViewExportRequest, format: 'pdf' | 'xlsx'): Promise<string> {
+  const response = await fetch('/api/export/view', {
+    method: 'POST', credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json', ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {}) },
+    body: JSON.stringify({ ...request, format }),
+  });
+  if (!response.ok) {
+    if (response.status === 401) window.dispatchEvent(new Event('komorebi-session-expired'));
+    const error = await response.json().catch(() => ({}));
+    throw new Error(error.error || `The document could not be exported (${response.status}). Please try again.`);
+  }
+  const expected = format === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  if (!response.headers.get('Content-Type')?.toLowerCase().includes(expected)) throw new Error('The server returned an unexpected document format. Please retry the export.');
+  const disposition = response.headers.get('Content-Disposition') || '';
+  const encoded = disposition.match(/filename\*=UTF-8''([^;]+)/i)?.[1];
+  let proposed = disposition.match(/filename="([^"]+)"/i)?.[1] || `shuori-${request.view}.${format}`;
+  if (encoded) { try { proposed = decodeURIComponent(encoded); } catch { /* Retain the plain filename. */ } }
+  const filename = proposed.replace(/[\\/\x00-\x1f]/g, '-').replace(/^\.+/, '') || `shuori-${request.view}.${format}`;
+  const blob = await response.blob();
+  if (!blob.size) throw new Error('The document was empty. Please retry the export.');
+  const url = URL.createObjectURL(blob); const link = document.createElement('a');
   link.href = url; link.download = filename; document.body.appendChild(link); link.click(); link.remove();
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   return filename;

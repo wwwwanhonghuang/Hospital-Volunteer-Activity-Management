@@ -1,19 +1,19 @@
 {
-  "version": "1.3.1",
-  "archive": "artifacts/releases/shuori-1.3.1.zip",
-  "archiveSha256": "329d148d880c5b19c204028078a4289630f34a5a54f16ebbd9878b847bd566e1",
-  "archiveEntries": 237,
-  "startedAt": "2026-10-08T08:36:12.543Z",
+  "version": "1.4.0",
+  "archive": "artifacts/releases/shuori-1.4.0.zip",
+  "archiveSha256": "7851482e55adbd5cedd1ffc6864c561a069ae7d787afd2c4c51577b08f5a9314",
+  "archiveEntries": 284,
+  "startedAt": "2026-10-08T09:10:14.710Z",
   "nodeVersion": "v22.17.0",
   "dependencySource": "Workspace-installed node_modules, resolved through parent directories; no dependency installation performed.",
-  "extractedDirectory": "artifacts/release-check/v131-runtime-a3b6de1bfa/shuori-1.3.1",
+  "extractedDirectory": "artifacts/release-check/v140-runtime-74258b40d4/shuori-1.4.0",
   "isolatedDatabase": true,
   "ephemeralLoopbackPort": true,
   "checks": [
     {
       "name": "Archive manifest hashes",
       "passed": true,
-      "files": 236
+      "files": 283
     },
     {
       "name": "Packaged server health",
@@ -48,7 +48,89 @@
       "genericLibraryLabels": true
     },
     {
+      "name": "Bundled Unicode PDF font, source provenance and OFL",
+      "passed": true
+    },
+    {
+      "name": "View preview and document downloads require authentication and CSRF",
+      "passed": true
+    },
+    {
+      "name": "Protected scope preview excludes contact fields and disables caching",
+      "passed": true
+    },
+    {
+      "name": "All five packaged PDF export layouts",
+      "passed": true,
+      "documents": [
+        {
+          "view": "volunteer-timeline",
+          "bytes": 19429,
+          "pages": 3
+        },
+        {
+          "view": "station-timeline",
+          "bytes": 18290,
+          "pages": 3
+        },
+        {
+          "view": "weekly-roster",
+          "bytes": 27423,
+          "pages": 7
+        },
+        {
+          "view": "event-brief",
+          "bytes": 14389,
+          "pages": 2
+        },
+        {
+          "view": "event-agenda",
+          "bytes": 12004,
+          "pages": 1
+        }
+      ]
+    },
+    {
+      "name": "All five packaged Excel export layouts",
+      "passed": true,
+      "workbooks": [
+        {
+          "view": "volunteer-timeline",
+          "bytes": 20272,
+          "sheets": 8
+        },
+        {
+          "view": "station-timeline",
+          "bytes": 19911,
+          "sheets": 8
+        },
+        {
+          "view": "weekly-roster",
+          "bytes": 22780,
+          "sheets": 7
+        },
+        {
+          "view": "event-brief",
+          "bytes": 20502,
+          "sheets": 10
+        },
+        {
+          "view": "event-agenda",
+          "bytes": 16569,
+          "sheets": 6
+        }
+      ]
+    },
+    {
+      "name": "Viewer can export while operational editing stays prohibited",
+      "passed": true
+    },
+    {
       "name": "Event create and versioned update",
+      "passed": true
+    },
+    {
+      "name": "PDF rejects unsupported glyphs without silent replacement",
       "passed": true
     },
     {
@@ -71,5 +153,5 @@
   ],
   "passed": true,
   "serverStopped": true,
-  "finishedAt": "2026-10-08T08:36:15.392Z"
+  "finishedAt": "2026-10-08T09:10:17.589Z"
 }

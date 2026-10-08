@@ -1,4 +1,4 @@
-{
+﻿{
   "auditReportVersion": 2,
   "vulnerabilities": {},
   "metadata": {
@@ -11,12 +11,12 @@
       "total": 0
     },
     "dependencies": {
-      "prod": 250,
-      "dev": 129,
+      "prod": 269,
+      "dev": 128,
       "optional": 53,
       "peer": 0,
       "peerOptional": 0,
-      "total": 378
+      "total": 396
     }
   }
 }

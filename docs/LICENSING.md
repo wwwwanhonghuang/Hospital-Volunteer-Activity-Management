@@ -14,7 +14,7 @@ The complete [AGPL text](../LICENSE) and [CC legal code](../LICENSES/CC-BY-NC-SA
 | Generic Three.js rendering, animation, selection, transformation and asset-loading code | AGPL-3.0-only |
 | Original non-executable model and furnishing descriptions in `content/spatial/*.json` | CC BY-NC-SA 4.0 |
 | Original `public/*.svg` artwork, `artifacts/models/*.glb` models and `artifacts/previews/*.png` artwork | CC BY-NC-SA 4.0, for original creative elements |
-| Authored project prose, including README and documentation; original authored content/layout in the fictional example workbooks | CC BY-NC-SA 4.0 |
+| Authored project prose, including README and documentation; original authored content/layout in the fictional example PDF documents and workbooks | CC BY-NC-SA 4.0 |
 | Dependencies, bundled fonts/icons, copied license texts and external source material | Their own terms; see [third-party notices](THIRD-PARTY-NOTICES.md) |
 
 The model descriptions are separate data resources, not source-code files with a noncommercial restriction. They describe geometry, placement and appearance; the AGPL rendering software reads them. The original SHUORI SVG artwork is also loaded separately. [Content guidance](../content/README.md) explains their structure and replacement.
@@ -48,3 +48,5 @@ Later operator-entered records and uploaded content are not automatically licens
 Factual test results, generated QA logs, checksums and operational metadata are not claimed as exclusive creative works merely because they appear in this repository. The project grants only rights its contributors hold. Third-party components retain their notices and licenses, including those embedded in example workbooks, previews or compiled distributions.
 
 This separation follows Creative Commons' [guidance to use software-specific licenses for software](https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software). It does not modify either standard license.
+
+The bundled PDF font under `server/fonts/` is third-party Noto Sans JP under SIL OFL 1.1. Its [license](../server/fonts/OFL.txt) and [pinned provenance](../server/fonts/provenance.json) accompany the font; the project licenses do not replace those terms.

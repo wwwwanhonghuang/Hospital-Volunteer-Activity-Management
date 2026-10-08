@@ -149,7 +149,7 @@ export async function buildExcelExport(state, input, options = {}) {
     const last = columns.length;
     for (const row of [1, 2, 3, 4]) sheet.mergeCells(row, 1, row, last);
     sheet.getCell(1, 1).value = safeValue(`守織 SHUORI · ${title}`, 'text', `${title}!A1`);
-    sheet.getCell(2, 1).value = safeValue(`Generated ${stamp} JST · Asia/Tokyo · ${options.mode || 'workspace'} · version ${options.version || '1.3.0'}`, 'text', `${title}!A2`);
+    sheet.getCell(2, 1).value = safeValue(`Generated ${stamp} JST · Asia/Tokyo · ${options.mode || 'workspace'} · version ${options.version || '1.4.0'}`, 'text', `${title}!A2`);
     sheet.getCell(3, 1).value = safeValue(scope, 'text', `${title}!A3`);
     sheet.getCell(4, 1).value = safeValue(note || 'Dates are Tokyo civil dates. User-entered text is stored as text. No rows are omitted silently.', 'text', `${title}!A4`);
     sheet.getRow(1).height = 34; sheet.getRow(2).height = 23; sheet.getRow(3).height = 32; sheet.getRow(4).height = 36;

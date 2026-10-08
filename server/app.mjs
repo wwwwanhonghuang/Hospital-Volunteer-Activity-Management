@@ -11,6 +11,7 @@ import { installAttachmentRoutes } from './attachments.mjs';
 import { exportBackup } from './backup.mjs';
 import { suggestSchedule } from '../shared/scheduling.mjs';
 import { buildExcelExport } from './excel-export.mjs';
+import { installViewExportRoutes } from './view-export.mjs';
 
 const hash = value => createHash('sha256').update(value).digest('hex');
 const publicUser = row => ({id:row.id,name:row.name,username:row.username,role:row.role});
@@ -104,7 +105,7 @@ export function createApp(options={}) {
     transaction(()=>{db.prepare('DELETE FROM sessions WHERE expires<?').run(Date.now());if(req.sessionHash)db.prepare('DELETE FROM sessions WHERE token_hash=?').run(req.sessionHash);db.prepare('INSERT INTO sessions VALUES(?,?,?,?)').run(hash(token),user.id,csrfToken,Date.now()+cookieOptions.maxAge);audit(user.name,'login','session',user.id,'Signed in.');});
     res.cookie('vops_session',token,cookieOptions);res.json({user:publicUser(user),csrfToken,mode});
   }
-  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.3.1'}));
+  app.get('/api/health',(_req,res)=>res.json({status:'ok',mode,version:'1.4.0'}));
   app.get('/api/session',(req,res)=>res.json({user:req.user||null,csrfToken:req.csrf||'',mode}));
   app.post('/api/demo-login',limitLogin,(req,res)=>{
     if(mode!=='demo')throw new HttpError(404,'Demo sign-in is unavailable.');
@@ -125,6 +126,9 @@ export function createApp(options={}) {
   });
   function getState(){const state=emptyState();state.locations=JSON.parse(db.prepare('SELECT value FROM metadata WHERE key=?').get('locations').value);for(const collection of collections)state[collection]=db.prepare('SELECT data FROM entities WHERE collection=? ORDER BY rowid').all(collection).map(row=>parseEntity(collection,JSON.parse(row.data)));state.audit=db.prepare('SELECT id,timestamp,actor,action,entity,entity_id AS entityId,summary FROM audit ORDER BY rowid DESC LIMIT 1000').all();return state;}
   app.locals.getState=getState;
+  installViewExportRoutes(app,{requireAuth,getState,mode,checkCsrf:req=>{
+    if(!equalSecret(req.get('x-csrf-token'),req.csrf))throw new HttpError(403,'The security token is invalid. Refresh the page and try again.');
+  }});
   app.get('/api/state',requireAuth,(_req,res)=>res.json(getState()));
   function validCollection(value,{write=false}={}){if(!(write?managedCollections:collections).includes(value))throw new HttpError(404,'Collection was not found.');return value;}
   function getEntity(collection,id){const row=db.prepare('SELECT data FROM entities WHERE collection=? AND id=?').get(collection,id);if(!row)throw new HttpError(404,'Record was not found.');return parseEntity(collection,JSON.parse(row.data));}

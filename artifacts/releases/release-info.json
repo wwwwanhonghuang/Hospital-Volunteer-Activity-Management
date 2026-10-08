@@ -1,10 +1,10 @@
 {
-  "version": "1.3.1",
-  "createdAt": "2026-10-08T08:35:57.259Z",
-  "archive": "artifacts/releases/shuori-1.3.1.zip",
-  "bytes": 9799352,
-  "sha256": "329d148d880c5b19c204028078a4289630f34a5a54f16ebbd9878b847bd566e1",
-  "files": 237,
+  "version": "1.4.0",
+  "createdAt": "2026-10-08T09:09:59.640Z",
+  "archive": "artifacts/releases/shuori-1.4.0.zip",
+  "bytes": 15073742,
+  "sha256": "7851482e55adbd5cedd1ffc6864c561a069ae7d787afd2c4c51577b08f5a9314",
+  "files": 284,
   "includes": [
     "Source",
     "Compiled application",

@@ -8,6 +8,7 @@ import AttachmentPanel from './AttachmentPanel';
 import JournalPanel from './JournalPanel';
 import { CustomFields } from './CustomFields';
 import ExcelExportButton from './ExcelExportButton';
+import ViewExportButton from './ViewExportDialog';
 import { downloadEventCalendar } from '../event-calendar';
 import { eventConflicts } from '../event-conflicts';
 import '../events.css';
@@ -103,7 +104,7 @@ export default function EventWorkspace(props: PageProps & { eventId: string; onC
   function go(href: string) { onClose(); window.location.hash = href; }
   return <Modal title={event.title} onClose={() => !busy && onClose()} wide>
     <div className="event-workspace">
-      <div className="event-detail-heading"><div className="chips"><span className={`event-type event-type-${type?.color || 'blue'}`}>{type?.name || 'Event'}</span><Badge tone={eventTone(event.status)}>{statusLabel(event.status)}</Badge></div><div className="event-detail-actions"><button className="button button-secondary" onClick={() => downloadEventCalendar([event], data.locations, event.id)}><ArrowDownToLine size={14} />Calendar</button><ExcelExportButton request={{ kind: 'events', ids: [event.id] }} scope="This event" notify={notify} />{canEdit && <button className="button button-primary" onClick={() => setEditing(true)}><Pencil size={14} />Edit event</button>}</div></div>
+      <div className="event-detail-heading"><div className="chips"><span className={`event-type event-type-${type?.color || 'blue'}`}>{type?.name || 'Event'}</span><Badge tone={eventTone(event.status)}>{statusLabel(event.status)}</Badge></div><div className="event-detail-actions"><ViewExportButton request={{ view: 'event-brief', eventId: event.id, dateFrom: event.date, dateTo: event.endDate }} scope="This saved event and its connected activity details" notify={notify} label="Export brief" /><button className="button button-secondary" onClick={() => downloadEventCalendar([event], data.locations, event.id)}><ArrowDownToLine size={14} />Calendar</button><ExcelExportButton request={{ kind: 'events', ids: [event.id] }} scope="This event" notify={notify} />{canEdit && <button className="button button-primary" onClick={() => setEditing(true)}><Pencil size={14} />Edit event</button>}</div></div>
       <div className="event-meta"><span><CalendarDays size={15} />{formatDate(event.date, { day: 'numeric', month: 'short', year: 'numeric' })}{event.endDate !== event.date ? ` – ${formatDate(event.endDate)}` : ''}</span><span><Clock3 size={15} />{event.start}–{event.end} JST</span><span><MapPin size={15} />{event.locationText || location?.name || 'Location to be confirmed'}</span></div>
       <div className="event-tabs" role="tablist" aria-label="Event workspace" onKeyDown={handleTabKeys}>{tabs.map(item => <button type="button" id={`event-tab-${item.id}`} role="tab" aria-selected={activeTab === item.id} tabIndex={activeTab === item.id ? 0 : -1} aria-controls="event-panel" key={item.id} onClick={() => setTab(item.id)} className={activeTab === item.id ? 'active' : ''}><item.icon size={14} />{item.label}</button>)}</div>
       {error && <p className="form-error" role="alert">{error}</p>}

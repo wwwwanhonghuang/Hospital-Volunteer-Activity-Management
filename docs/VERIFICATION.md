@@ -1,4 +1,4 @@
-# Release verification · 守織 SHUORI 1.3.1
+# Release verification · 守織 SHUORI 1.4.0
 
 Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.js **22.17.0**, npm **10.9.2**, and installed Google Chrome driven through Playwright.
 
@@ -7,13 +7,16 @@ Verified on **8 October 2026 (Asia/Tokyo)** in the Windows workspace with Node.j
 | Check | Observed result |
 | --- | --- |
 | TypeScript and production compilation | Passed; Vite emitted the compiled application into `dist/` |
-| API and domain tests | **45 passed**, zero failures, including 13 Excel cases, seven event/record/storage groups, two calendar/conflict cases and eight spatial-scenario cases |
-| Browser acceptance | **23 workflows passed**, zero failed, skipped or flaky tests; includes complete event workspaces, flexible volunteer records, viewer permissions and existing spatial workflows |
+| API and domain tests | **66 passed**, zero failures: the prior 45 cases plus ten document-scope/API groups, five visual Excel groups and six PDF groups |
+| Browser acceptance | **27 workflows passed**, zero failed, skipped or flaky tests; includes complete event workspaces, flexible volunteer records, viewer permissions and existing spatial workflows |
 | General application accessibility | **15 views**, zero automated WCAG rule violations across ten existing routes and five forms |
 | Events and records accessibility | **30 desktop/mobile states**, zero automated violations, no browser errors or horizontal overflow; nine keyboard tab checks pass and saved records remain unchanged |
-| Spatial Studio accessibility scan | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
+| Spatial Studio accessibility scan (retained 1.3.1 baseline) | **12 desktop/mobile states**, zero automated WCAG 2 A/AA and 2.1 AA rule violations; no browser errors, unexpected operational writes or horizontal overflow |
 | Login identity accessibility | **2 desktop/mobile views**, zero automated violations or horizontal overflow; independent-project notice visible at both sizes |
-| Excel examples | Five genuine XLSX downloads, **55 worksheets** in total; parsed by ExcelJS and independently inspected with Python ZIP/XML; monthly totals agree |
+| Data Excel examples | Five genuine XLSX downloads, **55 worksheets** in total; parsed by ExcelJS and independently inspected with Python ZIP/XML; monthly totals agree |
+| Visual Excel examples | Five additional XLSX view workbooks, 39 worksheets; exact registers, frozen headings, print areas and lossless text continuations checked |
+| PDF examples | Five downloadable vector PDFs, **16 pages**; embedded font, searchable Japanese, page numbers and glyph bounds checked, with all example pages visually reviewed |
+| Export studio accessibility | **10 desktop/mobile views**, zero violations or overflow; three keyboard checks and unchanged saved-state fingerprints |
 | Runtime browser errors | None during the captured navigation and spatial acceptance flows |
 | Mobile layout | 390 px viewport inspected; tested management routes and spatial view had no document-level horizontal overflow |
 | Detailed geometry | **590 registered objects**, 15 catalog kinds and **10,358 modeled asset components**; original assemblies use 2,470 mesh instances and 346,424 triangles |
@@ -47,7 +50,17 @@ The five studio browser workflows verify adding and transforming an asset, undo/
 
 A separate pointer check drags the rendered translation arrow and rotation ring. It confirms a changed X coordinate snapped to 0.25 units and a changed rotation snapped to 15 degrees, with no operational API writes.
 
-The 1.3.1 release reruns the complete 23-workflow browser suite, management/event/record accessibility checks, studio and login audits, geometry validation and model exports. Display names and the model's independence disclaimer were updated without changing geometry, materials, transforms, coordinates or stable object identifiers. Original content-extraction comparisons and pointer-handle checks remain baseline evidence from 1.2; their original dates and scope are retained. Published content hashes are checked by the release recorder.
+The 1.4.0 release reruns the complete 27-workflow browser suite, management/event/record accessibility checks and login identity audit, and adds the export-studio audit. Detailed geometry, model exports and the 12-state studio audit remain verified baseline artifacts from 1.3.1; geometry has not changed in this release. Original content-extraction comparisons and pointer-handle checks remain baseline evidence from 1.2. Their original dates and scope are retained, and published content hashes are checked by the release recorder.
+
+## PDF and visual workbook acceptance
+
+Ten model/API groups check bounded scopes, exact minute placement, true versus touching overlaps, cancelled bookings, linked event/shift intervals, unique occupied-hour totals, midnight splitting, clipped-time notices, exact empty selections, same-name station identity, idle rows, filtered agenda auto-ranges, privacy allowlists, optional zero/false fields, authenticated viewer downloads, CSRF/origin rejection and unchanged operational records.
+
+Five Excel groups check rounded-cell collision lanes without merged-cell overwrites, typed exact times, full source IDs, formula-like text, Unicode, long notes continued without loss, cancellation/conflict markers, A4/A3 settings and structured empty output. Five additional example workbooks are independently read back. A conservative width-based print-scale estimate gives at least 8 pt effective text across the supplied examples; this is an estimate, not measurement in desktop Excel. Microsoft Excel and LibreOffice were not available for native print acceptance.
+
+Six PDF groups parse actual PDF streams and Unicode CMaps to check embedded Japanese text, all five views, exact-minute panels, repeated page numbers/headings, long prose and single-cell continuation, true A3 page dimensions, explicit unsupported-glyph errors and very long station labels. The five example PDFs were independently opened with strict pypdf parsing and rendered using pypdfium2. All 16 example pages and six additional long-text stress pages were visually reviewed. Glyph bounds remain inside each page. Noto Sans JP covers the demonstrated English/Japanese names; unsupported scripts, emoji or variation characters return a helpful error offering Excel instead of silently dropping text.
+
+The four new browser workflows download actual PDF/XLSX files as a viewer, inspect timetable/weekly views, retain exact filtered and empty event selections, open a nested event brief with keyboard-focus restoration, exercise explicit notes/custom-field choices, and recover from mobile preview errors without downloading stale settings. The export-studio audit covers ten states and three keyboard checks. These tests do not establish PDF/UA conformance or a complete screen-reader review of generated PDFs.
 
 ## Excel and identity acceptance
 
@@ -57,7 +70,7 @@ Thirteen Excel API/domain cases verify Unicode and leading zeros, numeric/date c
 
 The five downloadable examples contain fictional data. An independent Python standard-library ZIP/XML reader checks archive CRCs, XML structure, Unicode branding, frozen panes and filters, worksheet-index row counts, numeric date storage, text phone numbers, absence of formulas/macros/external links, and monthly totals recomputed from the activity rows. Microsoft Excel and LibreOffice desktop applications were not used; interoperability evidence is OOXML inspection and ExcelJS readback.
 
-The original woven logo, Chinese name and English wordmark were visually reviewed on desktop and mobile. The independent SHUORI aqua palette is documented in [BRAND.md](BRAND.md). The woven logo is original; no institutional mark is bundled. The 1.3.1 application and current screenshots use generic hospital branding and an explicit independent-project notice.
+The original woven logo, Chinese name and English wordmark were visually reviewed on desktop and mobile. The independent SHUORI aqua palette is documented in [BRAND.md](BRAND.md). The woven logo is original; no institutional mark is bundled. The 1.4.0 application and current screenshots use generic hospital branding and an explicit independent-project notice.
 
 ## Content extraction verification
 
@@ -101,19 +114,28 @@ node scripts/audit-accessibility.mjs
 node scripts/audit-studio.mjs
 node scripts/audit-rich-records.mjs
 node scripts/audit-neutral-identity.mjs
+node scripts/audit-view-exports.mjs
 node scripts/validate-spatial.mjs
 node scripts/validate-scene-handles.mjs
 node scripts/capture-preview.mjs
 node scripts/capture-studio.mjs
 node scripts/capture-exports.mjs
 python scripts/validate-excel-artifacts.py
+node scripts/capture-view-excel.mjs
+node scripts/capture-pdf-views.mjs --stress
+python scripts/validate-pdf-artifacts.py
 node scripts/sanitize-qa-paths.mjs
 ```
 
 These scripts sign into the demo and inspect/render it. The studio audit rejects non-demo servers and blocks operational API writes. Spatial validation and studio captures exercise unsaved layout or route drafts without saving operational changes. Spatial validation regenerates the original standalone GLB, the separate example-study GLB and model previews. The additional studio audit covers interactions, responsive layouts and incomplete accessibility findings. `SPATIAL_BASE_URL`, `AUDIT_BASE_URL` and `PREVIEW_URL` can respectively override the default validation, studio-audit and studio-capture URL.
 
+The optional independent PDF inspection script uses Python packages `pypdf`, `pypdfium2` and `Pillow`. These are review tools, not server runtime dependencies.
+
 ## Evidence
 
+- [`artifacts/qa/view-export-accessibility.json`](../artifacts/qa/view-export-accessibility.json): ten export-studio views, keyboard checks and saved-state guard.
+- [`artifacts/qa/pdf-view-validation.json`](../artifacts/qa/pdf-view-validation.json): five PDFs, independent parsing, rendering and visual-review record.
+- [`artifacts/qa/view-excel.json`](../artifacts/qa/view-excel.json): five visual workbooks, exact item coverage, page setup and lossless text checks.
 - [`artifacts/qa/rich-records-accessibility.json`](../artifacts/qa/rich-records-accessibility.json): 30 event/profile/storage views, keyboard checks and saved-state guard.
 - [`artifacts/qa/api-tests.txt`](../artifacts/qa/api-tests.txt): complete API/domain test output.
 - [`artifacts/qa/browser-tests.json`](../artifacts/qa/browser-tests.json): Playwright's final suite status.

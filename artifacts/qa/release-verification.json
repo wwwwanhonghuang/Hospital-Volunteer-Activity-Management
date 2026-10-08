@@ -1,18 +1,18 @@
 {
   "clientDate": "2026-10-08",
   "timeZone": "Asia/Tokyo",
-  "recordedAt": "2026-10-08T08:35:56.991Z",
-  "version": "1.3.1",
+  "recordedAt": "2026-10-08T09:06:31.468Z",
+  "version": "1.4.0",
   "build": "passed",
   "apiDomainTests": {
-    "passed": 45,
+    "passed": 66,
     "failed": 0,
     "evidence": "artifacts/qa/api-tests.txt"
   },
   "browserTests": {
-    "startTime": "2026-10-08T08:30:55.021Z",
-    "duration": 112183.349,
-    "expected": 23,
+    "startTime": "2026-10-08T09:02:37.509Z",
+    "duration": 110585.701,
+    "expected": 27,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
@@ -170,8 +170,8 @@
     }
   },
   "excelExamples": {
-    "generatedAt": "2026-10-08T08:31:57.150Z",
-    "version": "1.3.1",
+    "generatedAt": "2026-10-08T09:03:49.572Z",
+    "version": "1.4.0",
     "sourceMode": "demo",
     "workspaceDate": "2026-10-08",
     "note": "Fictional demonstration data only. Downloaded through the compiled application.",
@@ -180,8 +180,8 @@
       {
         "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
         "downloadName": "shuori-monthly-report-2026-10-08.xlsx",
-        "bytes": 31022,
-        "sha256": "a9b880bd0482966d657678f0bb8c1e891d94870d62bb2634d41d6b3d620c8bd8",
+        "bytes": 31025,
+        "sha256": "26a4e0cd43d52b4ff25480002fa86593a07a4a486f92d0aa38eef900af9bdb36",
         "sheets": [
           {
             "name": "Overview",
@@ -228,8 +228,8 @@
       {
         "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
         "downloadName": "shuori-project-plan-2026-10-08.xlsx",
-        "bytes": 25461,
-        "sha256": "317d2819b23e5de7d59fc2c64a36caa2e4637aa239379a60ac2e15e434d1a573",
+        "bytes": 25468,
+        "sha256": "de608785cde8e8757f6592fef53e67568b554615a26f08dd6c109bcee8fbc808",
         "sheets": [
           {
             "name": "Overview",
@@ -264,8 +264,8 @@
       {
         "file": "artifacts/exports/shuori-demo-readiness.xlsx",
         "downloadName": "shuori-readiness-2026-10-08.xlsx",
-        "bytes": 13322,
-        "sha256": "c24fe0fee1cefe34970995325c67c17fccca5857738f2496eb165db3b212a626",
+        "bytes": 13324,
+        "sha256": "addbd052eb9c9c70d3fe0323d16c56e78a6097c819cf9f06404acbf81cf7bf2b",
         "sheets": [
           {
             "name": "Overview",
@@ -288,8 +288,8 @@
       {
         "file": "artifacts/exports/shuori-demo-workspace.xlsx",
         "downloadName": "shuori-workspace-2026-10-08.xlsx",
-        "bytes": 63970,
-        "sha256": "88bb98d8db5ba0968aae8445e8f12793b0345c801345b59e8da16e43ebc06f38",
+        "bytes": 63979,
+        "sha256": "90566a78a576a2c6070cfebdb402d18aa53254270ef50a1b03ba9051b4f08463",
         "sheets": [
           {
             "name": "Overview",
@@ -392,8 +392,8 @@
       {
         "file": "artifacts/exports/shuori-demo-events.xlsx",
         "downloadName": "shuori-events-2026-10-08.xlsx",
-        "bytes": 23187,
-        "sha256": "88fd7b226ce689ef551c984d5547ac929b69feb5a6f701d1eea79ea7c795c765",
+        "bytes": 23190,
+        "sha256": "d6cbfb4e03883f5cefaedcc9ad5dd2f37f8bdd503d4f625676b5264810484273",
         "sheets": [
           {
             "name": "Overview",
@@ -453,11 +453,6 @@
     ],
     "files": [
       {
-        "file": "artifacts/exports/shuori-demo-events.xlsx",
-        "worksheets": 10,
-        "dataRows": 28
-      },
-      {
         "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
         "worksheets": 10,
         "dataRows": 165
@@ -476,6 +471,11 @@
         "file": "artifacts/exports/shuori-demo-workspace.xlsx",
         "worksheets": 24,
         "dataRows": 285
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-events.xlsx",
+        "worksheets": 10,
+        "dataRows": 28
       }
     ]
   },
@@ -506,8 +506,8 @@
     "keyboardCheckCount": 9
   },
   "independentIdentity": {
-    "checkedAt": "2026-10-08T08:35:14.490Z",
-    "version": "1.3.1",
+    "checkedAt": "2026-10-08T09:03:52.288Z",
+    "version": "1.4.0",
     "baseURL": "http://127.0.0.1:3001",
     "scope": "Rendered login, dashboard, workspace guide and spatial demo copy; source links are retained only as explicit model provenance. Demo authentication is the only permitted API write.",
     "provenancePolicy": {
@@ -589,14 +589,766 @@
     ],
     "pageErrors": [],
     "unexpectedWrites": [],
-    "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
-    "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+    "operationalStateBefore": "1acf97c6ad8d168949b7a21fae67cc8974c8559289b677056532f64c6011a986",
+    "operationalStateAfter": "1acf97c6ad8d168949b7a21fae67cc8974c8559289b677056532f64c6011a986",
     "operationalStateUnchanged": true,
     "passed": true
   },
-  "retainedV12Evidence": [
-    "Original content extraction equivalence",
-    "Pointer handle checks"
+  "documentViews": {
+    "pdf": {
+      "status": "pass",
+      "generatedAt": "2026-10-08T09:00:15.799311+00:00",
+      "documents": [
+        {
+          "file": "artifacts/exports/shuori-demo-volunteer-timeline.pdf",
+          "sha256": "c75a2b26450196c4bef0acbaa58db16b74af7012a104591f2374ab9e22243c65",
+          "bytes": 19423,
+          "pages": 3,
+          "textCharacters": 3601,
+          "unicodeSearchable": true,
+          "embeddedFont": true,
+          "numberedPages": true,
+          "allGlyphBoundsInsidePage": true,
+          "pageSizePoints": [
+            841.89,
+            595.28
+          ]
+        },
+        {
+          "file": "artifacts/exports/shuori-demo-station-timeline.pdf",
+          "sha256": "c11dab64666758cc9aa6a27a3dd66b8169653574e66e99ea72202acd5abab95c",
+          "bytes": 18285,
+          "pages": 3,
+          "textCharacters": 3109,
+          "unicodeSearchable": true,
+          "embeddedFont": true,
+          "numberedPages": true,
+          "allGlyphBoundsInsidePage": true,
+          "pageSizePoints": [
+            841.89,
+            595.28
+          ]
+        },
+        {
+          "file": "artifacts/exports/shuori-demo-weekly-roster.pdf",
+          "sha256": "43d14ec2f7b4b3cc0f3cc0cd4e00dd7f82e8996d3c9e51677e333f6fc4370199",
+          "bytes": 27417,
+          "pages": 7,
+          "textCharacters": 7804,
+          "unicodeSearchable": true,
+          "embeddedFont": true,
+          "numberedPages": true,
+          "allGlyphBoundsInsidePage": true,
+          "pageSizePoints": [
+            841.89,
+            595.28
+          ]
+        },
+        {
+          "file": "artifacts/exports/shuori-demo-event-brief.pdf",
+          "sha256": "0e47a5785a246f40a4d17afc61ebb680b388ac6c169c8516d5f5091f01fbd37c",
+          "bytes": 14386,
+          "pages": 2,
+          "textCharacters": 1903,
+          "unicodeSearchable": true,
+          "embeddedFont": true,
+          "numberedPages": true,
+          "allGlyphBoundsInsidePage": true,
+          "pageSizePoints": [
+            595.28,
+            841.89
+          ]
+        },
+        {
+          "file": "artifacts/exports/shuori-demo-event-agenda.pdf",
+          "sha256": "919e8d4cf3c05a132ad7437d3ca621408deda34b5cbd6ac08b48940bb094d8ea",
+          "bytes": 12000,
+          "pages": 1,
+          "textCharacters": 1259,
+          "unicodeSearchable": true,
+          "embeddedFont": true,
+          "numberedPages": true,
+          "allGlyphBoundsInsidePage": true,
+          "pageSizePoints": [
+            595.28,
+            841.89
+          ]
+        }
+      ],
+      "renderedPages": 16,
+      "visualReview": {
+        "status": "pass",
+        "reviewedAt": "2026-10-08T09:01:07.658530+00:00",
+        "samplePagesReviewed": 16,
+        "stressPagesReviewed": 6,
+        "coverage": [
+          "All 16 sample pages reviewed in rendered contact sheets",
+          "First-page views inspected at larger size",
+          "Long Japanese and Latin prose and a multi-page table reviewed across 6 stress pages",
+          "Repeated headings, column headers, page numbers and footer clearance checked",
+          "Narrow bars and compact weekly labels resolve to the full activity register"
+        ],
+        "stressReproduction": "node scripts/capture-pdf-views.mjs --stress; inspect data/pdf-pagination-review.pdf"
+      }
+    },
+    "excel": {
+      "status": "pass",
+      "generatedAt": "2026-10-08T01:02:03.000Z",
+      "source": "Synthetic seedState(2026-10-08), no live database or personal records",
+      "examples": [
+        {
+          "view": "volunteer-timeline",
+          "file": "artifacts/exports/shuori-demo-volunteer-timeline.xlsx",
+          "bytes": 20275,
+          "sha256": "23e0d64f8eb9a984c9f216253104a2011bc8c6f97b20ca1b19fca9150ea1a401",
+          "items": 4,
+          "people": 5,
+          "cells": 596,
+          "formulaCells": 0,
+          "hyperlinks": 0,
+          "timeBandsMinutes": 30,
+          "dateFrom": "2026-10-08",
+          "dateTo": "2026-10-08",
+          "sheets": [
+            {
+              "name": "2026-10-08 1",
+              "rows": 12,
+              "columns": 14,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 2,
+              "printArea": "A1:N12",
+              "mergedRanges": 12,
+              "maxRowHeightPoints": 72,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 8
+            },
+            {
+              "name": "2026-10-08 2",
+              "rows": 11,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 2,
+              "printArea": "A1:J11",
+              "mergedRanges": 10,
+              "maxRowHeightPoints": 72,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 8
+            },
+            {
+              "name": "Guide",
+              "rows": 21,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C21",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 65,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Item register",
+              "rows": 9,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:J9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.84,
+              "estimatedMinimumFontPoints": 8.4
+            },
+            {
+              "name": "Assignment register",
+              "rows": 12,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H12",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.837,
+              "estimatedMinimumFontPoints": 8.37
+            },
+            {
+              "name": "Row directory",
+              "rows": 11,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D11",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.912,
+              "estimatedMinimumFontPoints": 9.12
+            },
+            {
+              "name": "Detail 01",
+              "rows": 9,
+              "columns": 7,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:G9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 0.945,
+              "estimatedMinimumFontPoints": 9.45
+            },
+            {
+              "name": "Detail 02",
+              "rows": 9,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 51,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            }
+          ]
+        },
+        {
+          "view": "station-timeline",
+          "file": "artifacts/exports/shuori-demo-station-timeline.xlsx",
+          "bytes": 19913,
+          "sha256": "d9120ede2f0b68c8aac722c656685e591953953df230d4475f9f083cd63cf898",
+          "items": 4,
+          "people": 5,
+          "cells": 562,
+          "formulaCells": 0,
+          "hyperlinks": 0,
+          "timeBandsMinutes": 30,
+          "dateFrom": "2026-10-08",
+          "dateTo": "2026-10-08",
+          "sheets": [
+            {
+              "name": "2026-10-08 1",
+              "rows": 9,
+              "columns": 14,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 2,
+              "printArea": "A1:N9",
+              "mergedRanges": 8,
+              "maxRowHeightPoints": 72,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 8
+            },
+            {
+              "name": "2026-10-08 2",
+              "rows": 9,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 2,
+              "printArea": "A1:J9",
+              "mergedRanges": 8,
+              "maxRowHeightPoints": 72,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 8
+            },
+            {
+              "name": "Guide",
+              "rows": 21,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C21",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 65,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Item register",
+              "rows": 9,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:J9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.84,
+              "estimatedMinimumFontPoints": 8.4
+            },
+            {
+              "name": "Assignment register",
+              "rows": 12,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H12",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.837,
+              "estimatedMinimumFontPoints": 8.37
+            },
+            {
+              "name": "Row directory",
+              "rows": 9,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.912,
+              "estimatedMinimumFontPoints": 9.12
+            },
+            {
+              "name": "Detail 01",
+              "rows": 9,
+              "columns": 7,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:G9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 0.945,
+              "estimatedMinimumFontPoints": 9.45
+            },
+            {
+              "name": "Detail 02",
+              "rows": 9,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D9",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 51,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            }
+          ]
+        },
+        {
+          "view": "weekly-roster",
+          "file": "artifacts/exports/shuori-demo-weekly-roster.xlsx",
+          "bytes": 22778,
+          "sha256": "e2b10e8fc440b35f9f5141bc484073fb5b48d2deb0dfb464d2625cc91ecddd08",
+          "items": 20,
+          "people": 14,
+          "cells": 1199,
+          "formulaCells": 0,
+          "hyperlinks": 0,
+          "timeBandsMinutes": 30,
+          "dateFrom": "2026-10-05",
+          "dateTo": "2026-10-11",
+          "sheets": [
+            {
+              "name": "Roster 1",
+              "rows": 25,
+              "columns": 9,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 2,
+              "printArea": "A1:I25",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 70,
+              "estimatedPrintScale": 0.909,
+              "estimatedMinimumFontPoints": 8.18
+            },
+            {
+              "name": "Guide",
+              "rows": 21,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C21",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 65,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Item register",
+              "rows": 25,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:J25",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.84,
+              "estimatedMinimumFontPoints": 8.4
+            },
+            {
+              "name": "Assignment register",
+              "rows": 43,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H43",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.837,
+              "estimatedMinimumFontPoints": 8.37
+            },
+            {
+              "name": "Row directory",
+              "rows": 20,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D20",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.912,
+              "estimatedMinimumFontPoints": 9.12
+            },
+            {
+              "name": "Detail 01",
+              "rows": 25,
+              "columns": 7,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:G25",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 0.945,
+              "estimatedMinimumFontPoints": 9.45
+            },
+            {
+              "name": "Detail 02",
+              "rows": 25,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D25",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 51,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            }
+          ]
+        },
+        {
+          "view": "event-brief",
+          "file": "artifacts/exports/shuori-demo-event-brief.xlsx",
+          "bytes": 20503,
+          "sha256": "8a30b21b0ca150ebb3b476d48bbd32d4d139252287d821d51a96ed63ed57272a",
+          "items": 1,
+          "people": 3,
+          "cells": 398,
+          "formulaCells": 0,
+          "hyperlinks": 0,
+          "timeBandsMinutes": 30,
+          "dateFrom": "2026-10-08",
+          "dateTo": "2026-10-08",
+          "sheets": [
+            {
+              "name": "Event brief",
+              "rows": 14,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C14",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Guide",
+              "rows": 20,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C20",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 65,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Item register",
+              "rows": 6,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:J6",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.84,
+              "estimatedMinimumFontPoints": 8.4
+            },
+            {
+              "name": "Assignment register",
+              "rows": 8,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.837,
+              "estimatedMinimumFontPoints": 8.37
+            },
+            {
+              "name": "Detail 01",
+              "rows": 8,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Detail 02",
+              "rows": 8,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Detail 03",
+              "rows": 7,
+              "columns": 5,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:E7",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Detail 04",
+              "rows": 6,
+              "columns": 5,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:E6",
+              "mergedRanges": 5,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Detail 05",
+              "rows": 6,
+              "columns": 5,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:E6",
+              "mergedRanges": 5,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Detail 06",
+              "rows": 6,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D6",
+              "mergedRanges": 5,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            }
+          ]
+        },
+        {
+          "view": "event-agenda",
+          "file": "artifacts/exports/shuori-demo-event-agenda.xlsx",
+          "bytes": 16568,
+          "sha256": "bdcf0ba26e394076040099f1d1864ad3e997be8f71baec77cc3b8184e51c6330",
+          "items": 3,
+          "people": 6,
+          "cells": 384,
+          "formulaCells": 0,
+          "hyperlinks": 0,
+          "timeBandsMinutes": 30,
+          "dateFrom": "2026-10-08",
+          "dateTo": "2026-10-14",
+          "sheets": [
+            {
+              "name": "Event agenda",
+              "rows": 8,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.842,
+              "estimatedMinimumFontPoints": 8.42
+            },
+            {
+              "name": "Guide",
+              "rows": 21,
+              "columns": 3,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:C21",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 65,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            },
+            {
+              "name": "Item register",
+              "rows": 8,
+              "columns": 10,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:J8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 79,
+              "estimatedPrintScale": 0.84,
+              "estimatedMinimumFontPoints": 8.4
+            },
+            {
+              "name": "Assignment register",
+              "rows": 12,
+              "columns": 8,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:H12",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 36,
+              "estimatedPrintScale": 0.837,
+              "estimatedMinimumFontPoints": 8.37
+            },
+            {
+              "name": "Detail 01",
+              "rows": 8,
+              "columns": 7,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:G8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 37,
+              "estimatedPrintScale": 0.945,
+              "estimatedMinimumFontPoints": 9.45
+            },
+            {
+              "name": "Detail 02",
+              "rows": 8,
+              "columns": 4,
+              "paper": "A4",
+              "orientation": "landscape",
+              "repeatedHeadings": "1:5",
+              "frozenColumns": 1,
+              "printArea": "A1:D8",
+              "mergedRanges": 4,
+              "maxRowHeightPoints": 51,
+              "estimatedPrintScale": 1,
+              "estimatedMinimumFontPoints": 10
+            }
+          ]
+        }
+      ],
+      "checks": {
+        "allSourceItemsPresent": true,
+        "frozenPanesAndRepeatedPrintHeadings": true,
+        "a4PrintAreas": true,
+        "formulaAndHyperlinkObjectsAbsent": true,
+        "longTextContinuationLossless": true,
+        "longTextParts": 25,
+        "unicodeAndWhitespacePreserved": true,
+        "referenceTest": "node --test tests/view-excel.test.mjs (5 cases)"
+      }
+    },
+    "accessibility": {
+      "viewCount": 10,
+      "ruleOccurrences": 0,
+      "viewsWithViolations": 0,
+      "horizontalOverflowViews": [],
+      "keyboardCheckCount": 3,
+      "pageErrorCount": 0,
+      "consoleErrorCount": 0,
+      "unexpectedWriteCount": 0,
+      "operationalStateUnchanged": true
+    }
+  },
+  "retainedBaselineEvidence": [
+    "Original content extraction equivalence and pointer handle checks (1.2)",
+    "Detailed spatial model, geometry and studio audit (1.3.1)"
   ],
   "studioAccessibility": {
     "viewCount": 12,
@@ -876,9 +1628,9 @@
     "total": 0
   },
   "sha256": {
-    "compiledEntry": "eb9b5addbc20b59c4dec650068962eca2b13c8ae42751feafec8efee0b22bb7f",
+    "compiledEntry": "43f570744458d6e1dbab151ddf44fd9e8200bea6b1e1c70cbb60c516e40b990a",
     "model": "054a7f70adf9f95f035947fb8208d0580a9dfefa0e641f7e0943ca1ece99fd74",
-    "lockfile": "18a9c632bec8f884a47e3d6230f4a780751766b8c30b0cc29b655f8b532357eb"
+    "lockfile": "942e9cedc900062733e9ac1e663ebabbd9541479353d8432685429ce1983a0a0"
   },
   "notExecuted": [
     "Docker/Compose runtime",

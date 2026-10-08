@@ -1,0 +1,9 @@
+{
+  "family": "Noto Sans JP",
+  "weight": 400,
+  "source": "https://github.com/google/fonts/blob/66a36c8c94b1a5d992ee4e7f392fccfe4945767c/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+  "sourceSha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f",
+  "sha256": "fb76ae92785a4f15c6b14f18a0c528f1e3b29e2140a34ff1bbd7cd2005792053",
+  "license": "SIL Open Font License 1.1",
+  "modification": "Static weight-400 instance generated with fontTools.varLib.instancer; no glyph subset."
+}

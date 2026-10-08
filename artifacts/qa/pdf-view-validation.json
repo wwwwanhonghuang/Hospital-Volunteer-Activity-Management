@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "generatedAt": "2026-10-08T09:00:15.799311+00:00",
+  "documents": [
+    {
+      "file": "artifacts/exports/shuori-demo-volunteer-timeline.pdf",
+      "sha256": "c75a2b26450196c4bef0acbaa58db16b74af7012a104591f2374ab9e22243c65",
+      "bytes": 19423,
+      "pages": 3,
+      "textCharacters": 3601,
+      "unicodeSearchable": true,
+      "embeddedFont": true,
+      "numberedPages": true,
+      "allGlyphBoundsInsidePage": true,
+      "pageSizePoints": [
+        841.89,
+        595.28
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-station-timeline.pdf",
+      "sha256": "c11dab64666758cc9aa6a27a3dd66b8169653574e66e99ea72202acd5abab95c",
+      "bytes": 18285,
+      "pages": 3,
+      "textCharacters": 3109,
+      "unicodeSearchable": true,
+      "embeddedFont": true,
+      "numberedPages": true,
+      "allGlyphBoundsInsidePage": true,
+      "pageSizePoints": [
+        841.89,
+        595.28
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-weekly-roster.pdf",
+      "sha256": "43d14ec2f7b4b3cc0f3cc0cd4e00dd7f82e8996d3c9e51677e333f6fc4370199",
+      "bytes": 27417,
+      "pages": 7,
+      "textCharacters": 7804,
+      "unicodeSearchable": true,
+      "embeddedFont": true,
+      "numberedPages": true,
+      "allGlyphBoundsInsidePage": true,
+      "pageSizePoints": [
+        841.89,
+        595.28
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-event-brief.pdf",
+      "sha256": "0e47a5785a246f40a4d17afc61ebb680b388ac6c169c8516d5f5091f01fbd37c",
+      "bytes": 14386,
+      "pages": 2,
+      "textCharacters": 1903,
+      "unicodeSearchable": true,
+      "embeddedFont": true,
+      "numberedPages": true,
+      "allGlyphBoundsInsidePage": true,
+      "pageSizePoints": [
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-event-agenda.pdf",
+      "sha256": "919e8d4cf3c05a132ad7437d3ca621408deda34b5cbd6ac08b48940bb094d8ea",
+      "bytes": 12000,
+      "pages": 1,
+      "textCharacters": 1259,
+      "unicodeSearchable": true,
+      "embeddedFont": true,
+      "numberedPages": true,
+      "allGlyphBoundsInsidePage": true,
+      "pageSizePoints": [
+        595.28,
+        841.89
+      ]
+    }
+  ],
+  "renderedPages": 16,
+  "visualReview": {
+    "status": "pass",
+    "reviewedAt": "2026-10-08T09:01:07.658530+00:00",
+    "samplePagesReviewed": 16,
+    "stressPagesReviewed": 6,
+    "coverage": [
+      "All 16 sample pages reviewed in rendered contact sheets",
+      "First-page views inspected at larger size",
+      "Long Japanese and Latin prose and a multi-page table reviewed across 6 stress pages",
+      "Repeated headings, column headers, page numbers and footer clearance checked",
+      "Narrow bars and compact weekly labels resolve to the full activity register"
+    ],
+    "stressReproduction": "node scripts/capture-pdf-views.mjs --stress; inspect data/pdf-pagination-review.pdf"
+  }
+}

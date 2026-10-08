@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-10-08T08:35:14.490Z",
-  "version": "1.3.1",
+  "checkedAt": "2026-10-08T09:03:52.288Z",
+  "version": "1.4.0",
   "baseURL": "http://127.0.0.1:3001",
   "scope": "Rendered login, dashboard, workspace guide and spatial demo copy; source links are retained only as explicit model provenance. Demo authentication is the only permitted API write.",
   "provenancePolicy": {
@@ -82,8 +82,8 @@
   ],
   "pageErrors": [],
   "unexpectedWrites": [],
-  "operationalStateBefore": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
-  "operationalStateAfter": "04ae331845974cd6014a48be6274616cf50917e9321a744853af62d578d45473",
+  "operationalStateBefore": "1acf97c6ad8d168949b7a21fae67cc8974c8559289b677056532f64c6011a986",
+  "operationalStateAfter": "1acf97c6ad8d168949b7a21fae67cc8974c8559289b677056532f64c6011a986",
   "operationalStateUnchanged": true,
   "passed": true
 }

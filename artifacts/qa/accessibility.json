@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T08:34:33.903Z",
+  "generatedAt": "2026-10-08T09:03:29.831Z",
   "baseURL": "http://127.0.0.1:3001",
   "viewport": {
     "width": 1440,
@@ -21,8 +21,8 @@
       "name": "Overview",
       "route": "dashboard",
       "url": "http://127.0.0.1:3001/#/dashboard",
-      "timestamp": "2026-10-08T08:34:35.502Z",
-      "passes": 26,
+      "timestamp": "2026-10-08T09:03:32.700Z",
+      "passes": 27,
       "violations": [],
       "incomplete": [
         {
@@ -811,6 +811,129 @@
                 ".welcome-banner > div:nth-child(1) > button"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "shortTextContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<canvas data-engine=\"three.js r180\" width=\"467\" height=\"265\" aria-label=\"Conceptual 1F hospital model. Use the station buttons to select an area.\" role=\"img\" style=\"display: block; touch-action: none; width: 467px; height: 265px;\"></canvas>",
+                      "target": [
+                        "canvas"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element content is too short to determine if it is actual text content"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"scene-north\" role=\"img\" aria-label=\"Concept orientation\"><span>↑</span>N<span class=\"scene-north-note\">concept</span></span>",
+              "target": [
+                ".scene-north"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "messageKey": "nonBmp"
+                  },
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Element content contains only non-text characters"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>↑</span>",
+              "target": [
+                ".scene-north > span:nth-child(1)"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "imgNode",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<canvas data-engine=\"three.js r180\" width=\"467\" height=\"265\" aria-label=\"Conceptual 1F hospital model. Use the station buttons to select an area.\" role=\"img\" style=\"display: block; touch-action: none; width: 467px; height: 265px;\"></canvas>",
+                      "target": [
+                        "canvas"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined because element contains an image node"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"scene-north-note\">concept</span>",
+              "target": [
+                ".scene-north-note"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "imgNode",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"scene-view-controls\">",
+                      "target": [
+                        ".scene-view-controls"
+                      ]
+                    },
+                    {
+                      "html": "<canvas data-engine=\"three.js r180\" width=\"467\" height=\"265\" aria-label=\"Conceptual 1F hospital model. Use the station buttons to select an area.\" role=\"img\" style=\"display: block; touch-action: none; width: 467px; height: 265px;\"></canvas>",
+                      "target": [
+                        "canvas"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined because element contains an image node"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span>2D</span>",
+              "target": [
+                "button[title=\"Show 2D plan\"] > span"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
             }
           ]
         }
@@ -885,7 +1008,7 @@
       "name": "Projects & planning",
       "route": "projects",
       "url": "http://127.0.0.1:3001/#/projects",
-      "timestamp": "2026-10-08T08:34:36.814Z",
+      "timestamp": "2026-10-08T09:03:34.604Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -1597,7 +1720,7 @@
       "name": "Volunteers",
       "route": "volunteers",
       "url": "http://127.0.0.1:3001/#/volunteers",
-      "timestamp": "2026-10-08T08:34:38.718Z",
+      "timestamp": "2026-10-08T09:03:36.877Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -2309,7 +2432,7 @@
       "name": "Schedule",
       "route": "schedule",
       "url": "http://127.0.0.1:3001/#/schedule",
-      "timestamp": "2026-10-08T08:34:40.243Z",
+      "timestamp": "2026-10-08T09:03:39.175Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -3039,7 +3162,7 @@
       "name": "Spatial simulation",
       "route": "spatial",
       "url": "http://127.0.0.1:3001/#/spatial",
-      "timestamp": "2026-10-08T08:34:43.338Z",
+      "timestamp": "2026-10-08T09:03:43.110Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -3980,7 +4103,7 @@
       "name": "Activity records",
       "route": "records",
       "url": "http://127.0.0.1:3001/#/records",
-      "timestamp": "2026-10-08T08:34:46.918Z",
+      "timestamp": "2026-10-08T09:03:48.629Z",
       "passes": 25,
       "violations": [],
       "incomplete": [
@@ -4692,7 +4815,7 @@
       "name": "Support & improvement",
       "route": "support",
       "url": "http://127.0.0.1:3001/#/support",
-      "timestamp": "2026-10-08T08:34:48.895Z",
+      "timestamp": "2026-10-08T09:03:51.525Z",
       "passes": 23,
       "violations": [],
       "incomplete": [
@@ -5452,7 +5575,7 @@
       "name": "Resources",
       "route": "resources",
       "url": "http://127.0.0.1:3001/#/resources",
-      "timestamp": "2026-10-08T08:34:50.461Z",
+      "timestamp": "2026-10-08T09:03:52.971Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -6164,7 +6287,7 @@
       "name": "Reports & insights",
       "route": "reports",
       "url": "http://127.0.0.1:3001/#/reports",
-      "timestamp": "2026-10-08T08:34:52.045Z",
+      "timestamp": "2026-10-08T09:03:54.787Z",
       "passes": 29,
       "violations": [],
       "incomplete": [
@@ -6876,7 +6999,7 @@
       "name": "Workspace settings",
       "route": "settings",
       "url": "http://127.0.0.1:3001/#/settings",
-      "timestamp": "2026-10-08T08:34:53.486Z",
+      "timestamp": "2026-10-08T09:03:58.286Z",
       "passes": 33,
       "violations": [],
       "incomplete": [
@@ -7590,7 +7713,7 @@
       "name": "Add volunteer",
       "route": "volunteers/create",
       "url": "http://127.0.0.1:3001/#/volunteers",
-      "timestamp": "2026-10-08T08:34:55.616Z",
+      "timestamp": "2026-10-08T09:04:01.406Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -8265,7 +8388,7 @@
       "name": "Log activity",
       "route": "records/create",
       "url": "http://127.0.0.1:3001/#/records",
-      "timestamp": "2026-10-08T08:34:58.065Z",
+      "timestamp": "2026-10-08T09:04:03.741Z",
       "passes": 28,
       "violations": [],
       "incomplete": [
@@ -8940,7 +9063,7 @@
       "name": "New request",
       "route": "support/create",
       "url": "http://127.0.0.1:3001/#/support",
-      "timestamp": "2026-10-08T08:34:59.430Z",
+      "timestamp": "2026-10-08T09:04:05.594Z",
       "passes": 26,
       "violations": [],
       "incomplete": [
@@ -9328,12 +9451,6 @@
                   },
                   "relatedNodes": [
                     {
-                      "html": "<button class=\"nav-link \">",
-                      "target": [
-                        "div:nth-child(7) > .nav-link"
-                      ]
-                    },
-                    {
                       "html": "<aside class=\"sidebar \">",
                       "target": [
                         "aside"
@@ -9350,44 +9467,6 @@
               "html": "<span>Activity records</span>",
               "target": [
                 "div:nth-child(7) > .nav-link > span"
-              ],
-              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
-            },
-            {
-              "any": [
-                {
-                  "id": "color-contrast",
-                  "data": {
-                    "contrastRatio": 0,
-                    "fontSize": "9.0pt (12px)",
-                    "fontWeight": "normal",
-                    "messageKey": "bgGradient",
-                    "expectedContrastRatio": "4.5:1"
-                  },
-                  "relatedNodes": [
-                    {
-                      "html": "<button class=\"nav-link active\" aria-current=\"page\">",
-                      "target": [
-                        ".active"
-                      ]
-                    },
-                    {
-                      "html": "<aside class=\"sidebar \">",
-                      "target": [
-                        "aside"
-                      ]
-                    }
-                  ],
-                  "impact": "serious",
-                  "message": "Element's background color could not be determined due to a background gradient"
-                }
-              ],
-              "all": [],
-              "none": [],
-              "impact": "serious",
-              "html": "<span>Support &amp; improvement</span>",
-              "target": [
-                ".active > span"
               ],
               "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
             },
@@ -9659,7 +9738,7 @@
       "name": "Add resource",
       "route": "resources/create",
       "url": "http://127.0.0.1:3001/#/resources",
-      "timestamp": "2026-10-08T08:35:00.634Z",
+      "timestamp": "2026-10-08T09:04:07.325Z",
       "passes": 27,
       "violations": [],
       "incomplete": [
@@ -10079,12 +10158,6 @@
                   },
                   "relatedNodes": [
                     {
-                      "html": "<button class=\"nav-link \">",
-                      "target": [
-                        "div:nth-child(8) > .nav-link"
-                      ]
-                    },
-                    {
                       "html": "<aside class=\"sidebar \">",
                       "target": [
                         "aside"
@@ -10340,7 +10413,7 @@
       "name": "Create workspace account",
       "route": "settings/accounts/create",
       "url": "http://127.0.0.1:3001/#/settings",
-      "timestamp": "2026-10-08T08:35:01.826Z",
+      "timestamp": "2026-10-08T09:04:09.436Z",
       "passes": 31,
       "violations": [],
       "incomplete": [

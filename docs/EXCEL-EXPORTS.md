@@ -1,5 +1,7 @@
 # Excel exports · 守織 SHUORI 1.3
 
+For printable timetables, rosters and event documents in **PDF or Excel**, use the new [view export studio](VIEW-EXPORTS.md). This guide covers the existing complete data workbooks for analysis and record exchange.
+
 Excel actions download genuine `.xlsx` workbooks with blue headers, wrapped text, typed values, frozen headings, filters and A4 landscape print settings. Every workbook begins with **Overview**, which lists its worksheets, data-row counts and interpretation notes. Rows 1–4 show the title, generation time in Japan Standard Time, scope and notes; row 5 contains column headings, and data begins on row 6.
 
 ## Choose the appropriate workbook

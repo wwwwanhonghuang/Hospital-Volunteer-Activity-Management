@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-const sourceUrl = import.meta.env.VITE_SOURCE_URL || 'https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.3.1';
+const sourceUrl = import.meta.env.VITE_SOURCE_URL || 'https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.4.0';
 
 export default function SoftwareNotice() {
   return <span className="software-notice">

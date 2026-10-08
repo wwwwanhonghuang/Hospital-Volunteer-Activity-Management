@@ -30,3 +30,7 @@ The demo is editable and persists to its own local SQLite database. Production u
 The bundled demo floor model reconstructs eight levels from an external hospital's public floor guide. Its dimensions, furnishings and movement paths are illustrative. It is not an official facility model, a surveyed building model or an emergency navigation system. Read the prominent [project notice](../README.md) and [source register](FLOOR-SOURCES.md) before interpreting a spatial study.
 
 This general-purpose application is developed independently as a personal project. It has no affiliation with any particular hospital, university or organization, and no institutional commissioning, endorsement or deployment approval is implied. The [deployment guide](DEPLOYMENT.md) and [verification record](VERIFICATION.md) describe the controls that exist and the reviews that remain specific to each deployment, including accessibility acceptance.
+
+## PDF and Excel view exports
+
+[View export guide](VIEW-EXPORTS.md): choosing volunteer timetables, station coverage, weekly rosters, event briefs and agendas; print settings, scope, privacy and sample documents.

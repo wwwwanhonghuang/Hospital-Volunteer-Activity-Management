@@ -18,6 +18,9 @@ NOTICE text eol=lf
 *.xlsx binary
 *.zip binary
 *.woff2 binary
+*.ttf binary
+*.pdf binary
 # Preserve the unmodified upstream legal texts, including their final blank lines.
 LICENSES/*.txt whitespace=-blank-at-eof
 docs/licenses/*.txt whitespace=-blank-at-eof
+server/fonts/OFL.txt whitespace=-blank-at-eof,-blank-at-eol

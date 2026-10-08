@@ -12,11 +12,6 @@
   ],
   "files": [
     {
-      "file": "artifacts/exports/shuori-demo-events.xlsx",
-      "worksheets": 10,
-      "dataRows": 28
-    },
-    {
       "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
       "worksheets": 10,
       "dataRows": 165
@@ -35,6 +30,11 @@
       "file": "artifacts/exports/shuori-demo-workspace.xlsx",
       "worksheets": 24,
       "dataRows": 285
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-events.xlsx",
+      "worksheets": 10,
+      "dataRows": 28
     }
   ]
 }

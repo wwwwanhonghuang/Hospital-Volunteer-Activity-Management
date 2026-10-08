@@ -67,7 +67,8 @@ def inspect(path):
                 'dataRows': sum(len(rows) for name, rows in tables.items() if name != 'Overview')}
 
 
-results = [inspect(path) for path in sorted(Path('artifacts/exports').glob('*.xlsx'))]
+manifest = json.loads(Path('artifacts/qa/excel-examples.json').read_text(encoding='utf-8-sig'))
+results = [inspect(Path(entry['file'])) for entry in manifest['files']]
 assert len(results) == 5
 report = {'passed': True, 'reader': 'Python stdlib ZIP and XML, independent of ExcelJS',
           'checks': ['ZIP CRC and XML well-formedness', 'Unicode brand text', 'Frozen headings and filters',

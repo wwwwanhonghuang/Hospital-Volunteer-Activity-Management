@@ -189,3 +189,9 @@ The production database and exports are not encrypted by the application. Use op
 Use the system for volunteer coordination and aggregate service reporting. Do not enter patient identifiers, clinical notes, antibody results or vaccination details into general notes. Administrative clearance status is sufficient for the scheduling rule. The spatial model is illustrative and cannot certify real routes, capacities, emergency plans or room availability.
 
 Readiness changes do not erase existing shifts: review flagged assignments after changing training, availability or clearance. The allocator is a suggestion engine; coordinators remain responsible for approving the final roster and confirming departmental requirements. Critical-path durations use calendar days, including weekends and holidays.
+
+## PDF and visual Excel exports
+
+The release and Docker runtime include `server/fonts/NotoSansJP-Regular.ttf` and its OFL notice. Keep these files beside the server modules. PDF generation uses PDFKit on the server and does not require Chrome, LibreOffice, network font downloads or system fonts. The font subset is embedded in each PDF. The API returns PDF/XLSX buffers directly and does not keep an export spool on disk.
+
+Allow the authenticated POST endpoints `/api/export/view-preview` and `/api/export/view` through the reverse proxy using the existing session, origin and CSRF settings. Large selections are rejected with a scope-reduction message; documents have a 24 MiB response limit and a two-export concurrency limit per process. The detailed [view guide](VIEW-EXPORTS.md) describes operational limits and output interpretation.
