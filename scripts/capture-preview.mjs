@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+import { chromium } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+const target=process.env.PREVIEW_URL||'http://127.0.0.1:3001';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1080},deviceScaleFactor:1,timezoneId:'Asia/Tokyo'});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await mkdir('artifacts/previews',{recursive:true});
+await page.goto(target);await page.getByRole('button',{name:'Explore demo workspace'}).click();
+await page.getByRole('heading',{name:'Operations overview'}).waitFor();await page.waitForTimeout(1800);
+await page.screenshot({path:'artifacts/previews/01-overview.png',fullPage:true});
+await page.getByRole('navigation').getByRole('button',{name:'Projects & planning',exact:true}).click();
+await page.locator('.project-card').first().click();await page.locator('.gantt').waitFor();
+await page.screenshot({path:'artifacts/previews/02-project-timeline.png',fullPage:true});
+await page.getByRole('navigation').getByRole('button',{name:'Schedule',exact:true}).click();await page.locator('.schedule-timeline').waitFor();
+await page.screenshot({path:'artifacts/previews/03-schedule.png',fullPage:true});
+await page.getByRole('navigation').getByRole('button',{name:'Spatial simulation',exact:false}).click();await page.getByRole('heading',{name:'Hospital in perspective.'}).waitFor();await page.waitForTimeout(1500);
+await page.screenshot({path:'artifacts/previews/04-spatial.png',fullPage:true});
+await page.setViewportSize({width:390,height:844});await page.goto(`${target}/#/dashboard`);await page.getByRole('heading',{name:'Operations overview'}).waitFor();await page.waitForTimeout(800);
+await page.screenshot({path:'artifacts/previews/05-mobile.png',fullPage:true});
+console.log(JSON.stringify({errors,screenshots:5}));await browser.close();

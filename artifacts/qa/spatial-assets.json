@@ -1,0 +1,207 @@
+{
+  "checkedAt": "2026-10-08T01:08:50.498Z",
+  "scope": "Pure procedural geometry and original object registry; no GPU required",
+  "objects": 590,
+  "meshes": 2470,
+  "triangles": 346424,
+  "modeledAssetComponents": 10358,
+  "uniqueGeometries": 135,
+  "uniqueMaterials": 47,
+  "categories": {
+    "architecture": 133,
+    "equipment": 215,
+    "signage": 35,
+    "furniture": 188,
+    "plant": 19
+  },
+  "floors": {
+    "B3": 14,
+    "B1": 66,
+    "1F": 100,
+    "2F": 97,
+    "3F": 109,
+    "4F": 93,
+    "6F": 58,
+    "7F": 53
+  },
+  "catalog": [
+    {
+      "kind": "chair",
+      "category": "furniture",
+      "components": 10,
+      "meshes": 2,
+      "measuredSize": [
+        0.775,
+        0.997,
+        0.65
+      ]
+    },
+    {
+      "kind": "desk",
+      "category": "furniture",
+      "components": 25,
+      "meshes": 2,
+      "measuredSize": [
+        1.8,
+        1.475,
+        0.905
+      ]
+    },
+    {
+      "kind": "table",
+      "category": "furniture",
+      "components": 3,
+      "meshes": 2,
+      "measuredSize": [
+        1.65,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "kind": "counter",
+      "category": "furniture",
+      "components": 27,
+      "meshes": 2,
+      "measuredSize": [
+        2.82,
+        1.475,
+        1.165
+      ]
+    },
+    {
+      "kind": "bookshelf",
+      "category": "furniture",
+      "components": 68,
+      "meshes": 1,
+      "measuredSize": [
+        2.11,
+        1.92,
+        0.55
+      ]
+    },
+    {
+      "kind": "wheelchair",
+      "category": "equipment",
+      "components": 44,
+      "meshes": 2,
+      "measuredSize": [
+        0.869,
+        1.091,
+        1.29
+      ]
+    },
+    {
+      "kind": "bed",
+      "category": "equipment",
+      "components": 26,
+      "meshes": 2,
+      "measuredSize": [
+        1.148,
+        1.097,
+        2.41
+      ]
+    },
+    {
+      "kind": "cart",
+      "category": "equipment",
+      "components": 31,
+      "meshes": 2,
+      "measuredSize": [
+        1.03,
+        1.218,
+        0.646
+      ]
+    },
+    {
+      "kind": "kiosk",
+      "category": "signage",
+      "components": 12,
+      "meshes": 2,
+      "measuredSize": [
+        0.98,
+        1.86,
+        0.6
+      ]
+    },
+    {
+      "kind": "sign",
+      "category": "signage",
+      "components": 10,
+      "meshes": 2,
+      "measuredSize": [
+        1.4,
+        2.185,
+        0.46
+      ]
+    },
+    {
+      "kind": "planter",
+      "category": "plant",
+      "components": 27,
+      "meshes": 2,
+      "measuredSize": [
+        0.882,
+        1.739,
+        1.066
+      ]
+    },
+    {
+      "kind": "scanner",
+      "category": "equipment",
+      "components": 8,
+      "meshes": 2,
+      "measuredSize": [
+        2.16,
+        2.34,
+        3.225
+      ]
+    },
+    {
+      "kind": "rehab-bars",
+      "category": "equipment",
+      "components": 22,
+      "meshes": 2,
+      "measuredSize": [
+        2.25,
+        1.235,
+        3.6
+      ]
+    },
+    {
+      "kind": "bench",
+      "category": "furniture",
+      "components": 15,
+      "meshes": 2,
+      "measuredSize": [
+        2.33,
+        0.982,
+        0.653
+      ]
+    },
+    {
+      "kind": "privacy-screen",
+      "category": "equipment",
+      "components": 34,
+      "meshes": 2,
+      "measuredSize": [
+        1.82,
+        1.828,
+        0.586
+      ]
+    }
+  ],
+  "verified": [
+    "All eight floors and source object registry",
+    "Backend-compatible deterministic object IDs",
+    "Identical metadata in full-building and single-floor views",
+    "Floor-local transforms under exploded spacing",
+    "Fixed architectural reference geometry",
+    "Complete-building mesh and triangle budgets",
+    "Two material batches maximum per catalog asset",
+    "Detailed component manifests and original vertex colors",
+    "Catalog dimensions enclose actual geometry",
+    "Unknown catalog kinds rejected",
+    "Independent articulated volunteer limbs"
+  ]
+}

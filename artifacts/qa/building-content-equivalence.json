@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-08T01:04:20.441Z",
+  "passed": true,
+  "baseline": {
+    "source": "Original procedural modules recovered from the prior SHUORI 1.2.0 release, before licensing extraction.",
+    "archive": "artifacts/releases/shuori-1.2.0.zip",
+    "archiveSha256": "d80f6a73ed8bc80255a41b92f1dcceb1bc50424afcf4f2293c446553216c982d",
+    "sourceSha256": {
+      "src/components/hospitalModel.ts": "479c3b927fe64625038bc02770bf2e3065987d34dff4098763dbeb163c8583fb",
+      "src/components/spatialAssets.ts": "4e7d125c1a3946e463ebefd6fda9545153ef2a239a74209e23f715b4decc916d",
+      "src/components/spatialTypes.ts": "98061aadf5586f9a3384b54fa084e18757fa87833d0caad0aeea3a9480946eef"
+    }
+  },
+  "content": {
+    "path": "content/spatial/building.json",
+    "sha256": "5d1d04dc6230b057130702051f796c35a89e27bacdc44cfc57c75ff7647f1a5e",
+    "publishedSha256": "801c7dba6a22ad080d0e988c7133195ff3ef6f8a377f0b2807dbc30b7bb33a7b",
+    "publishedBytes": 1184281,
+    "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+  },
+  "counts": {
+    "registryObjects": 590,
+    "meshes": 2470,
+    "triangles": 346424,
+    "uniqueGeometries": 135,
+    "floors": 8
+  },
+  "comparisons": {
+    "allVertexPositionBuffers": "Exact array equality for every mesh",
+    "allGeometryAttributesAndIndices": "Exact SHA-256 equality of complete attribute arrays, item sizes, normalization flags and indices for every mesh",
+    "allMaterialDefinitions": "Exact SHA-256 equality of material JSON excluding per-instance UUIDs for every mesh",
+    "allMeshLocalMatrices": {
+      "elementsChecked": 39520,
+      "absoluteTolerance": 1e-12
+    },
+    "fullBuildingWorldBounds": {
+      "min": [
+        -38.5,
+        -0.5200000119209289,
+        -15
+      ],
+      "max": [
+        41,
+        65.24422174215317,
+        18.55
+      ],
+      "absoluteTolerance": 1e-12
+    },
+    "registryAndMetadata": "Exact equality of every original object ID and metadata, floors, zones and labels",
+    "floorIsolation": "All eight floors preserve their original registry counts and floor-local parent, position, rotation and facade membership",
+    "explodedView": "Floor spacing changes to 14 units; connectors resize to 100 units; individual-floor connectors remain absent",
+    "coordinates": "Operational coordinate mappings and floor override precedence preserved"
+  }
+}

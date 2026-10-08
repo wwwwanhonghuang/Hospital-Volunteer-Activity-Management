@@ -1,0 +1,56 @@
+{
+  "name": "shuori-volunteer-operations",
+  "version": "1.2.0",
+  "license": "AGPL-3.0-only",
+  "author": "HUANG WANHONG (https://github.com/wwwwanhonghuang)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management.git"
+  },
+  "homepage": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management#readme",
+  "bugs": {
+    "url": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/issues"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:client": "vite --host 127.0.0.1",
+    "dev:server": "node --watch server/index.mjs",
+    "build": "tsc -b && vite build",
+    "start": "node server/index.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.180.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-08T01:08:53.416Z",
+  "translation": {
+    "beforeX": -9,
+    "afterX": -7.25,
+    "step": 0.25
+  },
+  "rotation": {
+    "beforeRotation": 0,
+    "afterRotation": -15,
+    "step": 15
+  },
+  "operationalWrites": 0
+}

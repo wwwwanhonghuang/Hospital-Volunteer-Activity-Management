@@ -1,0 +1,22 @@
+{
+  "version": "1.2.0",
+  "createdAt": "2026-10-08T01:15:09.098Z",
+  "archive": "artifacts/releases/shuori-1.2.0.zip",
+  "bytes": 8664737,
+  "sha256": "b6d95552c07bf3567e3865d13e145a3f83c92f341724791610dc209ed78ab7ff",
+  "files": 202,
+  "includes": [
+    "Source",
+    "Compiled application",
+    "Standalone GLB",
+    "Preview images",
+    "Documentation",
+    "Tests and QA evidence"
+  ],
+  "excludes": [
+    "Operational databases",
+    "Credentials",
+    "node_modules",
+    "Official map images"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "reader": "Python stdlib ZIP and XML, independent of ExcelJS",
+  "checks": [
+    "ZIP CRC and XML well-formedness",
+    "Unicode brand text",
+    "Frozen headings and filters",
+    "Workbook index counts",
+    "No formulas, macros or external links",
+    "Independent monthly totals",
+    "Phone text and numeric date storage"
+  ],
+  "files": [
+    {
+      "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
+      "worksheets": 9,
+      "dataRows": 165
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
+      "worksheets": 7,
+      "dataRows": 116
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-readiness.xlsx",
+      "worksheets": 4,
+      "dataRows": 25
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-workspace.xlsx",
+      "worksheets": 16,
+      "dataRows": 254
+    }
+  ]
+}

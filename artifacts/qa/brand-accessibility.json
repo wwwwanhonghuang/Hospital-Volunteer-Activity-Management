@@ -1,0 +1,522 @@
+{
+  "checkedAt": "2026-10-08T01:10:07.391Z",
+  "baseURL": "http://127.0.0.1:3001",
+  "browser": "Installed Chrome via Playwright",
+  "scope": "Desktop/mobile login, external brand artwork and software/source notice; automated checks do not establish WCAG conformance.",
+  "errors": [],
+  "views": [
+    {
+      "name": "Desktop login",
+      "title": "守織 SHUORI | Volunteer Operations",
+      "viewport": {
+        "width": 1440,
+        "height": 1080
+      },
+      "overflow": false,
+      "footerGap": 154.63,
+      "footerWithinPage": true,
+      "artwork": [
+        {
+          "src": "/shuori-mark.svg",
+          "loaded": true
+        },
+        {
+          "src": "/shuori-mark.svg",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "text": "Software: AGPL-3.0",
+          "href": "/software-license.txt",
+          "visible": true,
+          "unobstructed": true
+        },
+        {
+          "text": "Source code",
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.2.0",
+          "visible": true,
+          "unobstructed": true
+        }
+      ],
+      "softwareLicense": {
+        "status": 200,
+        "containsAGPL": true
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "27.0pt (36px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-name\" lang=\"zh-Hant\">守織</span>",
+              "target": [
+                ".shuori-name"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "9.8pt (13px)",
+                    "fontWeight": "bold",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-roman\">SHUORI</span>",
+              "target": [
+                ".shuori-roman"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "6.8pt (9px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-tagline\">VOLUNTEER OPERATIONS</span>",
+              "target": [
+                ".shuori-tagline"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "8.3pt (11px)",
+                    "fontWeight": "bold",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"eyebrow\">VOLUNTEER OPERATIONS</span>",
+              "target": [
+                ".eyebrow"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "37.3pt (49.68px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<h1>Woven together.<br>Carefully coordinated.</h1>",
+              "target": [
+                "h1"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<p>A thoughtful workspace for the people who make a hospital feel a little more human.</p>",
+              "target": [
+                ".login-story-content > p"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "7.5pt (10px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"weave-caption\">EVERY THREAD OF CARE, CONNECTED.</span>",
+              "target": [
+                ".weave-caption"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "9.0pt (12px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<p class=\"login-footnote\">Designed for the University of Tokyo Hospital volunteer coordination brief.</p>",
+              "target": [
+                ".login-footnote"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ],
+      "textLayout": {
+        "lastFormTextToFooterTextGap": 169.42,
+        "overlappingText": false
+      },
+      "manualReview": "Screenshot visually inspected: artwork, login form, attribution, source/license links and warranty notice are readable without overlapping text."
+    },
+    {
+      "name": "Mobile login",
+      "title": "守織 SHUORI | Volunteer Operations",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "footerGap": -1.37,
+      "footerWithinPage": true,
+      "artwork": [
+        {
+          "src": "/shuori-mark.svg",
+          "loaded": true
+        },
+        {
+          "src": "/shuori-mark.svg",
+          "loaded": true
+        }
+      ],
+      "links": [
+        {
+          "text": "Software: AGPL-3.0",
+          "href": "/software-license.txt",
+          "visible": true,
+          "unobstructed": true
+        },
+        {
+          "text": "Source code",
+          "href": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management/tree/v1.2.0",
+          "visible": true,
+          "unobstructed": true
+        }
+      ],
+      "softwareLicense": {
+        "status": 200,
+        "containsAGPL": true
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "21.0pt (28px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-name\" lang=\"zh-Hant\">守織</span>",
+              "target": [
+                ".shuori-name"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "8.3pt (11px)",
+                    "fontWeight": "bold",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-roman\">SHUORI</span>",
+              "target": [
+                ".shuori-roman"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "5.6pt (7.5px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "4.5:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span class=\"shuori-tagline\">VOLUNTEER OPERATIONS</span>",
+              "target": [
+                ".shuori-tagline"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fontSize": "24.0pt (32px)",
+                    "fontWeight": "normal",
+                    "messageKey": "pseudoContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<div class=\"login-story\">",
+                      "target": [
+                        ".login-story"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a pseudo element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<h1>Woven together.<br>Carefully coordinated.</h1>",
+              "target": [
+                "h1"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ],
+      "textLayout": {
+        "lastFormTextToFooterTextGap": 13.42,
+        "overlappingText": false
+      },
+      "manualReview": "Screenshot visually inspected: artwork, login form, attribution, source/license links and warranty notice are readable without overlapping text."
+    }
+  ],
+  "summary": {
+    "viewCount": 2,
+    "viewsWithViolations": 0,
+    "ruleOccurrences": 0
+  }
+}

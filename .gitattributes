@@ -1,0 +1,23 @@
+* text=auto eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.py text eol=lf
+*.cmd text eol=crlf
+LICENSE text eol=lf
+NOTICE text eol=lf
+*.png binary
+*.jpg binary
+*.glb binary
+*.xlsx binary
+*.zip binary
+*.woff2 binary
+# Preserve the unmodified upstream legal texts, including their final blank lines.
+LICENSES/*.txt whitespace=-blank-at-eof
+docs/licenses/*.txt whitespace=-blank-at-eof

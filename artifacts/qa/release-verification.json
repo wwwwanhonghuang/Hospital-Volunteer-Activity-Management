@@ -1,0 +1,692 @@
+{
+  "clientDate": "2026-10-08",
+  "timeZone": "Asia/Tokyo",
+  "recordedAt": "2026-10-08T01:15:08.768Z",
+  "version": "1.2.0",
+  "build": "passed",
+  "apiDomainTests": {
+    "passed": 32,
+    "failed": 0,
+    "evidence": "artifacts/qa/api-tests.txt"
+  },
+  "browserTests": {
+    "startTime": "2026-10-08T01:07:43.217Z",
+    "duration": 114259.779,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "contentExtraction": {
+    "building": {
+      "checkedAt": "2026-10-08T01:04:20.441Z",
+      "passed": true,
+      "baseline": {
+        "source": "Original procedural modules recovered from the prior SHUORI 1.2.0 release, before licensing extraction.",
+        "archive": "artifacts/releases/shuori-1.2.0.zip",
+        "archiveSha256": "d80f6a73ed8bc80255a41b92f1dcceb1bc50424afcf4f2293c446553216c982d",
+        "sourceSha256": {
+          "src/components/hospitalModel.ts": "479c3b927fe64625038bc02770bf2e3065987d34dff4098763dbeb163c8583fb",
+          "src/components/spatialAssets.ts": "4e7d125c1a3946e463ebefd6fda9545153ef2a239a74209e23f715b4decc916d",
+          "src/components/spatialTypes.ts": "98061aadf5586f9a3384b54fa084e18757fa87833d0caad0aeea3a9480946eef"
+        }
+      },
+      "content": {
+        "path": "content/spatial/building.json",
+        "sha256": "5d1d04dc6230b057130702051f796c35a89e27bacdc44cfc57c75ff7647f1a5e",
+        "publishedSha256": "801c7dba6a22ad080d0e988c7133195ff3ef6f8a377f0b2807dbc30b7bb33a7b",
+        "publishedBytes": 1184281,
+        "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+      },
+      "counts": {
+        "registryObjects": 590,
+        "meshes": 2470,
+        "triangles": 346424,
+        "uniqueGeometries": 135,
+        "floors": 8
+      },
+      "comparisons": {
+        "allVertexPositionBuffers": "Exact array equality for every mesh",
+        "allGeometryAttributesAndIndices": "Exact SHA-256 equality of complete attribute arrays, item sizes, normalization flags and indices for every mesh",
+        "allMaterialDefinitions": "Exact SHA-256 equality of material JSON excluding per-instance UUIDs for every mesh",
+        "allMeshLocalMatrices": {
+          "elementsChecked": 39520,
+          "absoluteTolerance": 1e-12
+        },
+        "fullBuildingWorldBounds": {
+          "min": [
+            -38.5,
+            -0.5200000119209289,
+            -15
+          ],
+          "max": [
+            41,
+            65.24422174215317,
+            18.55
+          ],
+          "absoluteTolerance": 1e-12
+        },
+        "registryAndMetadata": "Exact equality of every original object ID and metadata, floors, zones and labels",
+        "floorIsolation": "All eight floors preserve their original registry counts and floor-local parent, position, rotation and facade membership",
+        "explodedView": "Floor spacing changes to 14 units; connectors resize to 100 units; individual-floor connectors remain absent",
+        "coordinates": "Operational coordinate mappings and floor override precedence preserved"
+      }
+    },
+    "assets": {
+      "checkedAt": "2026-10-08T01:04:43.185Z",
+      "status": "pass",
+      "baseline": {
+        "archive": "artifacts/releases/shuori-1.2.0.zip",
+        "archiveSha256": "d80f6a73ed8bc80255a41b92f1dcceb1bc50424afcf4f2293c446553216c982d",
+        "sourceEntry": "shuori-1.2.0/src/components/spatialAssets.ts",
+        "sourceSha256": "4e7d125c1a3946e463ebefd6fda9545153ef2a239a74209e23f715b4decc916d"
+      },
+      "content": {
+        "file": "content/spatial/assets.json",
+        "sha256": "0f169838af258121a4c4cb5380a17ad979e8b4437c3202176a162719d2c4cfc4",
+        "publishedSha256": "9a9a4e0924e00224a43fd86547ebd7e2374c3a4c528d9b1d6c12a87a78854096",
+        "publishedBytes": 2736007,
+        "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+      },
+      "serialization": {
+        "assets": 15,
+        "figureVariants": 4,
+        "comparedNodes": 141,
+        "comparedMeshes": 105,
+        "geometryAttributeValues": 222336,
+        "maxTransformError": 1.1102230246251565e-16,
+        "head": {
+          "position": [
+            0,
+            1.58,
+            0.012
+          ],
+          "scale": [
+            0.142,
+            0.182,
+            0.135
+          ]
+        },
+        "leftShoulder": {
+          "position": [
+            -0.27,
+            1.29,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            -0.085,
+            "XYZ"
+          ]
+        },
+        "verification": "Every node position, quaternion and scale matched original 1.2 release within 1e-12; all geometry attributes and indices exactly equal; all material colors equal.",
+        "matricesUpdatedBeforeSerialization": true,
+        "allGeometriesSerializedAsBufferGeometry": true
+      },
+      "runtime": {
+        "comparedNodes": 140,
+        "numericallyEqualGeometryAttributeValues": 222336,
+        "signedGeometryZerosNormalized": 716,
+        "geometryComparison": "Exact numeric equality; JSON normalizes -0 to 0.",
+        "maximumTransformError": 1.1102230246251565e-16,
+        "transformTolerance": 1e-12,
+        "allGeometryIndicesExact": true,
+        "allMaterialColorsExact": true,
+        "templateGeometryAndMaterialsShared": true,
+        "uniformRecolorIsolation": true,
+        "uniformSameColorMaterialReuse": true,
+        "variants": [
+          {
+            "index": 0,
+            "skinColor": "dab390",
+            "uniformChannels": 2,
+            "namedJointBindings": 4,
+            "independentArticulation": true
+          },
+          {
+            "index": 1,
+            "skinColor": "b78360",
+            "uniformChannels": 2,
+            "namedJointBindings": 4,
+            "independentArticulation": true
+          },
+          {
+            "index": 2,
+            "skinColor": "e4c6aa",
+            "uniformChannels": 2,
+            "namedJointBindings": 4,
+            "independentArticulation": true
+          },
+          {
+            "index": 3,
+            "skinColor": "9d6e51",
+            "uniformChannels": 2,
+            "namedJointBindings": 4,
+            "independentArticulation": true
+          }
+        ]
+      }
+    }
+  },
+  "excelExamples": {
+    "generatedAt": "2026-10-08T01:10:37.177Z",
+    "version": "1.2.0",
+    "sourceMode": "demo",
+    "workspaceDate": "2026-10-08",
+    "note": "Fictional demonstration data only. Downloaded through the compiled application.",
+    "errors": [],
+    "files": [
+      {
+        "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
+        "downloadName": "shuori-monthly-report-2026-10-08.xlsx",
+        "bytes": 29249,
+        "sha256": "2d12d9281c3d35ae52bd4178d92ccd523189d5c543b02da8bf9fa665ba1fecca",
+        "sheets": [
+          {
+            "name": "Overview",
+            "rows": 8
+          },
+          {
+            "name": "Monthly summary",
+            "rows": 11
+          },
+          {
+            "name": "Participation",
+            "rows": 12
+          },
+          {
+            "name": "Recognition planning",
+            "rows": 12
+          },
+          {
+            "name": "Service categories",
+            "rows": 2
+          },
+          {
+            "name": "Six month trend",
+            "rows": 6
+          },
+          {
+            "name": "Activity records",
+            "rows": 41
+          },
+          {
+            "name": "Shifts",
+            "rows": 36
+          },
+          {
+            "name": "Assignment roster",
+            "rows": 45
+          }
+        ]
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
+        "downloadName": "shuori-project-plan-2026-10-08.xlsx",
+        "bytes": 25461,
+        "sha256": "a11fcc389deccd92072e0b8adabe3f757436cd05e33c701504d94d65613ac8b9",
+        "sheets": [
+          {
+            "name": "Overview",
+            "rows": 6
+          },
+          {
+            "name": "Project plan summary",
+            "rows": 4
+          },
+          {
+            "name": "Projects",
+            "rows": 1
+          },
+          {
+            "name": "Tasks and CPM",
+            "rows": 6
+          },
+          {
+            "name": "Task dependencies",
+            "rows": 6
+          },
+          {
+            "name": "Shifts",
+            "rows": 39
+          },
+          {
+            "name": "Assignment roster",
+            "rows": 60
+          }
+        ]
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-readiness.xlsx",
+        "downloadName": "shuori-readiness-2026-10-08.xlsx",
+        "bytes": 13323,
+        "sha256": "72bb0a5022a593bcca7ac5c89f6342d8be3330aeb0958b23617c7b85bfbd6d62",
+        "sheets": [
+          {
+            "name": "Overview",
+            "rows": 3
+          },
+          {
+            "name": "Readiness summary",
+            "rows": 4
+          },
+          {
+            "name": "Readiness",
+            "rows": 18
+          },
+          {
+            "name": "Readiness follow-ups",
+            "rows": 3
+          }
+        ]
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-workspace.xlsx",
+        "downloadName": "shuori-workspace-2026-10-08.xlsx",
+        "bytes": 49288,
+        "sha256": "aa7281ce8510495b6cd79e4f3595604cd6402b36b8d63d7f4afdcf4b508f7916",
+        "sheets": [
+          {
+            "name": "Overview",
+            "rows": 15
+          },
+          {
+            "name": "Volunteers",
+            "rows": 18
+          },
+          {
+            "name": "Projects",
+            "rows": 4
+          },
+          {
+            "name": "Tasks and CPM",
+            "rows": 18
+          },
+          {
+            "name": "Task dependencies",
+            "rows": 16
+          },
+          {
+            "name": "Shifts",
+            "rows": 47
+          },
+          {
+            "name": "Assignment roster",
+            "rows": 70
+          },
+          {
+            "name": "Activity records",
+            "rows": 66
+          },
+          {
+            "name": "Support requests",
+            "rows": 4
+          },
+          {
+            "name": "Resources",
+            "rows": 5
+          },
+          {
+            "name": "Scenarios",
+            "rows": 0
+          },
+          {
+            "name": "Scene object overrides",
+            "rows": 0
+          },
+          {
+            "name": "Scene additions",
+            "rows": 0
+          },
+          {
+            "name": "Scene routes",
+            "rows": 0
+          },
+          {
+            "name": "Route points",
+            "rows": 0
+          },
+          {
+            "name": "Locations",
+            "rows": 6
+          }
+        ]
+      }
+    ]
+  },
+  "independentExcelInspection": {
+    "passed": true,
+    "reader": "Python stdlib ZIP and XML, independent of ExcelJS",
+    "checks": [
+      "ZIP CRC and XML well-formedness",
+      "Unicode brand text",
+      "Frozen headings and filters",
+      "Workbook index counts",
+      "No formulas, macros or external links",
+      "Independent monthly totals",
+      "Phone text and numeric date storage"
+    ],
+    "files": [
+      {
+        "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
+        "worksheets": 9,
+        "dataRows": 165
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
+        "worksheets": 7,
+        "dataRows": 116
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-readiness.xlsx",
+        "worksheets": 4,
+        "dataRows": 25
+      },
+      {
+        "file": "artifacts/exports/shuori-demo-workspace.xlsx",
+        "worksheets": 16,
+        "dataRows": 254
+      }
+    ]
+  },
+  "brandAccessibility": {
+    "views": 2,
+    "violations": 0
+  },
+  "accessibility": {
+    "viewCount": 15,
+    "viewsWithViolations": 0,
+    "ruleOccurrences": 0,
+    "affectedNodeOccurrences": 0,
+    "uniqueRules": [],
+    "incompleteRuleOccurrences": 15
+  },
+  "studioAccessibility": {
+    "viewCount": 12,
+    "viewsWithViolations": 0,
+    "ruleOccurrences": 0,
+    "affectedNodeOccurrences": 0,
+    "uniqueRules": [],
+    "incompleteRuleOccurrences": 12,
+    "horizontalOverflowViews": [],
+    "pageErrorCount": 0,
+    "unexpectedWriteCount": 0
+  },
+  "geometry": {
+    "checkedAt": "2026-10-08T01:08:50.498Z",
+    "scope": "Pure procedural geometry and original object registry; no GPU required",
+    "objects": 590,
+    "meshes": 2470,
+    "triangles": 346424,
+    "modeledAssetComponents": 10358,
+    "uniqueGeometries": 135,
+    "uniqueMaterials": 47,
+    "categories": {
+      "architecture": 133,
+      "equipment": 215,
+      "signage": 35,
+      "furniture": 188,
+      "plant": 19
+    },
+    "floors": {
+      "B3": 14,
+      "B1": 66,
+      "1F": 100,
+      "2F": 97,
+      "3F": 109,
+      "4F": 93,
+      "6F": 58,
+      "7F": 53
+    },
+    "catalog": [
+      {
+        "kind": "chair",
+        "category": "furniture",
+        "components": 10,
+        "meshes": 2,
+        "measuredSize": [
+          0.775,
+          0.997,
+          0.65
+        ]
+      },
+      {
+        "kind": "desk",
+        "category": "furniture",
+        "components": 25,
+        "meshes": 2,
+        "measuredSize": [
+          1.8,
+          1.475,
+          0.905
+        ]
+      },
+      {
+        "kind": "table",
+        "category": "furniture",
+        "components": 3,
+        "meshes": 2,
+        "measuredSize": [
+          1.65,
+          0.8,
+          0.85
+        ]
+      },
+      {
+        "kind": "counter",
+        "category": "furniture",
+        "components": 27,
+        "meshes": 2,
+        "measuredSize": [
+          2.82,
+          1.475,
+          1.165
+        ]
+      },
+      {
+        "kind": "bookshelf",
+        "category": "furniture",
+        "components": 68,
+        "meshes": 1,
+        "measuredSize": [
+          2.11,
+          1.92,
+          0.55
+        ]
+      },
+      {
+        "kind": "wheelchair",
+        "category": "equipment",
+        "components": 44,
+        "meshes": 2,
+        "measuredSize": [
+          0.869,
+          1.091,
+          1.29
+        ]
+      },
+      {
+        "kind": "bed",
+        "category": "equipment",
+        "components": 26,
+        "meshes": 2,
+        "measuredSize": [
+          1.148,
+          1.097,
+          2.41
+        ]
+      },
+      {
+        "kind": "cart",
+        "category": "equipment",
+        "components": 31,
+        "meshes": 2,
+        "measuredSize": [
+          1.03,
+          1.218,
+          0.646
+        ]
+      },
+      {
+        "kind": "kiosk",
+        "category": "signage",
+        "components": 12,
+        "meshes": 2,
+        "measuredSize": [
+          0.98,
+          1.86,
+          0.6
+        ]
+      },
+      {
+        "kind": "sign",
+        "category": "signage",
+        "components": 10,
+        "meshes": 2,
+        "measuredSize": [
+          1.4,
+          2.185,
+          0.46
+        ]
+      },
+      {
+        "kind": "planter",
+        "category": "plant",
+        "components": 27,
+        "meshes": 2,
+        "measuredSize": [
+          0.882,
+          1.739,
+          1.066
+        ]
+      },
+      {
+        "kind": "scanner",
+        "category": "equipment",
+        "components": 8,
+        "meshes": 2,
+        "measuredSize": [
+          2.16,
+          2.34,
+          3.225
+        ]
+      },
+      {
+        "kind": "rehab-bars",
+        "category": "equipment",
+        "components": 22,
+        "meshes": 2,
+        "measuredSize": [
+          2.25,
+          1.235,
+          3.6
+        ]
+      },
+      {
+        "kind": "bench",
+        "category": "furniture",
+        "components": 15,
+        "meshes": 2,
+        "measuredSize": [
+          2.33,
+          0.982,
+          0.653
+        ]
+      },
+      {
+        "kind": "privacy-screen",
+        "category": "equipment",
+        "components": 34,
+        "meshes": 2,
+        "measuredSize": [
+          1.82,
+          1.828,
+          0.586
+        ]
+      }
+    ],
+    "verified": [
+      "All eight floors and source object registry",
+      "Backend-compatible deterministic object IDs",
+      "Identical metadata in full-building and single-floor views",
+      "Floor-local transforms under exploded spacing",
+      "Fixed architectural reference geometry",
+      "Complete-building mesh and triangle budgets",
+      "Two material batches maximum per catalog asset",
+      "Detailed component manifests and original vertex colors",
+      "Catalog dimensions enclose actual geometry",
+      "Unknown catalog kinds rejected",
+      "Independent articulated volunteer limbs"
+    ]
+  },
+  "spatial": {
+    "file": "artifacts/models/hospital-public-floors.glb",
+    "bytes": 1844376,
+    "gltfVersion": "2.0",
+    "floors": [
+      "B3",
+      "B1",
+      "1F",
+      "2F",
+      "3F",
+      "4F",
+      "6F",
+      "7F"
+    ],
+    "registeredObjects": 590,
+    "detailedComponents": 10358,
+    "catalogKinds": [
+      "bed",
+      "bench",
+      "bookshelf",
+      "cart",
+      "chair",
+      "counter",
+      "desk",
+      "kiosk",
+      "planter",
+      "privacy-screen",
+      "rehab-bars",
+      "scanner",
+      "sign",
+      "table",
+      "wheelchair"
+    ],
+    "meshes": 144,
+    "nodes": 3078,
+    "sourceMetadataPresent": true
+  },
+  "pointerHandles": {
+    "checkedAt": "2026-10-08T01:08:53.416Z",
+    "translation": {
+      "beforeX": -9,
+      "afterX": -7.25,
+      "step": 0.25
+    },
+    "rotation": {
+      "beforeRotation": 0,
+      "afterRotation": -15,
+      "step": 15
+    },
+    "operationalWrites": 0
+  },
+  "dependencyVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "sha256": {
+    "compiledEntry": "e8fcb72d1fa8ea0f56352306a1c9a81f140ff63c364031794b2bf7a17318c8b2",
+    "model": "75cd0ff0bf4f7aa6f88db2639df545df92de1e71f5c433c4f2902d141dbbd4e7",
+    "lockfile": "92b4548c48d25035cd57db935e1878a2de9403379520ed54f3099a129b881286"
+  },
+  "notExecuted": [
+    "Docker/Compose runtime",
+    "Institutional HTTPS deployment",
+    "Formal accessibility conformance audit"
+  ]
+}

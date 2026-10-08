@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-08T01:08:27.840Z",
+  "scope": "Built application, original geometry, and one unsaved detailed scenario addition",
+  "errors": [],
+  "model": {
+    "file": "artifacts/models/hospital-public-floors.glb",
+    "bytes": 1844376,
+    "gltfVersion": "2.0",
+    "floors": [
+      "B3",
+      "B1",
+      "1F",
+      "2F",
+      "3F",
+      "4F",
+      "6F",
+      "7F"
+    ],
+    "registeredObjects": 590,
+    "detailedComponents": 10358,
+    "catalogKinds": [
+      "bed",
+      "bench",
+      "bookshelf",
+      "cart",
+      "chair",
+      "counter",
+      "desk",
+      "kiosk",
+      "planter",
+      "privacy-screen",
+      "rehab-bars",
+      "scanner",
+      "sign",
+      "table",
+      "wheelchair"
+    ],
+    "meshes": 144,
+    "nodes": 3078,
+    "sourceMetadataPresent": true
+  },
+  "scenarioExport": {
+    "file": "artifacts/models/hospital-spatial-study-example.glb",
+    "bytes": 909692,
+    "addedObjects": 1,
+    "detailPreserved": true
+  },
+  "verified": [
+    "All 8 floor selectors",
+    "GLB 2.0 structure and exactly 8 source floor roots",
+    "590 original object identifiers",
+    "Detailed component manifests and vertex colors",
+    "PNG download",
+    "Floor separation",
+    "Facade visibility",
+    "Assignment density",
+    "Time playback and reset",
+    "Guide tab shift counts after end of day",
+    "15-kind asset palette",
+    "Added asset focus and detailed GLB export",
+    "2D toggle and 3D restoration",
+    "Mobile no horizontal overflow",
+    "Automatic WebGL failure fallback"
+  ],
+  "floorsVisited": [
+    "B3",
+    "B1",
+    "1F",
+    "2F",
+    "3F",
+    "4F",
+    "6F",
+    "7F"
+  ],
+  "mobileHorizontalOverflow": false
+}

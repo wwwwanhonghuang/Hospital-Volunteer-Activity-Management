@@ -1,0 +1,212 @@
+
+> shuori-volunteer-operations@1.2.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# (node:13412) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: authentication, CSRF, origin, role checks and safe secret-free backups
+ok 1 - authentication, CSRF, origin, role checks and safe secret-free backups
+  ---
+  duration_ms: 704.4339
+  type: 'test'
+  ...
+# Subtest: CRUD validates references, detects cycles and stale writes, preserves audit and escapes CSV formulas
+ok 2 - CRUD validates references, detects cycles and stale writes, preserves audit and escapes CSV formulas
+  ---
+  duration_ms: 352.8381
+  type: 'test'
+  ...
+# Subtest: readiness changes flag stale assignments without blocking unrelated operations
+ok 3 - readiness changes flag stale assignments without blocking unrelated operations
+  ---
+  duration_ms: 328.6359
+  type: 'test'
+  ...
+# Subtest: sign-in rate limiting and malformed request errors reveal no internal details
+ok 4 - sign-in rate limiting and malformed request errors reveal no internal details
+  ---
+  duration_ms: 298.5627
+  type: 'test'
+  ...
+# Subtest: schedule apply rejects double bookings and stale proposals atomically
+ok 5 - schedule apply rejects double bookings and stale proposals atomically
+  ---
+  duration_ms: 301.2756
+  type: 'test'
+  ...
+# Subtest: SQLite survives a restart, production starts empty and disables demo entry
+ok 6 - SQLite survives a restart, production starts empty and disables demo entry
+  ---
+  duration_ms: 412.6674
+  type: 'test'
+  ...
+# Subtest: backup CLI restores validated operational data into an empty production workspace without credentials
+ok 7 - backup CLI restores validated operational data into an empty production workspace without credentials
+  ---
+  duration_ms: 2590.1515
+  type: 'test'
+  ...
+# Subtest: critical path chooses a connected longest branch and gives the shorter branch float
+ok 8 - critical path chooses a connected longest branch and gives the shorter branch float
+  ---
+  duration_ms: 4.8766
+  type: 'test'
+  ...
+# Subtest: critical path supports tied branches, disconnected components and an empty project
+ok 9 - critical path supports tied branches, disconnected components and an empty project
+  ---
+  duration_ms: 0.3587
+  type: 'test'
+  ...
+# Subtest: invalid critical-path graphs fail explicitly
+ok 10 - invalid critical-path graphs fail explicitly
+  ---
+  duration_ms: 0.5587
+  type: 'test'
+  ...
+# Subtest: eligibility requires all readiness checks and treats clearance due date as inclusive
+ok 11 - eligibility requires all readiness checks and treats clearance due date as inclusive
+  ---
+  duration_ms: 1.8853
+  type: 'test'
+  ...
+# Subtest: overlap and transfer buffer accept exact boundaries and reject nine-minute transfers
+ok 12 - overlap and transfer buffer accept exact boundaries and reject nine-minute transfers
+  ---
+  duration_ms: 0.6851
+  type: 'test'
+  ...
+# Subtest: weekly actual hours replace planned hours and the ISO Monday boundary resets workload
+ok 13 - weekly actual hours replace planned hours and the ISO Monday boundary resets workload
+  ---
+  duration_ms: 0.4923
+  type: 'test'
+  ...
+# Subtest: suggestion allocates the less-loaded volunteer, never double books, and reports unmet demand
+ok 14 - suggestion allocates the less-loaded volunteer, never double books, and reports unmet demand
+  ---
+  duration_ms: 20.9279
+  type: 'test'
+  ...
+# Subtest: suggestion preserves existing assignments and explains invalid existing readiness
+ok 15 - suggestion preserves existing assignments and explains invalid existing readiness
+  ---
+  duration_ms: 0.5283
+  type: 'test'
+  ...
+# (node:25196) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Excel volunteer exports retain Unicode, string identity, exact scope and typed/styled cells
+ok 16 - Excel volunteer exports retain Unicode, string identity, exact scope and typed/styled cells
+  ---
+  duration_ms: 146.2113
+  type: 'test'
+  ...
+# Subtest: Excel never infers formulas or links from user text, including leading symbols and URLs
+ok 17 - Excel never infers formulas or links from user text, including leading symbols and URLs
+  ---
+  duration_ms: 31.6683
+  type: 'test'
+  ...
+# Subtest: empty explicit scope remains empty with valid headers and workbook index
+ok 18 - empty explicit scope remains empty with valid headers and workbook index
+  ---
+  duration_ms: 83.9836
+  type: 'test'
+  ...
+# Subtest: monthly workbook matches report totals, categories, recognition and six-month trend
+ok 19 - monthly workbook matches report totals, categories, recognition and six-month trend
+  ---
+  duration_ms: 173.7788
+  type: 'test'
+  ...
+# Subtest: readiness workbook uses inclusive administrative due dates and excludes archived follow-ups
+ok 20 - readiness workbook uses inclusive administrative due dates and excludes archived follow-ups
+  ---
+  duration_ms: 25.0707
+  type: 'test'
+  ...
+# Subtest: project plans export complete CPM context, dependent tasks and numeric yen budgets
+ok 21 - project plans export complete CPM context, dependent tasks and numeric yen budgets
+  ---
+  duration_ms: 119.7199
+  type: 'test'
+  ...
+# Subtest: workspace scenarios flatten objects, additions, routes and points without credential or audit exports
+ok 22 - workspace scenarios flatten objects, additions, routes and points without credential or audit exports
+  ---
+  duration_ms: 119.9278
+  type: 'test'
+  ...
+# Subtest: Excel validates filters, dates, IDs and cell text limits without dropping data
+ok 23 - Excel validates filters, dates, IDs and cell text limits without dropping data
+  ---
+  duration_ms: 16.9111
+  type: 'test'
+  ...
+# Subtest: authenticated Excel endpoint allows viewers while preserving CSRF, origin and read-only behavior
+ok 24 - authenticated Excel endpoint allows viewers while preserving CSRF, origin and read-only behavior
+  ---
+  duration_ms: 462.6485
+  type: 'test'
+  ...
+# (node:4592) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: scenario transforms retain exact bounds and all supported asset kinds and floors
+ok 25 - scenario transforms retain exact bounds and all supported asset kinds and floors
+  ---
+  duration_ms: 5.7147
+  type: 'test'
+  ...
+# Subtest: scenario validation rejects malformed geometry, unsafe keys and unsupported levels
+ok 26 - scenario validation rejects malformed geometry, unsafe keys and unsupported levels
+  ---
+  duration_ms: 2.9692
+  type: 'test'
+  ...
+# Subtest: scenario capacity bounds apply to overrides, additions, routes and waypoints
+ok 27 - scenario capacity bounds apply to overrides, additions, routes and waypoints
+  ---
+  duration_ms: 20.2554
+  type: 'test'
+  ...
+# Subtest: rehearsal routes require unique assignments and valid same-floor operational references
+ok 28 - rehearsal routes require unique assignments and valid same-floor operational references
+  ---
+  duration_ms: 2.1309
+  type: 'test'
+  ...
+# Subtest: scenario CRUD enforces roles, CSRF and optimistic concurrency without changing the roster
+ok 29 - scenario CRUD enforces roles, CSRF and optimistic concurrency without changing the roster
+  ---
+  duration_ms: 589.2678
+  type: 'test'
+  ...
+# Subtest: linked rehearsal routes block destructive assignment changes and schedule batches atomically
+ok 30 - linked rehearsal routes block destructive assignment changes and schedule batches atomically
+  ---
+  duration_ms: 322.2333
+  type: 'test'
+  ...
+# Subtest: large bounded scenarios are accepted and over-limit JSON is rejected
+ok 31 - large bounded scenarios are accepted and over-limit JSON is rejected
+  ---
+  duration_ms: 406.2493
+  type: 'test'
+  ...
+# Subtest: scenario data survives SQLite restart and a validated backup restore
+ok 32 - scenario data survives SQLite restart and a validated backup restore
+  ---
+  duration_ms: 4648.095
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6838.1179

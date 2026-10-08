@@ -1,0 +1,13 @@
+<!-- SPDX-License-Identifier: CC-BY-NC-SA-4.0; Copyright (c) 2026 HUANG WANHONG and contributors. Source: https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">守織 SHUORI</title>
+  <desc id="desc">Two interwoven blue threads form an open protective enclosure. An original volunteer coordination mark.</desc>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#fff"/>
+  <path d="M32 7C18.2 7 7 18.2 7 32s11.2 25 25 25 25-11.2 25-25S45.8 7 32 7Z" fill="#00A7CB" opacity=".07"/>
+  <path d="M17 37V23a10 10 0 0 1 10-10h14v14a10 10 0 0 1-10 10H17Z" stroke="#00A7CB" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M47 27v14a10 10 0 0 1-10 10H23V37a10 10 0 0 1 10-10h14Z" stroke="#77D3E4" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M17 37h14a10 10 0 0 0 10-10" stroke="#fff" stroke-width="11"/>
+  <path d="M17 37h14a10 10 0 0 0 10-10" stroke="#00A7CB" stroke-width="7"/>
+  <path d="M23 37a10 10 0 0 1 10-10h14" stroke="#fff" stroke-width="11"/>
+  <path d="M23 37a10 10 0 0 1 10-10h14" stroke="#77D3E4" stroke-width="7"/>
+</svg>

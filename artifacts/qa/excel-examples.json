@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-10-08T01:10:37.177Z",
+  "version": "1.2.0",
+  "sourceMode": "demo",
+  "workspaceDate": "2026-10-08",
+  "note": "Fictional demonstration data only. Downloaded through the compiled application.",
+  "errors": [],
+  "files": [
+    {
+      "file": "artifacts/exports/shuori-demo-monthly-report.xlsx",
+      "downloadName": "shuori-monthly-report-2026-10-08.xlsx",
+      "bytes": 29249,
+      "sha256": "2d12d9281c3d35ae52bd4178d92ccd523189d5c543b02da8bf9fa665ba1fecca",
+      "sheets": [
+        {
+          "name": "Overview",
+          "rows": 8
+        },
+        {
+          "name": "Monthly summary",
+          "rows": 11
+        },
+        {
+          "name": "Participation",
+          "rows": 12
+        },
+        {
+          "name": "Recognition planning",
+          "rows": 12
+        },
+        {
+          "name": "Service categories",
+          "rows": 2
+        },
+        {
+          "name": "Six month trend",
+          "rows": 6
+        },
+        {
+          "name": "Activity records",
+          "rows": 41
+        },
+        {
+          "name": "Shifts",
+          "rows": 36
+        },
+        {
+          "name": "Assignment roster",
+          "rows": 45
+        }
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-project-plan.xlsx",
+      "downloadName": "shuori-project-plan-2026-10-08.xlsx",
+      "bytes": 25461,
+      "sha256": "a11fcc389deccd92072e0b8adabe3f757436cd05e33c701504d94d65613ac8b9",
+      "sheets": [
+        {
+          "name": "Overview",
+          "rows": 6
+        },
+        {
+          "name": "Project plan summary",
+          "rows": 4
+        },
+        {
+          "name": "Projects",
+          "rows": 1
+        },
+        {
+          "name": "Tasks and CPM",
+          "rows": 6
+        },
+        {
+          "name": "Task dependencies",
+          "rows": 6
+        },
+        {
+          "name": "Shifts",
+          "rows": 39
+        },
+        {
+          "name": "Assignment roster",
+          "rows": 60
+        }
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-readiness.xlsx",
+      "downloadName": "shuori-readiness-2026-10-08.xlsx",
+      "bytes": 13323,
+      "sha256": "72bb0a5022a593bcca7ac5c89f6342d8be3330aeb0958b23617c7b85bfbd6d62",
+      "sheets": [
+        {
+          "name": "Overview",
+          "rows": 3
+        },
+        {
+          "name": "Readiness summary",
+          "rows": 4
+        },
+        {
+          "name": "Readiness",
+          "rows": 18
+        },
+        {
+          "name": "Readiness follow-ups",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "file": "artifacts/exports/shuori-demo-workspace.xlsx",
+      "downloadName": "shuori-workspace-2026-10-08.xlsx",
+      "bytes": 49288,
+      "sha256": "aa7281ce8510495b6cd79e4f3595604cd6402b36b8d63d7f4afdcf4b508f7916",
+      "sheets": [
+        {
+          "name": "Overview",
+          "rows": 15
+        },
+        {
+          "name": "Volunteers",
+          "rows": 18
+        },
+        {
+          "name": "Projects",
+          "rows": 4
+        },
+        {
+          "name": "Tasks and CPM",
+          "rows": 18
+        },
+        {
+          "name": "Task dependencies",
+          "rows": 16
+        },
+        {
+          "name": "Shifts",
+          "rows": 47
+        },
+        {
+          "name": "Assignment roster",
+          "rows": 70
+        },
+        {
+          "name": "Activity records",
+          "rows": 66
+        },
+        {
+          "name": "Support requests",
+          "rows": 4
+        },
+        {
+          "name": "Resources",
+          "rows": 5
+        },
+        {
+          "name": "Scenarios",
+          "rows": 0
+        },
+        {
+          "name": "Scene object overrides",
+          "rows": 0
+        },
+        {
+          "name": "Scene additions",
+          "rows": 0
+        },
+        {
+          "name": "Scene routes",
+          "rows": 0
+        },
+        {
+          "name": "Route points",
+          "rows": 0
+        },
+        {
+          "name": "Locations",
+          "rows": 6
+        }
+      ]
+    }
+  ]
+}

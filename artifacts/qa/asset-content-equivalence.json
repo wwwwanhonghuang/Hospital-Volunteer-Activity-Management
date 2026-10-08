@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-08T01:04:43.185Z",
+  "status": "pass",
+  "baseline": {
+    "archive": "artifacts/releases/shuori-1.2.0.zip",
+    "archiveSha256": "d80f6a73ed8bc80255a41b92f1dcceb1bc50424afcf4f2293c446553216c982d",
+    "sourceEntry": "shuori-1.2.0/src/components/spatialAssets.ts",
+    "sourceSha256": "4e7d125c1a3946e463ebefd6fda9545153ef2a239a74209e23f715b4decc916d"
+  },
+  "content": {
+    "file": "content/spatial/assets.json",
+    "sha256": "0f169838af258121a4c4cb5380a17ad979e8b4437c3202176a162719d2c4cfc4",
+    "publishedSha256": "9a9a4e0924e00224a43fd86547ebd7e2374c3a4c528d9b1d6c12a87a78854096",
+    "publishedBytes": 2736007,
+    "publicationNote": "Geometry unchanged after equivalence comparison; copyright/source/license metadata added to pack and root scene."
+  },
+  "serialization": {
+    "assets": 15,
+    "figureVariants": 4,
+    "comparedNodes": 141,
+    "comparedMeshes": 105,
+    "geometryAttributeValues": 222336,
+    "maxTransformError": 1.1102230246251565e-16,
+    "head": {
+      "position": [
+        0,
+        1.58,
+        0.012
+      ],
+      "scale": [
+        0.142,
+        0.182,
+        0.135
+      ]
+    },
+    "leftShoulder": {
+      "position": [
+        -0.27,
+        1.29,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.085,
+        "XYZ"
+      ]
+    },
+    "verification": "Every node position, quaternion and scale matched original 1.2 release within 1e-12; all geometry attributes and indices exactly equal; all material colors equal.",
+    "matricesUpdatedBeforeSerialization": true,
+    "allGeometriesSerializedAsBufferGeometry": true
+  },
+  "runtime": {
+    "comparedNodes": 140,
+    "numericallyEqualGeometryAttributeValues": 222336,
+    "signedGeometryZerosNormalized": 716,
+    "geometryComparison": "Exact numeric equality; JSON normalizes -0 to 0.",
+    "maximumTransformError": 1.1102230246251565e-16,
+    "transformTolerance": 1e-12,
+    "allGeometryIndicesExact": true,
+    "allMaterialColorsExact": true,
+    "templateGeometryAndMaterialsShared": true,
+    "uniformRecolorIsolation": true,
+    "uniformSameColorMaterialReuse": true,
+    "variants": [
+      {
+        "index": 0,
+        "skinColor": "dab390",
+        "uniformChannels": 2,
+        "namedJointBindings": 4,
+        "independentArticulation": true
+      },
+      {
+        "index": 1,
+        "skinColor": "b78360",
+        "uniformChannels": 2,
+        "namedJointBindings": 4,
+        "independentArticulation": true
+      },
+      {
+        "index": 2,
+        "skinColor": "e4c6aa",
+        "uniformChannels": 2,
+        "namedJointBindings": 4,
+        "independentArticulation": true
+      },
+      {
+        "index": 3,
+        "skinColor": "9d6e51",
+        "uniformChannels": 2,
+        "namedJointBindings": 4,
+        "independentArticulation": true
+      }
+    ]
+  }
+}

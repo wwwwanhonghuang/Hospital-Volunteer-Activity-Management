@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "models": [
+    {
+      "file": "artifacts/models/hospital-public-floors.glb",
+      "bytes": 1844376,
+      "sha256": "75cd0ff0bf4f7aa6f88db2639df545df92de1e71f5c433c4f2902d141dbbd4e7",
+      "assetRights": {
+        "license": "CC-BY-NC-SA-4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "attribution": "Copyright (c) 2026 HUANG WANHONG (wwwwanhonghuang) and contributors",
+        "source": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management",
+        "scope": "Original SHUORI model content; additional user content may have separate terms."
+      }
+    },
+    {
+      "file": "artifacts/models/hospital-spatial-study-example.glb",
+      "bytes": 909692,
+      "sha256": "d473a651123fe42d659fdfcd03613846e4663583a7841390693c88c4f5d1c527",
+      "assetRights": {
+        "license": "CC-BY-NC-SA-4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "attribution": "Copyright (c) 2026 HUANG WANHONG (wwwwanhonghuang) and contributors",
+        "source": "https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management",
+        "scope": "Original SHUORI model content; additional user content may have separate terms."
+      }
+    }
+  ]
+}

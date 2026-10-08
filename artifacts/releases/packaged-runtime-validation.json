@@ -1,0 +1,8 @@
+{
+  "health": "passed",
+  "compiledHtml": "passed",
+  "compiledAsset": "passed",
+  "productionLogin": "passed",
+  "emptyProductionData": "passed",
+  "note": "Extracted archive; installed lockfile dependencies resolved from parent workspace. Temporary in-memory database; TLS proxy not exercised."
+}

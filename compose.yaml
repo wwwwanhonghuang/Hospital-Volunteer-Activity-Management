@@ -1,0 +1,20 @@
+# SHUORI: service and volume keys remain stable for existing installations.
+services:
+  komorebi:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      APP_MODE: production
+      APP_ORIGIN: ${APP_ORIGIN:?Set the external HTTPS origin}
+      TRUST_PROXY: "1"
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+    volumes:
+      - komorebi-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  komorebi-data:
