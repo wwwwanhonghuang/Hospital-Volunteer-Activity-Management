@@ -34,6 +34,14 @@ npm.cmd start
 
 For development, `npm.cmd run dev` runs the API on port 3001 and Vite on `http://127.0.0.1:5173`, with API requests proxied to port 3001. Keep the default API port for this command unless you also update the Vite proxy configuration. Production runs the compiled interface and API together; Vite is not needed at runtime.
 
+## Public demo in tmux on Linux
+
+For a fictional-data demonstration, clone the project from GitHub and build it on the server with Node.js 22.13 or newer. Run the build and application as a dedicated account. Keep the SQLite database outside the checkout so Git updates do not replace it. Public HTTP demos use cryptographically random client IDs even where the browser restricts `crypto.randomUUID`; production still requires the HTTPS setup below.
+
+The supplied [`nginx-demo.conf`](../deploy/nginx-demo.conf) serves port 80, compresses JavaScript and model JSON, and proxies to the application on `127.0.0.1:3001`. Install it as an nginx site, check `nginx -t`, and remove a conflicting default site only after reviewing the existing server configuration. Use `APP_MODE=demo`, `HOST=127.0.0.1`, `PORT=3001`, `TRUST_PROXY=1`, `APP_ORIGIN=http://YOUR_SERVER_IP` and an absolute `DATABASE_PATH`. Build with `VITE_SOURCE_URL` set to the exact GitHub commit URL.
+
+Start the configured application in `tmux new-session -d -s shuori -c /path/to/checkout 'node server/index.mjs'`, with the environment supplied by your launcher or shell. Attach with `tmux attach -t shuori`; detach using **Ctrl+B**, then **D**. A detached session survives SSH disconnection, but does not automatically return after a server reboot. Before updating, preserve the database, fetch the intended GitHub revision, install locked dependencies and rebuild, then restart the tmux process with the same database and environment.
+
 ## Upgrade to SHUORI 1.3
 
 Download a backup, stop the running service, preserve its configured database and backup location, install dependencies with `npm.cmd ci`, rebuild, and restart with the same environment. Startup adds the `attachment_blobs` table if it does not exist. Events, event types, field definitions, journal entries and attachment metadata use the existing entity table. New optional volunteer/activity fields receive schema defaults when read. Existing records are preserved, and existing demo databases are not reseeded with new examples. Use a new disposable database path if you want the full 1.3 demo dataset.

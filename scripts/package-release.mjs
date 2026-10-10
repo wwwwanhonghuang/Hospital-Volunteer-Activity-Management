@@ -5,7 +5,7 @@ import { deflateRawSync } from 'node:zlib';
 import { join, resolve } from 'node:path';
 
 // Explicit inclusion keeps credentials, live databases and installed dependencies out of releases.
-const directories=['src','server','shared','public','dist','docs','content','LICENSES','meta','tests','scripts','.github','artifacts/models','artifacts/previews','artifacts/exports','artifacts/qa'];
+const directories=['src','server','shared','public','dist','docs','deploy','content','LICENSES','meta','tests','scripts','.github','artifacts/models','artifacts/previews','artifacts/exports','artifacts/qa'];
 const singleFiles=['package.json','package-lock.json','index.html','vite.config.ts','tsconfig.json','playwright.config.ts','README.md','CONTRIBUTING.md','LICENSE','NOTICE','Start-SHUORI.cmd','Start-Komorebi.cmd','Dockerfile','compose.yaml','.dockerignore','.gitignore','.gitattributes','.env.example','artifacts/spatial-validation.json'];
 const root=resolve('.');const pkg=JSON.parse(await readFile('package.json','utf8'));const prefix=`shuori-${pkg.version}`;
 await stat('dist/index.html');await stat('artifacts/models/hospital-public-floors.glb');await stat('docs/VERIFICATION.md');
