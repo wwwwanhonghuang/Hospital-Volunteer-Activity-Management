@@ -1,0 +1,377 @@
+{
+  "generatedAt": "2026-10-10T05:42:09.211Z",
+  "baseURL": "http://127.0.0.1:3020",
+  "workspaceDate": "2026-10-08",
+  "browser": "Installed Google Chrome via Playwright",
+  "deviceScaleFactor": 2,
+  "locale": "en-GB",
+  "timezone": "Asia/Tokyo",
+  "screenshots": [
+    {
+      "filename": "01-overview.png",
+      "path": "artifacts/showcase/images/01-overview.png",
+      "subject": "Operations overview: the SHUORI workspace, volunteer staffing, coverage and service contribution.",
+      "url": "/#/dashboard",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1360,
+        "height": 626
+      },
+      "pixelWidth": 2720,
+      "pixelHeight": 1252,
+      "sha256": "644e184cdae204f02e462e01c6d73ed790a388dc27b057ba9b86c38ee68162b9",
+      "bytes": 335959
+    },
+    {
+      "filename": "03-volunteer-profile.png",
+      "path": "artifacts/showcase/images/03-volunteer-profile.png",
+      "subject": "Fictional volunteer profile: professional skills, languages, availability and coordinator notes.",
+      "url": "/#/volunteers?id=vol-15",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 228,
+        "y": 74,
+        "width": 904,
+        "height": 517
+      },
+      "pixelWidth": 1808,
+      "pixelHeight": 1034,
+      "sha256": "248595b7b4ac28c469fe3743c9d4538d931119a22d26ce767c8992c254b6e602",
+      "bytes": 102205,
+      "crop": "Actual dialog region; no interface elements altered."
+    },
+    {
+      "filename": "04-volunteer-records.png",
+      "path": "artifacts/showcase/images/04-volunteer-records.png",
+      "subject": "A dated volunteer journal keeps follow-up work connected to the volunteer.",
+      "url": "/#/volunteers?id=vol-15",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 228,
+        "y": 381,
+        "width": 904,
+        "height": 415
+      },
+      "pixelWidth": 1808,
+      "pixelHeight": 830,
+      "sha256": "fd53f8cdf131022444dba85948830a04112ac18b56f294beb8b46b26ef9e684c",
+      "bytes": 112628,
+      "crop": "Actual dialog region; no interface elements altered."
+    },
+    {
+      "filename": "05-custom-fields.png",
+      "path": "artifacts/showcase/images/05-custom-fields.png",
+      "subject": "An unsaved custom field draft demonstrates configurable record schemas.",
+      "url": "/#/settings",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 411,
+        "width": 1078,
+        "height": 437
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 874,
+      "sha256": "50487ee0a6fec3dddbabd6bee863c6566364a6552d95d9c3d6e6decd28f8ea63",
+      "bytes": 69214
+    },
+    {
+      "filename": "06-activity-records.png",
+      "path": "artifacts/showcase/images/06-activity-records.png",
+      "subject": "Recorded volunteer participation, hours and service counts with filters and structured rows.",
+      "url": "/#/records",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 7,
+        "width": 1078,
+        "height": 627
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 1254,
+      "sha256": "61fb2c791bc5a9acc640b9951abd573de37efbb754e0c8a50dd0a3c2177eab3c",
+      "bytes": 165106
+    },
+    {
+      "filename": "07-events.png",
+      "path": "artifacts/showcase/images/07-events.png",
+      "subject": "Event workspaces combine different event types, participant links and reusable modules.",
+      "url": "/#/events",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 230,
+        "width": 1078,
+        "height": 571
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 1142,
+      "sha256": "faca606b8626f1b771c25a6ec8b3c1182f7ac8637be954391f8a42899c6cb1b6",
+      "bytes": 263221
+    },
+    {
+      "filename": "08-meeting.png",
+      "path": "artifacts/showcase/images/08-meeting.png",
+      "subject": "Meeting module configured for Zoom, with a preparation agenda; the fictional demo intentionally has no joining URL or passcode.",
+      "url": "/#/events?id=event-briefing",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 228,
+        "y": 257,
+        "width": 904,
+        "height": 585
+      },
+      "pixelWidth": 1808,
+      "pixelHeight": 1170,
+      "sha256": "0451a5bb1d3f07d44d55a9b7376baa818dc306d21976ba87df4c57240fe24cda",
+      "bytes": 205141,
+      "crop": "Actual dialog region; no interface elements altered."
+    },
+    {
+      "filename": "09-event-files.png",
+      "path": "artifacts/showcase/images/09-event-files.png",
+      "subject": "Unsaved cloud-folder link draft: event-specific supporting materials can use external sharing links or local uploads. No file or link is saved.",
+      "url": "/#/events?id=event-briefing",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 228,
+        "y": 353,
+        "width": 904,
+        "height": 608
+      },
+      "pixelWidth": 1808,
+      "pixelHeight": 1216,
+      "sha256": "313d139a9c847c53730a0804adaea9138459b72eded57cdf1684643aeb13f9f8",
+      "bytes": 101180,
+      "crop": "Actual dialog region; no interface elements altered."
+    },
+    {
+      "filename": "10-event-checklist.png",
+      "path": "artifacts/showcase/images/10-event-checklist.png",
+      "subject": "Preparation checklist with completion, ownership and due dates.",
+      "url": "/#/events?id=event-briefing",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 228,
+        "y": 138,
+        "width": 904,
+        "height": 531
+      },
+      "pixelWidth": 1808,
+      "pixelHeight": 1062,
+      "sha256": "bcf2ff1ffefae1f97e595fa3c63ac7b2b36ed842dd9e6711a9c8e32198022fcb",
+      "bytes": 114350,
+      "crop": "Actual dialog region; no interface elements altered."
+    },
+    {
+      "filename": "11-schedule.png",
+      "path": "artifacts/showcase/images/11-schedule.png",
+      "subject": "Daily schedule grouped by volunteer, with time bars and staffing coverage.",
+      "url": "/#/schedule",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 36,
+        "width": 1078,
+        "height": 653
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 1306,
+      "sha256": "ab986bbe07430f0a72c25863046829d46cf5ebf09e8f801b011e3d5bf0d8fc03",
+      "bytes": 162528
+    },
+    {
+      "filename": "12-weekly-schedule.png",
+      "path": "artifacts/showcase/images/12-weekly-schedule.png",
+      "subject": "Weekly schedule combines service shifts and modular events across a common calendar, 5 to 11 October 2026.",
+      "url": "/#/schedule",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 81,
+        "width": 1078,
+        "height": 607
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 1214,
+      "sha256": "5ba215ff2787e9ad820c3b9070c36d2215a07f74eaa472a602efe1994036e510",
+      "bytes": 173824
+    },
+    {
+      "filename": "13-project-plan.png",
+      "path": "artifacts/showcase/images/13-project-plan.png",
+      "subject": "Project task dependencies and calculated critical path, showing durations and available float.",
+      "url": "/#/projects?id=project-welcome",
+      "viewport": {
+        "width": 1600,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 256,
+        "width": 1318,
+        "height": 578
+      },
+      "pixelWidth": 2636,
+      "pixelHeight": 1156,
+      "sha256": "7119fefd0ab283927a8e2264122a10ceb8dc4c585df74c85f9b91ff3ee64b0f2",
+      "bytes": 134957
+    },
+    {
+      "filename": "14-reports.png",
+      "path": "artifacts/showcase/images/14-reports.png",
+      "subject": "Monthly recorded contribution: volunteer hours, participation and service-category distribution.",
+      "url": "/#/reports",
+      "viewport": {
+        "width": 1360,
+        "height": 1100
+      },
+      "clip": {
+        "x": 260,
+        "y": 8,
+        "width": 1078,
+        "height": 669
+      },
+      "pixelWidth": 2156,
+      "pixelHeight": 1338,
+      "sha256": "f59d556c75a26565a1db59c0613e8919dd8dade76a5302ff4acaf56a06c306ce",
+      "bytes": 141886
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "unexpectedWrites": [],
+  "health": {
+    "status": "ok",
+    "mode": "demo",
+    "version": "1.4.0"
+  },
+  "operationalStateBefore": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "sampleIds": {
+    "meeting": "event-briefing",
+    "journal": "entry-orientation",
+    "volunteer": "vol-15",
+    "project": "project-welcome"
+  },
+  "operationalStateAfter": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "operationalStateUnchanged": true,
+  "summary": {
+    "screenshots": 13,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "unexpectedWrites": 0,
+    "operationalStateUnchanged": true
+  },
+  "visualReview": {
+    "reviewedAt": "2026-10-10T05:42:52.870Z",
+    "method": "Inspected actual captured PNG images; refined crops to show complete core panels, table rows and chart legends. No compositing or interface style modifications.",
+    "screenshots": [
+      {
+        "filename": "01-overview.png",
+        "sha256": "644e184cdae204f02e462e01c6d73ed790a388dc27b057ba9b86c38ee68162b9",
+        "passed": true
+      },
+      {
+        "filename": "03-volunteer-profile.png",
+        "sha256": "248595b7b4ac28c469fe3743c9d4538d931119a22d26ce767c8992c254b6e602",
+        "passed": true
+      },
+      {
+        "filename": "04-volunteer-records.png",
+        "sha256": "fd53f8cdf131022444dba85948830a04112ac18b56f294beb8b46b26ef9e684c",
+        "passed": true
+      },
+      {
+        "filename": "05-custom-fields.png",
+        "sha256": "50487ee0a6fec3dddbabd6bee863c6566364a6552d95d9c3d6e6decd28f8ea63",
+        "passed": true
+      },
+      {
+        "filename": "06-activity-records.png",
+        "sha256": "61fb2c791bc5a9acc640b9951abd573de37efbb754e0c8a50dd0a3c2177eab3c",
+        "passed": true
+      },
+      {
+        "filename": "07-events.png",
+        "sha256": "faca606b8626f1b771c25a6ec8b3c1182f7ac8637be954391f8a42899c6cb1b6",
+        "passed": true
+      },
+      {
+        "filename": "08-meeting.png",
+        "sha256": "0451a5bb1d3f07d44d55a9b7376baa818dc306d21976ba87df4c57240fe24cda",
+        "passed": true
+      },
+      {
+        "filename": "09-event-files.png",
+        "sha256": "313d139a9c847c53730a0804adaea9138459b72eded57cdf1684643aeb13f9f8",
+        "passed": true
+      },
+      {
+        "filename": "10-event-checklist.png",
+        "sha256": "bcf2ff1ffefae1f97e595fa3c63ac7b2b36ed842dd9e6711a9c8e32198022fcb",
+        "passed": true
+      },
+      {
+        "filename": "11-schedule.png",
+        "sha256": "ab986bbe07430f0a72c25863046829d46cf5ebf09e8f801b011e3d5bf0d8fc03",
+        "passed": true
+      },
+      {
+        "filename": "12-weekly-schedule.png",
+        "sha256": "5ba215ff2787e9ad820c3b9070c36d2215a07f74eaa472a602efe1994036e510",
+        "passed": true
+      },
+      {
+        "filename": "13-project-plan.png",
+        "sha256": "7119fefd0ab283927a8e2264122a10ceb8dc4c585df74c85f9b91ff3ee64b0f2",
+        "passed": true
+      },
+      {
+        "filename": "14-reports.png",
+        "sha256": "f59d556c75a26565a1db59c0613e8919dd8dade76a5302ff4acaf56a06c306ce",
+        "passed": true
+      }
+    ],
+    "limitations": [
+      "Profile contains only fictional example.invalid contact information.",
+      "Meeting provider is configured as Zoom but no joining URL or passcode is set in demo data.",
+      "Cloud folder and custom field figures show unsaved drafts. No external destination is opened.",
+      "Captures are selected excerpts of real application views, not full-page screenshots."
+    ]
+  }
+}

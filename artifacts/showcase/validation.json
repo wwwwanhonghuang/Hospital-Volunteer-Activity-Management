@@ -1,0 +1,372 @@
+{
+  "status": "pass",
+  "pdf": "shuori-visual-tour.pdf",
+  "sha256": "d5866ac46999b8fdd306443e4b47cbed1bb960c1e8f6e2d72a004f2e045e078a",
+  "bytes": 5091229,
+  "pageCount": 10,
+  "figureCount": 20,
+  "pageSize": "A4 portrait",
+  "captionSizePt": 9,
+  "fixedImageFrameMm": [
+    176,
+    90
+  ],
+  "texWarnings": [],
+  "captureHashesVerified": 20,
+  "operationalStateUnchanged": true,
+  "pages": [
+    {
+      "page": 1,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        1,
+        2
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-01.png",
+      "sha256": "b3b16b77d3a3a1848a077dd6a53f8f81187975aab0c639ecf373e8d51e0f12b1"
+    },
+    {
+      "page": 2,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        3,
+        4
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-02.png",
+      "sha256": "511d370621d03e3e3755212f4055f58836110cc800be3fd5f29cdcff19885df8"
+    },
+    {
+      "page": 3,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        5,
+        6
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-03.png",
+      "sha256": "583f508b744d929ac1fefe69d9844032fe33c4e52d24916600287f8ffb2f44c6"
+    },
+    {
+      "page": 4,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        7,
+        8
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-04.png",
+      "sha256": "b41f6e26520b117ce7a113f20a214d166ca4a87d1936f9867bd339da996e0eb2"
+    },
+    {
+      "page": 5,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        9,
+        10
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-05.png",
+      "sha256": "fa6fcf02270751f37ed8cd7e3549ae5f76a178ae5d9830f10ce1190cf503c705"
+    },
+    {
+      "page": 6,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        11,
+        12
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-06.png",
+      "sha256": "2003d2dbdf40cb2c2997d609076087b73bbb24395bfd94b8045d54d0d3821a15"
+    },
+    {
+      "page": 7,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        13,
+        14
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-07.png",
+      "sha256": "c4ee1597f4e09991f5d355f3eb4d2aff7f430940d3c1ecc2497e469fe00fb10a"
+    },
+    {
+      "page": 8,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        15,
+        16
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-08.png",
+      "sha256": "4d46f47966eba7b263c6adb54ab9b2a9cbff314d51f8a6aac0891a53bdb2c132"
+    },
+    {
+      "page": 9,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        17,
+        18
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-09.png",
+      "sha256": "eb6eb4ced0d03f91b5786b2dbdf7a26e541b0c3015db4e69734a184e81da22e8"
+    },
+    {
+      "page": 10,
+      "sizePoints": [
+        595.28,
+        841.89
+      ],
+      "figures": [
+        19,
+        20
+      ],
+      "embeddedImages": 2,
+      "fonts": [
+        "/SPVDUA+NotoSansJP-Thin",
+        "/ZPMJYC+TeXGyreHeros-Bold-Identity-H",
+        "/WQXPGE+TeXGyreHeros-Regular-Identity-H"
+      ],
+      "render": "qa/page-10.png",
+      "sha256": "bf30fbbc6c7d548973ad935c10f8fc85e22f4771e3361ec68999c11738f130bf"
+    }
+  ],
+  "images": [
+    {
+      "file": "images/01-overview.png",
+      "pixels": [
+        2720,
+        1252
+      ],
+      "sha256": "644e184cdae204f02e462e01c6d73ed790a388dc27b057ba9b86c38ee68162b9"
+    },
+    {
+      "file": "images/02-building.png",
+      "pixels": [
+        2544,
+        1486
+      ],
+      "sha256": "3d813c780ce227be0e201fd5d0ad73418270dd7d363a8e1fffb087e9428b49f1"
+    },
+    {
+      "file": "images/03-volunteer-profile.png",
+      "pixels": [
+        1808,
+        1034
+      ],
+      "sha256": "248595b7b4ac28c469fe3743c9d4538d931119a22d26ce767c8992c254b6e602"
+    },
+    {
+      "file": "images/04-volunteer-records.png",
+      "pixels": [
+        1808,
+        830
+      ],
+      "sha256": "fd53f8cdf131022444dba85948830a04112ac18b56f294beb8b46b26ef9e684c"
+    },
+    {
+      "file": "images/05-custom-fields.png",
+      "pixels": [
+        2156,
+        874
+      ],
+      "sha256": "50487ee0a6fec3dddbabd6bee863c6566364a6552d95d9c3d6e6decd28f8ea63"
+    },
+    {
+      "file": "images/06-activity-records.png",
+      "pixels": [
+        2156,
+        1254
+      ],
+      "sha256": "61fb2c791bc5a9acc640b9951abd573de37efbb754e0c8a50dd0a3c2177eab3c"
+    },
+    {
+      "file": "images/07-events.png",
+      "pixels": [
+        2156,
+        1142
+      ],
+      "sha256": "faca606b8626f1b771c25a6ec8b3c1182f7ac8637be954391f8a42899c6cb1b6"
+    },
+    {
+      "file": "images/08-meeting.png",
+      "pixels": [
+        1808,
+        1170
+      ],
+      "sha256": "0451a5bb1d3f07d44d55a9b7376baa818dc306d21976ba87df4c57240fe24cda"
+    },
+    {
+      "file": "images/09-event-files.png",
+      "pixels": [
+        1808,
+        1216
+      ],
+      "sha256": "313d139a9c847c53730a0804adaea9138459b72eded57cdf1684643aeb13f9f8"
+    },
+    {
+      "file": "images/10-event-checklist.png",
+      "pixels": [
+        1808,
+        1062
+      ],
+      "sha256": "bcf2ff1ffefae1f97e595fa3c63ac7b2b36ed842dd9e6711a9c8e32198022fcb"
+    },
+    {
+      "file": "images/11-schedule.png",
+      "pixels": [
+        2156,
+        1306
+      ],
+      "sha256": "ab986bbe07430f0a72c25863046829d46cf5ebf09e8f801b011e3d5bf0d8fc03"
+    },
+    {
+      "file": "images/12-weekly-schedule.png",
+      "pixels": [
+        2156,
+        1214
+      ],
+      "sha256": "5ba215ff2787e9ad820c3b9070c36d2215a07f74eaa472a602efe1994036e510"
+    },
+    {
+      "file": "images/13-project-plan.png",
+      "pixels": [
+        2636,
+        1156
+      ],
+      "sha256": "7119fefd0ab283927a8e2264122a10ceb8dc4c585df74c85f9b91ff3ee64b0f2"
+    },
+    {
+      "file": "images/14-reports.png",
+      "pixels": [
+        2156,
+        1338
+      ],
+      "sha256": "f59d556c75a26565a1db59c0613e8919dd8dade76a5302ff4acaf56a06c306ce"
+    },
+    {
+      "file": "images/15-library-detail.png",
+      "pixels": [
+        2544,
+        1426
+      ],
+      "sha256": "37bb6e73ac1c781904b175e5ee618d5c7d41e63f6a500d5765eedc747abfb63e"
+    },
+    {
+      "file": "images/16-asset-catalog.png",
+      "pixels": [
+        2544,
+        1426
+      ],
+      "sha256": "80d30204cb87de7255ba020b6bf8ef0eb028d6c6bf83f6b6e44d4b811f3edd9a"
+    },
+    {
+      "file": "images/17-object-inspector.png",
+      "pixels": [
+        2544,
+        1426
+      ],
+      "sha256": "f5ddc63d85880d4059268e9ed45488fc6970c7367d967615748dea8449da1d9b"
+    },
+    {
+      "file": "images/18-route-rehearsal.png",
+      "pixels": [
+        2544,
+        1530
+      ],
+      "sha256": "7e1802d275bc20eb013504179f2f474f2e7a67f6d51e3e565b5c33a97c3e3626"
+    },
+    {
+      "file": "images/19-export-studio.png",
+      "pixels": [
+        2436,
+        1320
+      ],
+      "sha256": "5d9410bc2be0c2e853f5b23a4ae7253cbdd574f20c6ace43c4868a2091496317"
+    },
+    {
+      "file": "images/20-event-brief.png",
+      "pixels": [
+        2436,
+        1320
+      ],
+      "sha256": "d84de14f92360d7b14296083cd5845ad749881f2d9dd8e91f5b3469fbff5e02b"
+    }
+  ],
+  "manualReview": "Required separately after each final compilation; see visual-review.json."
+}

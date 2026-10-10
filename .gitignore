@@ -20,3 +20,10 @@ __pycache__/
 # Historical branded archives remain available only in their original Git tags.
 artifacts/releases/shuori-1.2.0.*
 artifacts/releases/shuori-1.3.0.*
+
+# Rebuildable visual-tour intermediates; retain the PDF, source and review reports.
+artifacts/showcase/*.aux
+artifacts/showcase/*.out
+artifacts/showcase/*.pid
+artifacts/showcase/compile-pass-*.txt
+artifacts/showcase/qa/page-*.png

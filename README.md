@@ -10,6 +10,8 @@
 
 [Documentation](docs/README.md) · [Events and records](docs/EVENTS-AND-RECORDS.md) · [PDF & Excel views](docs/VIEW-EXPORTS.md) · [Excel data guide](docs/EXCEL-EXPORTS.md) · [Spatial Studio](docs/SPATIAL-STUDIO.md) · [Licensing](docs/LICENSING.md) · [Contributing](CONTRIBUTING.md)
 
+[Ten-page A4 visual tour (PDF)](artifacts/showcase/shuori-visual-tour.pdf) · [LaTeX source and images (ZIP)](artifacts/showcase/shuori-visual-tour-source.zip) — twenty captioned views of the running application, including detailed 3D interactions, captured from fictional demo data on 10 October 2026.
+
 A general-purpose English-language workspace for hospital volunteer coordination, activity planning, scheduling and record management.
 
 守織 SHUORI connects people, projects, service shifts, activity records and hospital space. Version **1.3** adds modular event workspaces, custom event types, richer volunteer profiles, configurable typed fields, dated volunteer records, authenticated report uploads and shared-folder links. Meetings can connect to saved Zoom, Google Meet or Teams links; attendance, preparation checklists, event relationships and Excel exports remain with the event. It builds on the 守織 SHUORI identity, SHUORI aqua palette and formatted Excel workbooks for administrative reporting. Spatial Studio provides a detailed, editable 3D environment with independently modeled furnishings, selectable volunteer figures, object inspection, saved layouts and drawn rehearsal routes. It includes a persistent API, role-based accounts, scheduling rules, critical-path analysis, and an interactive model of all eight levels published in the public source floor guide for the bundled demonstration.

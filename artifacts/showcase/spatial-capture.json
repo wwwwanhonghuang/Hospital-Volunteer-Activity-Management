@@ -1,0 +1,95 @@
+{
+  "capturedAt": "2026-10-10T05:43:33.173Z",
+  "base": "http://127.0.0.1:3020",
+  "workspaceDate": "2026-10-08",
+  "locale": "en-US",
+  "timezone": "Asia/Tokyo",
+  "browser": "Chrome 154.0.8037.98",
+  "deviceScaleFactor": 2,
+  "fictionalDemoData": true,
+  "sourceModel": "Independent schematic reconstruction using public floor maps; no hospital affiliation; furnishings are illustrative.",
+  "noCssOrContentAlteration": true,
+  "unchangedOperationalState": true,
+  "fingerprintScope": "All persisted state except authentication audit entries from concurrent capture logins.",
+  "beforeSha256": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "afterSha256": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "errors": [],
+  "operationalMutations": [],
+  "captures": [
+    {
+      "file": "artifacts/showcase/images/02-building.png",
+      "caption": "Eight published levels form an exploded, independently reconstructed demo building. Floor selectors connect the schematic model with scheduled coverage.",
+      "bytes": 656172,
+      "sha256": "3d813c780ce227be0e201fd5d0ad73418270dd7d363a8e1fffb087e9428b49f1",
+      "cssPixels": {
+        "width": 1272,
+        "height": 743
+      },
+      "pixelWidth": 2544,
+      "pixelHeight": 1486,
+      "route": "#/spatial",
+      "actualWebGL": true,
+      "framing": "workspace"
+    },
+    {
+      "file": "artifacts/showcase/images/15-library-detail.png",
+      "caption": "A close view of the library shows individually modeled books, shelving, furniture and plants. The selected book collection has its own object identity and editable transform.",
+      "bytes": 547198,
+      "sha256": "37bb6e73ac1c781904b175e5ee618d5c7d41e63f6a500d5765eedc747abfb63e",
+      "cssPixels": {
+        "width": 1272,
+        "height": 713
+      },
+      "pixelWidth": 2544,
+      "pixelHeight": 1426,
+      "route": "#/spatial",
+      "actualWebGL": true,
+      "framing": "workspace"
+    },
+    {
+      "file": "artifacts/showcase/images/16-asset-catalog.png",
+      "caption": "The asset palette pairs the sixth-floor model with reusable furniture and equipment. Objects can be added to a separate spatial scenario.",
+      "bytes": 477562,
+      "sha256": "80d30204cb87de7255ba020b6bf8ef0eb028d6c6bf83f6b6e44d4b811f3edd9a",
+      "cssPixels": {
+        "width": 1272,
+        "height": 713
+      },
+      "pixelWidth": 2544,
+      "pixelHeight": 1426,
+      "route": "#/spatial",
+      "actualWebGL": true,
+      "framing": "workspace"
+    },
+    {
+      "file": "artifacts/showcase/images/17-object-inspector.png",
+      "caption": "A detailed wheelchair is selected in the model. The inspector exposes dimensions, local position and rotation, with a visible manipulation ring.",
+      "bytes": 382740,
+      "sha256": "f5ddc63d85880d4059268e9ed45488fc6970c7367d967615748dea8449da1d9b",
+      "cssPixels": {
+        "width": 1272,
+        "height": 713
+      },
+      "pixelWidth": 2544,
+      "pixelHeight": 1426,
+      "route": "#/spatial",
+      "actualWebGL": true,
+      "framing": "workspace"
+    },
+    {
+      "file": "artifacts/showcase/images/18-route-rehearsal.png",
+      "caption": "A four-point route is drawn for a scheduled volunteer in a local rehearsal. The route editor displays coordinates; paths are illustrative and do not perform obstacle or access checks.",
+      "bytes": 526858,
+      "sha256": "7e1802d275bc20eb013504179f2f474f2e7a67f6d51e3e565b5c33a97c3e3626",
+      "cssPixels": {
+        "width": 1272,
+        "height": 765
+      },
+      "pixelWidth": 2544,
+      "pixelHeight": 1530,
+      "route": "#/spatial",
+      "actualWebGL": true,
+      "framing": "workspace"
+    }
+  ]
+}

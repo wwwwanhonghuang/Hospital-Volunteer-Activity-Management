@@ -1,0 +1,249 @@
+% SHUORI visual tour, 10 October 2026.
+% Original authored document/layout: CC BY-NC-SA-4.0.
+% Screenshots contain software and creative assets under their respective terms.
+% Build from this directory with XeLaTeX; see README.md.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=16mm,top=19mm,bottom=17mm,headheight=20pt,headsep=5mm,footskip=8mm]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{TeX Gyre Heros}{\setmainfont{TeX Gyre Heros}}{\setmainfont{Latin Modern Sans}}
+\IfFileExists{fonts/NotoSansJP-Regular.ttf}
+  {\newfontfamily\japanesefont[Path=fonts/]{NotoSansJP-Regular.ttf}}
+  {\newfontfamily\japanesefont[Path=../../server/fonts/]{NotoSansJP-Regular.ttf}}
+\usepackage{xcolor,graphicx,float,caption,fancyhdr,hyperref}
+\definecolor{aqua}{HTML}{16799A}
+\definecolor{navy}{HTML}{183B50}
+\definecolor{muted}{HTML}{526878}
+\definecolor{frame}{HTML}{D5E6ED}
+\definecolor{pale}{HTML}{F0F8FB}
+\hypersetup{
+  pdftitle={SHUORI | A visual tour of volunteer operations},
+  pdfauthor={HUANG WANHONG},
+  pdfsubject={Twenty views of an independent hospital volunteer coordination application},
+  pdfkeywords={SHUORI, volunteer coordination, scheduling, 3D, visual tour},
+  colorlinks=true,urlcolor=aqua,linkcolor=aqua,pdfdisplaydoctitle=true,
+  pdfpagelayout=SinglePage
+}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\intextsep}{0pt}
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{0.4pt}
+\emergencystretch=2em
+\color{navy}
+\DeclareCaptionFont{tour}{\fontsize{9}{11}\selectfont\color{muted}}
+\DeclareCaptionLabelFormat{tour}{\textcolor{aqua}{\textbf{FIG.\ #2}}}
+\captionsetup{font=tour,labelformat=tour,labelsep=quad,skip=3mm,
+  width=176mm,justification=raggedright,singlelinecheck=false}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{aqua}{{\japanesefont 守織}\hspace{2mm}\textbf{SHUORI}}}
+\fancyhead[R]{\fontsize{8}{10}\selectfont\textcolor{muted}{VOLUNTEER OPERATIONS / VISUAL TOUR}}
+\fancyfoot[L]{\fontsize{7.5}{9}\selectfont\textcolor{muted}{Illustrative demo\enspace\textperiodcentered\enspace Fictional records}}
+\fancyfoot[R]{\fontsize{8}{10}\selectfont\textcolor{aqua}{\textbf{\thepage}\ /\ 10}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{frame}\leaders\hrule height\headrulewidth\hfill}}
+
+% Every frame has the same 176 x 90 mm internal dimensions. Images are fitted,
+% never stretched or cropped by this document; any UI crop is in the source PNG.
+\newcommand{\tourimage}[1]{%
+  \centering
+  \fcolorbox{frame}{white}{%
+    \parbox[c][90mm][c]{176mm}{\centering
+      \includegraphics[width=176mm,height=90mm,keepaspectratio]{images/#1}}}%
+}
+\newcommand{\tourheading}[3]{%
+  {\fontsize{8}{10}\selectfont\color{aqua}\textbf{#1}}\par
+  \vspace{1.8mm}
+  {\fontsize{22}{25}\selectfont\bfseries #2}\par
+  \vspace{2.5mm}
+  {\fontsize{9.5}{12}\selectfont\color{muted}#3}\par
+  \vspace{5mm}
+}
+\newcommand{\figuregap}{\vspace{6mm}}
+
+\begin{document}
+
+\tourheading{01 / A CONNECTED WORKSPACE}{People, plans and place}{%
+  An independent personal project for hospital volunteer coordination.\newline
+  A visual tour of SHUORI 1.4.0, captured 10 October 2026 (JST). No organizational affiliation.}
+
+\begin{figure}[H]
+  \tourimage{01-overview.png}
+  \caption{\textbf{Operations at a glance.} A selected-day overview brings staffing, service activity, upcoming events and project progress into one coordination workspace.}
+  \label{fig:overview}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{02-building.png}
+  \caption{\textbf{Explore the demonstration building.} An exploded 3D view connects eight modeled levels with service locations; each floor can be opened for detailed inspection.}
+  \label{fig:building}
+\end{figure}
+\newpage
+
+\tourheading{02 / VOLUNTEER RELATIONSHIPS}{A profile with a history}{%
+  Keep current coordination information alongside dated follow-ups, qualifications and milestones.\newline
+  Volunteer histories remain distinct from recorded service hours.}
+
+\begin{figure}[H]
+  \tourimage{03-volunteer-profile.png}
+  \caption{\textbf{Rich volunteer profiles.} Contacts, programme status, skills, availability and readiness information support assignment decisions and individual follow-up. All displayed people are fictional.}
+  \label{fig:volunteer-profile}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{04-volunteer-records.png}
+  \caption{\textbf{A dated record of support.} Journal entries preserve training, conversations and recognition, with follow-up dates and optional links to scheduled events.}
+  \label{fig:volunteer-records}
+\end{figure}
+\newpage
+
+\tourheading{03 / FLEXIBLE INFORMATION}{Records that fit the work}{%
+  Extend the information model with typed fields, then record actual service explicitly.\newline
+  Saved definitions and values also accompany administrative Excel exports.}
+
+\begin{figure}[H]
+  \tourimage{05-custom-fields.png}
+  \caption{\textbf{Configurable record fields.} An unsaved date-field definition illustrates how coordinators extend records. Text, number, choice and yes/no fields are also supported.}
+  \label{fig:custom-fields}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{06-activity-records.png}
+  \caption{\textbf{Account for completed service.} Activity records connect volunteers and shifts with actual hours and service counts, providing an explicit basis for monthly reporting.}
+  \label{fig:activity-records}
+\end{figure}
+\newpage
+
+\tourheading{04 / EVENTS AND MEETINGS}{An event becomes a workspace}{%
+  Coordinate activities, training and meetings with configurable event types and linked modules.\newline
+  Participants, preparation and operational references stay with the event.}
+
+\begin{figure}[H]
+  \tourimage{07-events.png}
+  \caption{\textbf{A shared programme of events.} Searchable events combine date ranges, status, type and ownership; selected records can be exported as an agenda.}
+  \label{fig:events}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{08-meeting.png}
+  \caption{\textbf{Meeting information in context.} The configured platform and agenda stay with the event. This fictional example has no joining URL; meetings use external services.}
+  \label{fig:meeting}
+\end{figure}
+\newpage
+
+\tourheading{05 / PREPARATION AND HANDOVER}{Keep the details together}{%
+  Place reports, shared-document links and preparation tasks where coordinators need them.\newline
+  Local uploads use authenticated access; external services retain their own permissions.}
+
+\begin{figure}[H]
+  \tourimage{09-event-files.png}
+  \caption{\textbf{Attach an event document.} The file/link editor accepts local uploads or an existing HTTPS address; this capture shows an unsaved example.}
+  \label{fig:event-files}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{10-event-checklist.png}
+  \caption{\textbf{Preparation made visible.} Completed and outstanding checklist items retain owners and due dates, making the next steps available within the event workspace.}
+  \label{fig:event-checklist}
+\end{figure}
+\newpage
+
+\tourheading{06 / DAILY AND WEEKLY SCHEDULING}{Make coverage readable}{%
+  Examine assignments over time, then widen the view to coordinate the week.\newline
+  Staffing suggestions and eligibility explanations support a coordinator's review.}
+
+\begin{figure}[H]
+  \tourimage{11-schedule.png}
+  \caption{\textbf{The daily schedule.} Time-based assignments make service coverage and unfilled work visible, with scheduled events available alongside volunteer shifts.}
+  \label{fig:schedule}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{12-weekly-schedule.png}
+  \caption{\textbf{A wider planning horizon.} The weekly board groups activities by date, helping coordinators compare service commitments before assigning or adjusting work.}
+  \label{fig:weekly-schedule}
+\end{figure}
+\newpage
+
+\tourheading{07 / DELIVERY AND REFLECTION}{From dependencies to outcomes}{%
+  Connect project preparation with operational delivery and recorded service results.\newline
+  Planning measures and actual activity remain distinguishable throughout the workspace.}
+
+\begin{figure}[H]
+  \tourimage{13-project-plan.png}
+  \caption{\textbf{A project plan with dependencies.} Task timing, progress and calculated critical-path information expose the activities that constrain the plan's completion.}
+  \label{fig:project-plan}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{14-reports.png}
+  \caption{\textbf{Review the month.} Service hours, participation and category trends summarize saved activity records and support monthly reports and recognition planning.}
+  \label{fig:reports}
+\end{figure}
+\newpage
+
+\tourheading{08 / DETAILED SPATIAL PLANNING}{A model you can inspect}{%
+  Explore independently modeled furnishings, equipment, signs and volunteer figures.\newline
+  Illustrative geometry provides a setting for discussion and layout studies.}
+
+\begin{figure}[H]
+  \tourimage{15-library-detail.png}
+  \caption{\textbf{Inside a modeled service space.} Shelves with individual book spines, desks, screens and trolleys make the library tangible; selection reveals object information and transforms.}
+  \label{fig:library-detail}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{16-asset-catalog.png}
+  \caption{\textbf{An original asset library.} Fifteen procedural furnishing and equipment types can populate a floor study; each placed asset remains independently selectable.}
+  \label{fig:asset-catalog}
+\end{figure}
+\newpage
+
+\tourheading{09 / INTERACTION AND REHEARSAL}{Arrange, inspect, rehearse}{%
+  Save layout studies and assignment-linked routes as named spatial scenarios.\newline
+  Rehearsal animation illustrates a plan; it does not represent live tracking or validated navigation.}
+
+\begin{figure}[H]
+  \tourimage{17-object-inspector.png}
+  \caption{\textbf{Inspect and position individual objects.} Selection connects a model object to its information and transform controls; editable furnishings can be moved or rotated.}
+  \label{fig:object-inspector}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{18-route-rehearsal.png}
+  \caption{\textbf{Draft a volunteer rehearsal route.} Four unsaved waypoints connect a scheduled person to a schematic floor path. Routes do not detect obstacles or verify access.}
+  \label{fig:route-rehearsal}
+\end{figure}
+\newpage
+
+\tourheading{10 / DOCUMENTS FOR COORDINATION}{Turn a plan into a handout}{%
+  Preview and export volunteer timelines, station coverage, weekly rosters, agendas and event briefs.\newline
+  Choose PDF or editable Excel, with A4 and A3 layouts.}
+
+\begin{figure}[H]
+  \tourimage{19-export-studio.png}
+  \caption{\textbf{An export studio for operational views.} Date, time and status controls define the saved-data scope; a preview supports review before downloading.}
+  \label{fig:export-studio}
+\end{figure}
+\figuregap
+\begin{figure}[H]
+  \tourimage{20-event-brief.png}
+  \caption{\textbf{Prepare a readable event brief.} Export event details, preparation, participants and linked operational information, with coordination notes and custom fields available by choice.}
+  \label{fig:event-brief}
+\end{figure}
+\vspace{4mm}
+{\fontsize{6.9}{8.5}\selectfont\color{muted}
+  \textbf{Provenance.} Demo floor geometry was independently reconstructed from the
+  \href{https://www.h.u-tokyo.ac.jp/english/international-patients/floor-guide/index.html}{University of Tokyo Hospital's public floor-guide maps},
+  with invented furnishings and routes. It is illustrative, not official, surveyed or suitable for navigation.
+  No hospital or organizational affiliation is implied.\par
+  \vspace{1mm}
+  \textcopyright\ 2026 HUANG WANHONG and contributors.
+  \href{https://github.com/wwwwanhonghuang/Hospital-Volunteer-Activity-Management}{Project and source notices}:
+  software AGPL-3.0-only; original creative assets and authored document CC BY-NC-SA 4.0.
+  Third-party components retain their terms; Noto Sans JP uses SIL OFL 1.1.
+}
+
+\end{document}

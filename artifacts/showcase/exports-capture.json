@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-10-10T05:41:05.072Z",
+  "baseURL": "http://127.0.0.1:3020",
+  "demoDate": "2026-10-08",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "deviceScaleFactor": 2,
+  "screenshots": [
+    {
+      "file": "images/19-export-studio.png",
+      "description": "PDF and Excel export studio with a volunteer-by-time report preview.",
+      "clip": {
+        "x": 111,
+        "y": 238,
+        "width": 1218,
+        "height": 660
+      },
+      "sha256": "5d9410bc2be0c2e853f5b23a4ae7253cbdd574f20c6ace43c4868a2091496317",
+      "bytes": 231366
+    },
+    {
+      "file": "images/20-event-brief.png",
+      "description": "Event brief preview with metadata and participant summary; cropped to the upper part of the export studio.",
+      "clip": {
+        "x": 111,
+        "y": 238,
+        "width": 1218,
+        "height": 660
+      },
+      "sha256": "d84de14f92360d7b14296083cd5845ad749881f2d9dd8e91f5b3469fbff5e02b",
+      "bytes": 198627
+    }
+  ],
+  "errors": [],
+  "unexpectedWrites": [],
+  "stateBefore": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "stateAfter": "5932cce47bf8e10c3631d8d005ec1af95eb9c3c9f4baf226d1d0fad6d753a06d",
+  "operationalStateUnchanged": true
+}

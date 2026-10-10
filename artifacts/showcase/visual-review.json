@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "reviewDate": "2026-10-10",
+  "timezone": "Asia/Tokyo",
+  "pdfSha256": "d5866ac46999b8fdd306443e4b47cbed1bb960c1e8f6e2d72a004f2e045e078a",
+  "reviewedPages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "method": "Every 150 dpi rendered page visually inspected; pages 1-5 by primary agent and pages 6-10 by independent document reviewer. Capture authors also inspected the original images.",
+  "checks": [
+    "Exactly two figures per A4 page",
+    "Caption numbering 1-20 and subject accuracy",
+    "No page or caption clipping",
+    "Consistent fixed-size image frames without stretching",
+    "No missing glyphs",
+    "Current independent SHUORI identity",
+    "Fictional data and unsaved drafts correctly labeled",
+    "Model provenance and licensing notice present"
+  ],
+  "limitations": [
+    "Screenshots are intentional interface excerpts; some controls continue outside the crop.",
+    "Dense interface microtext benefits from PDF zoom.",
+    "Not a PDF/UA conformance assessment."
+  ],
+  "renderHashes": [
+    {
+      "page": 1,
+      "sha256": "b3b16b77d3a3a1848a077dd6a53f8f81187975aab0c639ecf373e8d51e0f12b1"
+    },
+    {
+      "page": 2,
+      "sha256": "511d370621d03e3e3755212f4055f58836110cc800be3fd5f29cdcff19885df8"
+    },
+    {
+      "page": 3,
+      "sha256": "583f508b744d929ac1fefe69d9844032fe33c4e52d24916600287f8ffb2f44c6"
+    },
+    {
+      "page": 4,
+      "sha256": "b41f6e26520b117ce7a113f20a214d166ca4a87d1936f9867bd339da996e0eb2"
+    },
+    {
+      "page": 5,
+      "sha256": "fa6fcf02270751f37ed8cd7e3549ae5f76a178ae5d9830f10ce1190cf503c705"
+    },
+    {
+      "page": 6,
+      "sha256": "2003d2dbdf40cb2c2997d609076087b73bbb24395bfd94b8045d54d0d3821a15"
+    },
+    {
+      "page": 7,
+      "sha256": "c4ee1597f4e09991f5d355f3eb4d2aff7f430940d3c1ecc2497e469fe00fb10a"
+    },
+    {
+      "page": 8,
+      "sha256": "4d46f47966eba7b263c6adb54ab9b2a9cbff314d51f8a6aac0891a53bdb2c132"
+    },
+    {
+      "page": 9,
+      "sha256": "eb6eb4ced0d03f91b5786b2dbdf7a26e541b0c3015db4e69734a184e81da22e8"
+    },
+    {
+      "page": 10,
+      "sha256": "bf30fbbc6c7d548973ad935c10f8fc85e22f4771e3361ec68999c11738f130bf"
+    }
+  ]
+}
